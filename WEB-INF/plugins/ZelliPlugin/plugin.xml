@@ -107,6 +107,17 @@
 	  </templates>
   </types>
  -->
+ 
+  <types>
+    <type name="ArticleASE"/>
+    
+    <templates type="ArticleASE">
+        <template name="default" file="doArticleASEFullDisplay.jsp" usage="full">
+            <label xml:lang="en">Default Template</label>
+          <label xml:lang="fr">Gabarit par défaut</label>
+        </template>
+    </templates>
+  </types>
   <!-- ============================== Workflows =========================== -->
   <!--                                                                      -->
   <!-- workflows         A list of <dependency>.                            -->

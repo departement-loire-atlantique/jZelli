@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="ArticleASE" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="true" workflowTab="true" advancedTab="true">
+  <label xml:lang="fr">Article ASE</label>
+  <title ml="true">
+    <label xml:lang="en">Title</label>
+    <label xml:lang="fr">Titre</label>
+  </title>
+  <fields>
+    <field name="picto" editor="image" required="false" compactDisplay="false" type="String" searchable="false" size="80" ml="true">
+      <label xml:lang="fr">Picto</label>
+    </field>
+    <field name="diaporama" editor="link" required="false" compactDisplay="false" type="List&lt;generated.Carousel&gt;" ml="false" descriptionType="tooltip" tabGroup="diaporamas" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Diaporama</label>
+    </field>
+    <field name="diaporamaTexte" editor="textfield" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="diaporamas">
+      <label xml:lang="fr">Diaporama version texte</label>
+    </field>
+    <field name="video" editor="link" required="false" compactDisplay="false" type="List&lt;generated.Video&gt;" ml="false" descriptionType="tooltip" tabGroup="videos" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Vidéo</label>
+    </field>
+    <field name="videoTexte" editor="textfield" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="videos">
+      <label xml:lang="fr">Video version texte</label>
+    </field>
+    <field name="titreDescription" editor="textfield" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="descriptions">
+      <label xml:lang="fr">Titre description</label>
+    </field>
+    <field name="description" editor="wysiwyg" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" rows="16" cols="100" ml="true" checkHtml="true" inline="true" descriptionType="tooltip" tabGroup="descriptions" html="false">
+      <label xml:lang="fr">Description</label>
+    </field>
+    <field name="motsCompliques" editor="link" required="false" compactDisplay="false" type="List&lt;generated.FaqEntry&gt;">
+      <label xml:lang="fr">Mots compliqués</label>
+    </field>
+    <field name="liensInternes" editor="link" required="false" compactDisplay="false" type="List&lt;com.jalios.jcms.Content&gt;" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true" tabGroup="liensUtiles">
+      <label xml:lang="fr">Liens utiles (internes)</label>
+    </field>
+    <field name="liensExternes" editor="url" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" size="80" ml="true" openWindow="false" descriptionType="tooltip" html="false" checkHtml="true" tabGroup="liensUtiles">
+      <label xml:lang="fr">Liens utiles (externes)</label>
+    </field>
+    <field name="libelleLien" editor="textfield" required="false" compactDisplay="false" type="List&lt;String&gt;" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="liensUtiles">
+      <label xml:lang="fr">Libellé lien</label>
+    </field>
+    <field name="fichesStructures" editor="link" required="false" compactDisplay="false" type="List&lt;generated.Contact&gt;">
+      <label xml:lang="fr">Fiches structures</label>
+    </field>
+    <field name="saisieLibre" editor="wysiwyg" required="false" compactDisplay="false" type="String" searchable="false" rows="16" cols="100" ml="true" wysiwygConfigurationId="" checkHtml="true" inline="true">
+      <label xml:lang="fr">Saisie libre</label>
+    </field>
+    <field name="pageAAide" editor="boolean" required="false" compactDisplay="false" type="boolean" default="true" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Est-ce que cette page t'a aidé ?</label>
+      <onLabel xml:lang="en">Yes</onLabel>
+      <onLabel xml:lang="fr">Oui</onLabel>
+      <offLabel xml:lang="en">No</offLabel>
+      <offLabel xml:lang="fr">Non</offLabel>
+    </field>
+    <field name="contenuPrecedent" editor="link" required="false" compactDisplay="false" type="com.jalios.jcms.Content" parent="false">
+      <label xml:lang="fr">Contenu précédent</label>
+    </field>
+    <field name="contenuSuivant" editor="link" required="false" compactDisplay="false" type="com.jalios.jcms.Content" parent="false">
+      <label xml:lang="fr">Contenu suivant</label>
+    </field>
+    <field name="navigation" editor="category" required="false" compactDisplay="false" type="java.util.TreeSet" chooser="tree" exclusive="true" root="$jcmsplugin.zelli.category.navigationParThemes.root">
+      <label xml:lang="fr">Navigation</label>
+    </field>
+  </fields>
+</type>
+
