@@ -110,9 +110,17 @@
  
   <types>
     <type name="ArticleASE"/>
+    <type name="SousthemeASE"/>
     
     <templates type="ArticleASE">
         <template name="default" file="doArticleASEFullDisplay.jsp" usage="full">
+            <label xml:lang="en">Default Template</label>
+          <label xml:lang="fr">Gabarit par défaut</label>
+        </template>
+    </templates>
+    
+    <templates type="SousthemeASE">
+        <template name="default" file="doSousthemeASEFullDisplay.jsp" usage="full">
             <label xml:lang="en">Default Template</label>
           <label xml:lang="fr">Gabarit par défaut</label>
         </template>
