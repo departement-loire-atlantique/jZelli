@@ -205,10 +205,10 @@
             <% } %>
     </td>
   </tr>
-  <tr class="field pageAAide booleanEditor  ">
-    <td class='field-label'><%= channel.getTypeFieldLabel(ArticleASE.class, "pageAAide", userLang) %><jalios:edit pub='<%= obj %>' fields='pageAAide'/></td>
+  <tr class="field affichagePageAAidee booleanEditor  ">
+    <td class='field-label'><%= channel.getTypeFieldLabel(ArticleASE.class, "affichagePageAAidee", userLang) %><jalios:edit pub='<%= obj %>' fields='affichagePageAAidee'/></td>
     <td class='field-data' >
-            <%= obj.getPageAAideLabel(userLang) %>
+            <%= obj.getAffichagePageAAideeLabel(userLang) %>
     </td>
   </tr>
   <tr class="field contenuPrecedent linkEditor  <%= Util.isEmpty(obj.getContenuPrecedent()) ? "empty" : "" %>">
@@ -243,4 +243,4 @@
 </table>
 <jsp:include page="/front/doFullDisplayCommonFields.jsp" />
 </div><%-- **********4A616C696F73204A434D53 *** SIGNATURE BOUNDARY * DO NOT EDIT ANYTHING BELOW THIS LINE *** --%><%
-%><%-- 5WDHn+QlSiFTpt42TPrd4w== --%>
+%><%-- IYI9+gQJ2i+rQfrjY9Ubug== --%>

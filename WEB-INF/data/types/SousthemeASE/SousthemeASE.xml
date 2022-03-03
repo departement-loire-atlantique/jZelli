@@ -12,8 +12,8 @@
     <field name="contenu" editor="link" required="false" compactDisplay="false" type="com.jalios.jcms.Content[]">
       <label xml:lang="fr">Contenu</label>
     </field>
-    <field name="estceQueCettePageTaAide" editor="boolean" required="false" compactDisplay="false" type="boolean" default="on">
-      <label xml:lang="fr">Est-ce que cette page t'a aidé ?</label>
+    <field name="affichagePageAAidee" editor="boolean" required="false" compactDisplay="false" type="boolean" default="true" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Affichage "Est-ce que cette page t'a aidé ?"</label>
       <onLabel xml:lang="en">Yes</onLabel>
       <onLabel xml:lang="fr">Oui</onLabel>
       <offLabel xml:lang="en">No</offLabel>
