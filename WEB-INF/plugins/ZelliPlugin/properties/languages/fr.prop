@@ -15,3 +15,6 @@ doc.rest.rsrc-meth.PasswordApi: GET ou PUT
 doc.rest.rsrc-desc./plugins/zelli/member/pwd/{memberLogin}: GET permet de savoir si un membre existe ou pas depuis le login. PUT met à jour le MDP du membre indiqué et nécessite un paramètre "pwd" en base64.
 doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
+
+# lbl
+jcmsplugin.zelli.lbl.btn.garde.trieur: Label du bouton pour les documents à garder dans le trieur

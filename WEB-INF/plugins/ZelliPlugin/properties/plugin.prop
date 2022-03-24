@@ -17,3 +17,6 @@ extra.Member.jcmsplugin.zelli.datenaissance:
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
+
+# lbl
+jcmsplugin.zelli.lbl.btn.garde.trieur: Les documents à garder dans ton trieur
