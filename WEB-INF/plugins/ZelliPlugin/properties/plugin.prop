@@ -1,18 +1,19 @@
+# Catégories de navigation
+# TODO -> avoir un store comprenant les catégories utilisées plus tard pour compléter le fichier prop
+$jcmsplugin.zelli.category.navigationParThemes.root: 
 
-# ----------------------------------------------------------------------
-# Templates {usage = jcmsplugin.plugin.sample}
-# ----------------------------------------------------------------------
+# Membres importants
+# membre qui peut créer les comptes TODO
 
-# Declaration of a new Usage
-# jcms.resource.default-template.{jcmsplugin.plugin.sample}: custom/jcms/doSampleDisplay.jsp
+# membre qui peut générer les tokens TODO
 
-# Declaration of a new Usage for FullDisplay
-# I18N to cut&past in en.prop / fr.prop
-# ui.editportlet.usage.{jcmsplugin.plugin.sample}: Usage label
+# Groupes
+# TODO -> groupe des gestionnaires par défaut
+$jcmsplugin.zelli.groupe.gestionnaires.id: 
 
-# Declaration of a new Usage for Skin
-# I18N to cut&past in en.prop / fr.prop
-# ui.editportlet.usage.skin.{jcmsplugin.plugin.sample}: Usage label for skin
 
-# LESS
-# channel.less.plugins/{Name}/css/plugin.css:    plugins/{Name}/css/plugin.less
+# Extradata
+extra.Member.jcmsplugin.zelli.datenaissance:
+
+# Configuration
+jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
