@@ -34,7 +34,7 @@ import fr.digiwin.module.zelli.utils.ZelliUtils;
  */
 public class MemberApi extends JcmsRestResource {
 
-  private static final Logger LOGGER = Logger.getLogger(TokenApi.class);
+  private static final Logger LOGGER = Logger.getLogger(MemberApi.class);
 
   public MemberApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
