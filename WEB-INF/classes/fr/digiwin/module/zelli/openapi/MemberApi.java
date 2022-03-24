@@ -40,7 +40,8 @@ public class MemberApi extends JcmsRestResource {
     super(ctxt, request, response);
     
     // vérifier l'accès à l'édition / création de membres
-    if (Util.isEmpty(getLoggedMember()) || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/users/member", null)) {
+    if (Util.isEmpty(getLoggedMember()) || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/users/member", null)
+        || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/operation/auth-key", null)) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
