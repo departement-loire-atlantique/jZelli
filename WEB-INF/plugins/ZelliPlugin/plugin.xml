@@ -56,7 +56,7 @@
   <!--                                                                      -->
   <!-- Attribute xml:lang="lang" defines the language value of the tag's    -->
   <!-- content.                                                             -->
-  <!-- Example: <label xml:lang="en">ZelliModule</label>                   -->
+  <!-- Example: <label xml:lang="en">ZelliPlugin</label>                   -->
   <!--                                                                      -->
   <!--                                                                      -->
   <label xml:lang="fr">Module Zelli</label>
@@ -456,6 +456,13 @@
     <directory path="properties" />
   </private-files>
   <public-files>
+    <directory path="js" />
+    <directory path="css" />
+    <directory path="docs" />
+    <directory path="jsp" />
+    <!--    
+    <directory path="images" />
+    -->
 
   </public-files>
 </plugin>
