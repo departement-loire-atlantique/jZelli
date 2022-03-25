@@ -1,5 +1,6 @@
 # Extradata
 extra.Member.jcmsplugin.zelli.datenaissance: Date de naissance JJ/MM/AAAA
+extra.Category.jcmsplugin.zelli.contenu.trieur: Id du contenu trieur
 
 # E-mail
 jcmsplugin.zelli.email.gestionnaire.question.object: Question de {0} - {1}
@@ -17,4 +18,4 @@ doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
 
 # lbl
-jcmsplugin.zelli.lbl.btn.garde.trieur: Label du bouton pour les documents à garder dans le trieur
+jcmsplugin.zelli.lbl.btn.contenu.trieur: Label du bouton pour les documents à garder dans le trieur
