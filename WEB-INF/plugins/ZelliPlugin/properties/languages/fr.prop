@@ -19,3 +19,4 @@ doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un e
 
 # lbl
 jcmsplugin.zelli.lbl.btn.contenu.trieur: Label du bouton pour les documents à garder dans le trieur
+jcmsplugin.zelli.lbl.mots.compliques: Label des mots compliqués dans les articles
