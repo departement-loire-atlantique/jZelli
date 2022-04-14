@@ -243,6 +243,7 @@
     <resource class="fr.digiwin.module.zelli.openapi.MemberApi" uriTemplate="/plugins/zelli/member/create" />
     <resource class="fr.digiwin.module.zelli.openapi.PasswordApi" uriTemplate="/plugins/zelli/member/pwd/{memberLogin}" />
     <resource class="fr.digiwin.module.zelli.openapi.NotificationApi" uriTemplate="/plugins/zelli/notify/questionAlert/{questionId}" />
+    <resource class="fr.digiwin.module.zelli.openapi.PropApi" uriTemplate="/plugins/zelli/prop/{prop}" />
   </openapi>
   <!-- ===================== Private/Public/Webapp files ================== -->
   <!--                                                                      -->
