@@ -19,10 +19,19 @@ extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
 
+# Logo app
+jcmsplugin.zelli.logo.app.chooser-image: assets/images/svg/logo-zelli.svg
+
 # lbl
+jcmsplugin.zelli.lbl.baseline: Ton guide vers la majorité et l'autonomie
 jcmsplugin.zelli.lbl.btn.contenu.trieur: Les documents à garder dans ton trieur
 jcmsplugin.zelli.lbl.mots.compliques: Les mots compliqués
 jcmsplugin.zelli.lbl.liens.utiles: Les liens utiles
 
-# 
-jcmsplugin.zelli.prop.public: jcmsplugin.zelli.lbl.btn.contenu.trieur jcmsplugin.zelli.lbl.mots.compliques jcmsplugin.zelli.lbl.liens.utiles
+# prop accessible publiquement
+jcmsplugin.zelli.prop.public:\
+	jcmsplugin.zelli.logo.app \
+	jcmsplugin.zelli.lbl.baseline \
+	jcmsplugin.zelli.lbl.btn.contenu.trieur \
+	jcmsplugin.zelli.lbl.mots.compliques \
+	jcmsplugin.zelli.lbl.liens.utiles 
