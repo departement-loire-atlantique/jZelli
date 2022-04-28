@@ -17,9 +17,19 @@ doc.rest.rsrc-desc./plugins/zelli/member/pwd/{memberLogin}: GET permet de savoir
 doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
 
+# ----------------------
 # Logo app
 jcmsplugin.zelli.logo.app: Logo de l'app
 
+# ----------------------
+# Welcome page
+jcmsplugin.zelli.lbl.welcome.footer.link: Article du footer de la page Bienvenue
+# lbl
+jcmsplugin.zelli.lbl.welcome.title: Titre de la page Bienvenue
+jcmsplugin.zelli.lbl.welcome.desc: Texte d’intro de la page Bienvenue
+jcmsplugin.zelli.lbl.welcome.footer: Texte footer de la page Bienvenue
+
+# ----------------------
 # lbl
 jcmsplugin.zelli.lbl.baseline: Splash screen baseline
 jcmsplugin.zelli.lbl.btn.contenu.trieur: Label du bouton pour les documents à garder dans le trieur
