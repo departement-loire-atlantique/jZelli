@@ -38,6 +38,33 @@ jcmsplugin.zelli.lbl.btn.contenu.trieur: Les documents à garder dans ton trieur
 jcmsplugin.zelli.lbl.mots.compliques: Les mots compliqués
 jcmsplugin.zelli.lbl.liens.utiles: Les liens utiles
 
+# ----------------------
+# Account Creation
+jcmsplugin.zelli.lbl.account.create.title: Créer mon compte
+jcmsplugin.zelli.lbl.account.create.title.required: champs obligatoires
+jcmsplugin.zelli.lbl.account.create.sup.field: Effacer le contenu saisi dans le champ : 
+jcmsplugin.zelli.lbl.account.create.btn.nextStep: Suivant
+jcmsplugin.zelli.lbl.account.create.btn.end: Créer mon compte
+# Step 1
+jcmsplugin.zelli.lbl.account.create.step1: Saisis ton prénom ou un pseudo
+jcmsplugin.zelli.lbl.account.create.step1.field: Prénom ou pseudo
+# Step 2
+jcmsplugin.zelli.lbl.account.create.step2: Quel âge as-tu ?
+jcmsplugin.zelli.lbl.account.create.step2.date: Date de naissance
+jcmsplugin.zelli.lbl.account.create.step2.date.display: Afficher le calendrier pour le champ : Date de naissance
+jcmsplugin.zelli.lbl.account.create.step2.date.day: Date de naissance : Jour (ex. 04)
+jcmsplugin.zelli.lbl.account.create.step2.date.month: Date de naissance : Mois (ex. 05)
+jcmsplugin.zelli.lbl.account.create.step2.date.year: Date de naissance : Année (ex. 1977)
+# Step 3
+jcmsplugin.zelli.lbl.account.create.step3: Choisis ton mot de passe
+jcmsplugin.zelli.lbl.account.create.step3.display: Afficher le contenu saisi dans le champ : 
+jcmsplugin.zelli.lbl.account.create.step3.pwdF: Mot de passe
+jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Confirmes ton mot de passe
+# End
+jcmsplugin.zelli.lbl.account.create.end: C’est bon, ton inscription sur Zelli est faite !
+jcmsplugin.zelli.lbl.account.create.end.desc: Tu peux compléter ton profil, gérer ta liste de contacts, poser des questions via l’appli ou t’envoyer des alertes personnalisées.
+jcmsplugin.zelli.lbl.account.create.end.btn.profil: Compléter mon profil
+jcmsplugin.zelli.lbl.account.create.end.btn.next: Explorer les contenus
 
 # prop accessible publiquement
 jcmsplugin.zelli.prop.public:\
@@ -46,7 +73,29 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.btn.contenu.trieur \
 	jcmsplugin.zelli.lbl.mots.compliques \
 	jcmsplugin.zelli.lbl.liens.utiles \
-    jcmsplugin.zelli.lbl.welcome.footer.link \
-    jcmsplugin.zelli.lbl.welcome.title \
+	jcmsplugin.zelli.lbl.welcome.footer.link \
+	jcmsplugin.zelli.lbl.welcome.title \
 	jcmsplugin.zelli.lbl.welcome.desc \
-	jcmsplugin.zelli.lbl.welcome.footer
+	jcmsplugin.zelli.lbl.welcome.footer \
+	jcmsplugin.zelli.lbl.account.create.title \
+	jcmsplugin.zelli.lbl.account.create.title.required \
+	jcmsplugin.zelli.lbl.account.create.sup.field \
+	jcmsplugin.zelli.lbl.account.create.btn.nextStep \
+	jcmsplugin.zelli.lbl.account.create.btn.end \
+	jcmsplugin.zelli.lbl.account.create.step1 \
+	jcmsplugin.zelli.lbl.account.create.step1.field \
+	jcmsplugin.zelli.lbl.account.create.step2 \
+	jcmsplugin.zelli.lbl.account.create.step2.date \
+	jcmsplugin.zelli.lbl.account.create.step2.date.display \
+	jcmsplugin.zelli.lbl.account.create.step2.date.day \
+	jcmsplugin.zelli.lbl.account.create.step2.date.month \
+	jcmsplugin.zelli.lbl.account.create.step2.date.year \
+	jcmsplugin.zelli.lbl.account.create.step3 \
+	jcmsplugin.zelli.lbl.account.create.step3.display \
+	jcmsplugin.zelli.lbl.account.create.step3.pwdF \
+	jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm \
+	jcmsplugin.zelli.lbl.account.create.end \
+	jcmsplugin.zelli.lbl.account.create.end.desc \
+	jcmsplugin.zelli.lbl.account.create.end.btn.profil \
+	jcmsplugin.zelli.lbl.account.create.end.btn.next
+

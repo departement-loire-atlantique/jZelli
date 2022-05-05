@@ -35,3 +35,31 @@ jcmsplugin.zelli.lbl.baseline: Splash screen baseline
 jcmsplugin.zelli.lbl.btn.contenu.trieur: Label du bouton pour les documents à garder dans le trieur
 jcmsplugin.zelli.lbl.mots.compliques: Label des mots compliqués dans les articles
 jcmsplugin.zelli.lbl.liens.utiles:  Label des liens utiles dans les articles
+
+# ----------------------
+# Account Creation
+jcmsplugin.zelli.lbl.account.create.title: Titre page créer mon compte
+jcmsplugin.zelli.lbl.account.create.title.required: Msg champs obligatoires
+jcmsplugin.zelli.lbl.account.create.sup.field: Msg effacer le contenu d'un champ
+jcmsplugin.zelli.lbl.account.create.btn.nextStep: Bouton suivant
+jcmsplugin.zelli.lbl.account.create.btn.end: Bouton créer mon compte
+# Step 1
+jcmsplugin.zelli.lbl.account.create.step1: Etape 1 titre
+jcmsplugin.zelli.lbl.account.create.step1.field: Etape 1 champ
+# Step 2
+jcmsplugin.zelli.lbl.account.create.step2: Etape 2 titre
+jcmsplugin.zelli.lbl.account.create.step2.date: Etape 2 champ
+jcmsplugin.zelli.lbl.account.create.step2.date.display: Etape 2 bouton calendrier
+jcmsplugin.zelli.lbl.account.create.step2.date.day: Etape 2 champ jour
+jcmsplugin.zelli.lbl.account.create.step2.date.month: Etape 2 champ mois
+jcmsplugin.zelli.lbl.account.create.step2.date.year: Etape 2 champ année
+# Step 3
+jcmsplugin.zelli.lbl.account.create.step3: Etape 3 titre
+jcmsplugin.zelli.lbl.account.create.step3.display: Etape 2 bouton mdp 
+jcmsplugin.zelli.lbl.account.create.step3.pwdF: Etape 3 champ
+jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirmes
+# End
+jcmsplugin.zelli.lbl.account.create.end: Validation titre
+jcmsplugin.zelli.lbl.account.create.end.desc: Validation desc
+jcmsplugin.zelli.lbl.account.create.end.btn.profil: Validation btn profil
+jcmsplugin.zelli.lbl.account.create.end.btn.next: Validation btn contenus
