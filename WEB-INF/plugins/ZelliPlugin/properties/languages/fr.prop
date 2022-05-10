@@ -63,3 +63,8 @@ jcmsplugin.zelli.lbl.account.create.end: Validation titre
 jcmsplugin.zelli.lbl.account.create.end.desc: Validation desc
 jcmsplugin.zelli.lbl.account.create.end.btn.profil: Validation btn profil
 jcmsplugin.zelli.lbl.account.create.end.btn.next: Validation btn contenus
+
+# ----------------------
+# Login
+jcmsplugin.zelli.lbl.account.login: Titre page login
+jcmsplugin.zelli.lbl.account.login.subTitle: Sous-titre page login

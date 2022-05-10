@@ -66,6 +66,11 @@ jcmsplugin.zelli.lbl.account.create.end.desc: Tu peux compléter ton profil, gé
 jcmsplugin.zelli.lbl.account.create.end.btn.profil: Compléter mon profil
 jcmsplugin.zelli.lbl.account.create.end.btn.next: Explorer les contenus
 
+# ----------------------
+# Login
+jcmsplugin.zelli.lbl.account.login: Me connecter
+jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’identifiant et le mot de passe que tu as choisis quand tu as créé ton compte.
+
 # prop accessible publiquement
 jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.logo.app \
@@ -97,5 +102,7 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.account.create.end \
 	jcmsplugin.zelli.lbl.account.create.end.desc \
 	jcmsplugin.zelli.lbl.account.create.end.btn.profil \
-	jcmsplugin.zelli.lbl.account.create.end.btn.next
+	jcmsplugin.zelli.lbl.account.create.end.btn.next \
+	jcmsplugin.zelli.lbl.account.login \
+	jcmsplugin.zelli.lbl.account.login.subTitle 
 
