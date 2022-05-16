@@ -71,6 +71,11 @@ jcmsplugin.zelli.lbl.account.create.end.btn.next: Explorer les contenus
 jcmsplugin.zelli.lbl.account.login: Me connecter
 jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’identifiant et le mot de passe que tu as choisis quand tu as créé ton compte.
 
+# ----------------------
+# New alerte
+jcmsplugin.zelli.lbl.newAlert: Créer une alerte
+jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
+
 # prop accessible publiquement
 jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.logo.app \
@@ -104,5 +109,7 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.account.create.end.btn.profil \
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
-	jcmsplugin.zelli.lbl.account.login.subTitle 
+	jcmsplugin.zelli.lbl.account.login.subTitle \
+	jcmsplugin.zelli.lbl.newAlert \
+	jcmsplugin.zelli.lbl.newAlert.subTitle 
 
