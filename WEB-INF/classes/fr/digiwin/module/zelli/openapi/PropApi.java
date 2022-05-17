@@ -15,7 +15,6 @@ import org.restlet.resource.Variant;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jalios.jcms.json.ObjectMapperBuilder;
 import com.jalios.jcms.rest.JcmsRestResource;
-import com.jalios.jcms.rest.PropertyPOJO;
 import com.jalios.util.Util;
 import com.jalios.util.XmlUtil;
 
