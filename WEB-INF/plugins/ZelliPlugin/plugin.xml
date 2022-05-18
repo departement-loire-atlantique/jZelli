@@ -111,6 +111,7 @@
   <types>
     <type name="ArticleASE"/>
     <type name="SousthemeASE"/>
+    <type name="AlerteZelli"/>
     
     <templates type="ArticleASE">
         <template name="default" file="doArticleASEFullDisplay.jsp" usage="full">
@@ -137,6 +138,9 @@
     <workflow id="wfzelli" />
   </workflows>
 -->
+  <workflows>
+    <workflow id="workflow_user_zelli" />
+  </workflows>
   <!-- ========================== Classes and Jars ======================== -->
   <!--                                                                      -->
   <!-- jars              A Java Library represted by it's relative path to  -->
@@ -214,6 +218,9 @@
     <jsynclistener         class="com.example.jcmsplugin.zelli.ZelliJSyncListener" />
   </plugincomponents>
 -->
+  <plugincomponents>
+    <datacontroller class="fr.digiwin.module.zelli.dataControllers.AlerteZelliDataController" types="AlerteZelli" />
+  </plugincomponents>
   <!-- ============================= Hibernate ============================ -->
   <!--                                                                      -->
   <!-- Plugin's Hibernate mapping                                           -->
