@@ -51,8 +51,9 @@ public class TokenApi extends JcmsRestResource {
     
     // On veut créer un token pour un membre et renvoyer le token généré
     // membre à qui sera associé la clé
-    Member member = Channel.getChannel().getMember((String) getRequest().getAttributes().get("memberId"));
-    LOGGER.debug("TokenApi - CREATE TOKEN FOR MEMBER " + (String) getRequest().getAttributes().get("memberId") + " -> START");
+    
+    Member member = Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true);
+    LOGGER.debug("TokenApi - CREATE TOKEN FOR MEMBER " + (String) getRequest().getAttributes().get("memberLogin") + " -> START");
     JSONObject jsonResponse = new JSONObject();
     try {
       jsonResponse.put("token", "");
@@ -62,7 +63,7 @@ public class TokenApi extends JcmsRestResource {
         LOGGER.debug("TokenApi - Member ID does not exist. Aborting.");
         return jsonResponse.toString();
       }
-      
+     
       String authKey = "";
       
       LOGGER.debug("TokenApi - Generating auth key...");
