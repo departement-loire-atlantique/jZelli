@@ -138,6 +138,9 @@
     <workflow id="wfzelli" />
   </workflows>
 -->
+  <workflows>
+    <workflow id="workflow_user_zelli" />
+  </workflows>
   <!-- ========================== Classes and Jars ======================== -->
   <!--                                                                      -->
   <!-- jars              A Java Library represted by it's relative path to  -->
