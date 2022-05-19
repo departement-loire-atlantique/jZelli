@@ -42,8 +42,7 @@ public class PasswordApi extends JcmsRestResource {
 
     // vérifier l'accès à l'édition / création de membres
     if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))
-        && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API")))) {
+        || !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }

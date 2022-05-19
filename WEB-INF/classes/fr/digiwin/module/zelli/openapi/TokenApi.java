@@ -34,8 +34,7 @@ public class TokenApi extends JcmsRestResource {
     super(ctxt, request, response);
     // vérifier si l'utilisateur connecté peut générer le token
     if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))
-        && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API")))) {
+        || !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))) {
       LOGGER.debug("TokenApi - Unauthorized request - wrong credentials or not allowed.");
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
     }
