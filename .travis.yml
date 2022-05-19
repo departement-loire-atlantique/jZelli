@@ -14,7 +14,7 @@ addons:
 
 before_script:
 - echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-- docker pull asfram/jplatformbuild
+- docker pull asfram/jplatformbuild:1.0
 
 script:
 - docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t asfram/jplatformbuild:1.0
