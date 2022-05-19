@@ -17,7 +17,7 @@ before_script:
 - docker pull asfram/jplatformbuild
 
 script:
-- docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t asfram/jplatformbuild
+- docker run -v ${TRAVIS_BUILD_DIR}:/root/source --name buildimage -t asfram/jplatformbuild:1.0
 - docker cp buildimage:/root/dist .
 - export CODE_VERSION=`git describe`
 - sonar-scanner -Dsonar.projectVersion=$CODE_VERSION
