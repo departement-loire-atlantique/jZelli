@@ -1,1 +1,11 @@
-https://github.com/departement-loire-atlantique/jPlatformSocle/releases/download/v0.0.279/SoclePlugin_v0.0.279.zip
+{
+ "name":  "dsn/planet", 
+ "description":  "ZelliPlugin", 
+ "repository": "https://api.github.com/repos/departement-loire-atlantique/Zeli", 
+ "dependencies": [
+     "https://github.com/departement-loire-atlantique/jPlatformSocle/releases/download/v0.0.279/SoclePlugin_v0.0.279.zip"
+ ]
+} 
+
+
+
