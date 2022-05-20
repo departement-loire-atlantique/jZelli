@@ -71,11 +71,9 @@
   <!-- dependency        Define a requiered plugin. Attribute 'name' must   -->
   <!--                   contains the name of a plugin.                     -->
   <!--                                                                      -->
-  <!--
-  <dependencies>
-    <dependency name="OtherPlugin" />
+   <dependencies>
+    <dependency name="SoclePlugin" />
   </dependencies>
--->
   <!-- ========================== Types and Templates ===================== -->
   <!--                                                                      -->
   <!-- type              Files used for *new* JCMS Types must be declared   -->
