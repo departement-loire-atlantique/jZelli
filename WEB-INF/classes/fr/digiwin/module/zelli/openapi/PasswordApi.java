@@ -42,7 +42,8 @@ public class PasswordApi extends JcmsRestResource {
 
     // vérifier l'accès à l'édition / création de membres
     if (Util.isEmpty(getLoggedMember())
-        || !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))) {
+        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
@@ -143,7 +144,7 @@ public class PasswordApi extends JcmsRestResource {
       Member itMemberClone = (Member) itMember.getUpdateInstance();
       itMemberClone.setPassword(Channel.getChannel().crypt(decodedPwd));
       
-      ControllerStatus status = itMemberClone.checkAndPerformUpdate(getLoggedMember());
+      ControllerStatus status = itMemberClone.checkAndPerformUpdate(Channel.getChannel().getDefaultAdmin());
       
       if (!status.isOK()) {
         LOGGER.debug("Password - Member could not be updated.");

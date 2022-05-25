@@ -13,7 +13,6 @@ import org.restlet.resource.Variant;
 import com.jalios.jcms.Channel;
 import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Member;
-import com.jalios.jcms.accesscontrol.AccessControlManager;
 import com.jalios.jcms.rest.JcmsRestResource;
 import com.jalios.util.Util;
 
@@ -32,9 +31,11 @@ public class TokenApi extends JcmsRestResource {
 
   public TokenApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
+
     // vérifier si l'utilisateur connecté peut générer le token
     if (Util.isEmpty(getLoggedMember())
-        || !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true))) {
+        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
       LOGGER.debug("TokenApi - Unauthorized request - wrong credentials or not allowed.");
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
     }

@@ -20,6 +20,7 @@ import org.restlet.resource.Variant;
 
 import com.jalios.jcms.Channel;
 import com.jalios.jcms.ControllerStatus;
+import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Member;
 import com.jalios.jcms.accesscontrol.AccessControlManager;
 import com.jalios.jcms.rest.JcmsRestResource;
@@ -40,8 +41,9 @@ public class MemberApi extends JcmsRestResource {
     super(ctxt, request, response);
     
     // vérifier l'accès à l'édition / création de membres
-    if (Util.isEmpty(getLoggedMember()) || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/users/member", null)
-        || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/operation/auth-key", null)) {
+    if (Util.isEmpty(getLoggedMember())
+        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
@@ -82,7 +84,7 @@ public class MemberApi extends JcmsRestResource {
   private String createMemberAndGetToken(Representation entity) {
     
     JSONObject jsonResponse = new JSONObject();
-    
+
     // On veut créer un membre, puis retourner le token associé
     // récupération des paramètres envoyés
     try {
@@ -122,7 +124,7 @@ public class MemberApi extends JcmsRestResource {
       
       // TODO => les groupes et autorisations par défaut
       
-      ControllerStatus status = newMbr.checkAndPerformCreate(getLoggedMember());
+      ControllerStatus status = newMbr.checkAndPerformCreate(Channel.getChannel().getDefaultAdmin());
       
       if (!status.isOK()) {
         LOGGER.debug("MemberApi - Member could not be created.");

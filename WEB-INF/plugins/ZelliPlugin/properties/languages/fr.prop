@@ -12,10 +12,14 @@ doc.rest.rsrc-meth.TokenApi: GET
 doc.rest.rsrc-desc./plugins/zelli/token/create/{memberLogin}: Créer un Token API d'une durée de 30j pour le membre indiqué.
 doc.rest.rsrc-meth.MemberApi: POST
 doc.rest.rsrc-desc./plugins/zelli/member/create: Créer un membre si le login n'existe pas et renvoie un token API. Nécessite des paramètres "login" et "pwd" en base64, et "dateNaissance" avec une valeur de timestamp en millisecondes.
+doc.rest.rsrc-meth.MemberNotExistApi: GET
+doc.rest.rsrc-desc./plugins/zelli/member/notexist/{memberLogin}: GET permet de connaître la non-existance d'un membre
 doc.rest.rsrc-meth.PasswordApi: GET ou PUT
 doc.rest.rsrc-desc./plugins/zelli/member/pwd/{memberLogin}: GET permet de savoir si un membre existe ou pas depuis le login. PUT met à jour le MDP du membre indiqué et nécessite un paramètre "pwd" en base64.
 doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
+doc.rest.rsrc-meth.PropApi: GET
+doc.rest.rsrc-desc./plugins/zelli/prop/{prop}: 
 
 # ----------------------
 # Logo app

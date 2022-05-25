@@ -71,7 +71,7 @@ public class ZelliUtils {
     authKeyHints.setVersion("2");
     authKeyHints.setExpiration(System.currentTimeMillis() + duration);
     authKeyHints.setPrefixMode(true);
-    authKeyHints.setMethods("[GET,PUT,POST,DELETE]");
+    authKeyHints.setMethods("GET,PUT,POST,DELETE");
     return AuthKeyAuthenticationHandler.getAuthKeyValue(Channel.getChannel().getUrl(), mbr, authKeyHints);
   }
 
