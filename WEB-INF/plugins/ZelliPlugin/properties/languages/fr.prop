@@ -77,6 +77,11 @@ jcmsplugin.zelli.lbl.account.login: Titre page login
 jcmsplugin.zelli.lbl.account.login.subTitle: Sous-titre page login
 
 # ----------------------
+# Contact creation
+jcmsplugin.zelli.lbl.contact.create.titre: Titre page ajouter un contact
+jcmsplugin.zelli.lbl.contact.create.sousTitre: Sous-titre page ajouter un contact
+
+# ----------------------
 # New alerte
 jcmsplugin.zelli.lbl.newAlert: Titre page nouvelle alert
 jcmsplugin.zelli.lbl.newAlert.subTitle: Sous-titre page nouvelle alert

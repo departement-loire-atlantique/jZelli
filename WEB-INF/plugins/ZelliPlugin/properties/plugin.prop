@@ -73,15 +73,9 @@ jcmsplugin.zelli.lbl.account.login: Me connecter
 jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’identifiant et le mot de passe que tu as choisis quand tu as créé ton compte.
 
 # ----------------------
-# Error message
-jcmsplugin.zelli.lbl.error.name.accent: Oups ! Merci de saisir ton prenom ou pseudo sans accent
-jcmsplugin.zelli.lbl.error.name.missing: Oups ! Tu as oublié de saisir ton prénom ou un pseudo
-jcmsplugin.zelli.lbl.error.name.exist: Oups ! cet identifiant existe déjà dans zelli, merci d’en imaginer un autre
-jcmsplugin.zelli.lbl.error.date.format: Oups ! Merci de saisir ta date de naissance au format jj//mm//aaaa
-jcmsplugin.zelli.lbl.error.date.missing: Oups ! Tu as oublié de saisir ta date de naissance
-jcmsplugin.zelli.lbl.error.pwd.space: Oups ! Merci de saisir ton mot de passe sans espace (nous te recommandons de choisir un mot de passe avec au moins 12 caractères, avec des lettres, des chiffres et des caractères spéciaux comme le !)
-jcmsplugin.zelli.lbl.error.pwd.confirm: Oups ! Nous tu as oublié de confirmer ton mot de passe
-jcmsplugin.zelli.lbl.error.pwd.different: Oups ! Tu n’as pas saisi la même chose dans les deux champs
+# Contact creation
+jcmsplugin.zelli.lbl.contact.create.titre: Ajouter un contact
+jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter tous tes contacts utiles pour ne pas les oublier.
 
 # ----------------------
 # New alerte
@@ -122,14 +116,8 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
 	jcmsplugin.zelli.lbl.account.login.subTitle \
-	jcmsplugin.zelli.lbl.error.name.accent \
-    jcmsplugin.zelli.lbl.error.name.missing \
-    jcmsplugin.zelli.lbl.error.name.exist \
-    jcmsplugin.zelli.lbl.error.date.format \
-    jcmsplugin.zelli.lbl.error.date.missing \
-    jcmsplugin.zelli.lbl.error.pwd.space \
-    jcmsplugin.zelli.lbl.error.pwd.confirm \
-    jcmsplugin.zelli.lbl.error.pwd.different \
+    jcmsplugin.zelli.lbl.contact.create.titre \
+    jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle 
 
