@@ -115,8 +115,8 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
 	jcmsplugin.zelli.lbl.account.login.subTitle \
-    jcmsplugin.zelli.lbl.contact.titre \
-    jcmsplugin.zelli.lbl.contact.sousTitre \
+    jcmsplugin.zelli.lbl.contact.create.titre \
+    jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle 
 
