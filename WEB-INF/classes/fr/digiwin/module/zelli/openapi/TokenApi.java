@@ -11,8 +11,8 @@ import org.restlet.data.Status;
 import org.restlet.resource.Variant;
 
 import com.jalios.jcms.Channel;
+import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Member;
-import com.jalios.jcms.accesscontrol.AccessControlManager;
 import com.jalios.jcms.rest.JcmsRestResource;
 import com.jalios.util.Util;
 
@@ -31,9 +31,11 @@ public class TokenApi extends JcmsRestResource {
 
   public TokenApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
-    
+
     // vérifier si l'utilisateur connecté peut générer le token
-    if (Util.isEmpty(getLoggedMember()) || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/operation/auth-key", null)) {
+    if (Util.isEmpty(getLoggedMember())
+        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
       LOGGER.debug("TokenApi - Unauthorized request - wrong credentials or not allowed.");
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
     }
@@ -63,7 +65,14 @@ public class TokenApi extends JcmsRestResource {
         LOGGER.debug("TokenApi - Member ID does not exist. Aborting.");
         return jsonResponse.toString();
       }
-     
+      
+      if (member.getLogin().equals("API")) {
+        // membre API ne doit pas changer de token via rest
+        jsonResponse.put("error", "Le token ne peut pas être créé pour ce membre.");
+        LOGGER.debug("TokenApi - Auth key could not be generated for this member.");
+        return jsonResponse.toString();
+      }
+      
       String authKey = "";
       
       LOGGER.debug("TokenApi - Generating auth key...");

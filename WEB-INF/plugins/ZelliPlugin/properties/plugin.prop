@@ -10,6 +10,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id: 
+$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36 
 
 
 # Extradata
@@ -72,12 +73,17 @@ jcmsplugin.zelli.lbl.account.login: Me connecter
 jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’identifiant et le mot de passe que tu as choisis quand tu as créé ton compte.
 
 # ----------------------
+# Contact creation
+jcmsplugin.zelli.lbl.contact.create.titre: Ajouter un contact
+jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter tous tes contacts utiles pour ne pas les oublier.
+
+# ----------------------
 # New alerte
 jcmsplugin.zelli.lbl.newAlert: Créer une alerte
 jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
 
 # prop accessible publiquement
-jcmsplugin.zelli.prop.public:\
+    jcmsplugin.zelli.prop.public \
 	jcmsplugin.zelli.logo.app \
 	jcmsplugin.zelli.lbl.baseline \
 	jcmsplugin.zelli.lbl.btn.contenu.trieur \
@@ -110,6 +116,8 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
 	jcmsplugin.zelli.lbl.account.login.subTitle \
+    jcmsplugin.zelli.lbl.contact.create.titre \
+    jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle 
 

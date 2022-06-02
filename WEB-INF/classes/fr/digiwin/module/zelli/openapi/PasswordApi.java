@@ -18,6 +18,7 @@ import org.restlet.resource.Variant;
 
 import com.jalios.jcms.Channel;
 import com.jalios.jcms.ControllerStatus;
+import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Member;
 import com.jalios.jcms.accesscontrol.AccessControlManager;
 import com.jalios.jcms.rest.JcmsRestResource;
@@ -38,9 +39,11 @@ public class PasswordApi extends JcmsRestResource {
 
   public PasswordApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
-    
+
     // vérifier l'accès à l'édition / création de membres
-    if (Util.isEmpty(getLoggedMember()) || !AccessControlManager.getInstance().checkAccess(getLoggedMember(), "admin/users/member", null)) {
+    if (Util.isEmpty(getLoggedMember())
+        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
@@ -131,10 +134,17 @@ public class PasswordApi extends JcmsRestResource {
       
       // on récupère le membre et on met à jour son mdp
       Member itMember = Channel.getChannel().getMemberFromLogin(memberLogin);
+      
+      if ( !JcmsUtil.isSameId(itMember, getLoggedMember()) ) {
+        LOGGER.debug("PasswordAPI : Member " + memberLogin + " can't modify password form others.");
+        jsonResponse.put("error", "Le membre ne peut modifier le mot de passe des autres membres.");
+        return jsonResponse.toString();
+      }
+      
       Member itMemberClone = (Member) itMember.getUpdateInstance();
       itMemberClone.setPassword(Channel.getChannel().crypt(decodedPwd));
       
-      ControllerStatus status = itMemberClone.checkAndPerformUpdate(getLoggedMember());
+      ControllerStatus status = itMemberClone.checkAndPerformUpdate(Channel.getChannel().getDefaultAdmin());
       
       if (!status.isOK()) {
         LOGGER.debug("Password - Member could not be updated.");
