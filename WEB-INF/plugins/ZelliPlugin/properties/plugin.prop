@@ -10,6 +10,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id: 
+$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36 
 
 
 # Extradata
@@ -82,7 +83,7 @@ jcmsplugin.zelli.lbl.newAlert: Créer une alerte
 jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
 
 # prop accessible publiquement
-jcmsplugin.zelli.prop.public:\
+    jcmsplugin.zelli.prop.public \
 	jcmsplugin.zelli.logo.app \
 	jcmsplugin.zelli.lbl.baseline \
 	jcmsplugin.zelli.lbl.btn.contenu.trieur \
