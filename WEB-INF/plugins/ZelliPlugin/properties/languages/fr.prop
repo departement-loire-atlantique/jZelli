@@ -2,6 +2,9 @@
 extra.Member.jcmsplugin.zelli.datenaissance: Date de naissance JJ/MM/AAAA
 extra.Category.jcmsplugin.zelli.contenu.trieur: Id du contenu trieur
 
+#Group
+$jcmsplugin.zelli.groupe.utilisateurs.id: Groupe par défaut des membres de Zelli
+
 # E-mail
 jcmsplugin.zelli.email.gestionnaire.question.object: Question de {0} - {1}
 jcmsplugin.zelli.email.gestionnaire.question.utile.content: {0} a envoyé le message suivant le {1}\nA-t-il déjà questionné son référent : {2}<br/>Sa question : {3}<br/>Votre réponse : {4} \nLa réponse apportée a aidé {0} vous pouvez clore la question.<br/><a href="#>Tableau de bord des questions</a>

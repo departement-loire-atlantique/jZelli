@@ -22,7 +22,6 @@ import com.jalios.jcms.Channel;
 import com.jalios.jcms.ControllerStatus;
 import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Member;
-import com.jalios.jcms.accesscontrol.AccessControlManager;
 import com.jalios.jcms.rest.JcmsRestResource;
 import com.jalios.util.Util;
 
@@ -36,14 +35,15 @@ import fr.digiwin.module.zelli.utils.ZelliUtils;
 public class MemberApi extends JcmsRestResource {
 
   private static final Logger LOGGER = Logger.getLogger(MemberApi.class);
+  private static final Channel CHANNEL = Channel.getChannel();
 
   public MemberApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
     
     // vérifier l'accès à l'édition / création de membres
     if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
-            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
+        || (!JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin("API"))) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
@@ -106,7 +106,7 @@ public class MemberApi extends JcmsRestResource {
       jsonResponse.put("token", "");
       
       // Si le membre existe déjà, on doit l'indiquer et ne pas créer le compte
-      if (Util.notEmpty(Channel.getChannel().getMemberFromLogin(decodedLogin))) {
+      if (Util.notEmpty(CHANNEL.getMemberFromLogin(decodedLogin))) {
         jsonResponse.put("error", "L'username existe déjà.");
         return jsonResponse.toString();
       }
@@ -114,17 +114,20 @@ public class MemberApi extends JcmsRestResource {
       // créer le membre
       Member newMbr = new Member();
       newMbr.setLogin(decodedLogin);
-      newMbr.setPassword(Channel.getChannel().crypt(decodedPwd));
+      newMbr.setPassword(CHANNEL.crypt(decodedPwd));
       newMbr.setUsage(0); // 0 = utilisateur, 1 = contact
       newMbr.setName(decodedLogin);
       // date de naissance. On reçoit un timestamp en millisecondes
       Date dateNaissance = new Date(Long.parseLong(params.get("dateNaissance")));
-      SimpleDateFormat sdf = new SimpleDateFormat(Channel.getChannel().getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
+      SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
       newMbr.setExtraData("extra.Member.jcmsplugin.zelli.datenaissance", sdf.format(dateNaissance));
+      if (Util.notEmpty(CHANNEL.getGroup( "$jcms.zelli.groupe.utilisateurs.id"))) {
+        newMbr.addGroup(CHANNEL.getGroup("fde_5296"));
+      }
       
       // TODO => les groupes et autorisations par défaut
       
-      ControllerStatus status = newMbr.checkAndPerformCreate(Channel.getChannel().getDefaultAdmin());
+      ControllerStatus status = newMbr.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
       
       if (!status.isOK()) {
         LOGGER.debug("MemberApi - Member could not be created.");
