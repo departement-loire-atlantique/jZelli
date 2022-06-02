@@ -73,8 +73,8 @@ jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’iden
 
 # ----------------------
 # Contact creation
-jcmsplugin.zelli.lbl.contact.titre: Ajouter un contact
-jcmsplugin.zelli.lbl.contact.sousTitre: Ici, tu peux créer et ajouter tous tes contacts utiles pour ne pas les oublier.
+jcmsplugin.zelli.lbl.contact.create.titre: Ajouter un contact
+jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter tous tes contacts utiles pour ne pas les oublier.
 
 # ----------------------
 # New alerte
