@@ -28,14 +28,15 @@ public class TokenApi extends JcmsRestResource {
   protected String regionId;
   
   private static final Logger LOGGER = Logger.getLogger(TokenApi.class);
+  private static final Channel CHANNEL = Channel.getChannel();
 
   public TokenApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
-
+    
     // vérifier si l'utilisateur connecté peut générer le token
     if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
-            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
+        || (!JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
+            && !JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin("API"))) {
       LOGGER.debug("TokenApi - Unauthorized request - wrong credentials or not allowed.");
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
     }
@@ -54,7 +55,7 @@ public class TokenApi extends JcmsRestResource {
     // On veut créer un token pour un membre et renvoyer le token généré
     // membre à qui sera associé la clé
     
-    Member member = Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true);
+    Member member = CHANNEL.getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true);
     LOGGER.debug("TokenApi - CREATE TOKEN FOR MEMBER " + (String) getRequest().getAttributes().get("memberLogin") + " -> START");
     JSONObject jsonResponse = new JSONObject();
     try {
@@ -65,7 +66,7 @@ public class TokenApi extends JcmsRestResource {
         LOGGER.debug("TokenApi - Member ID does not exist. Aborting.");
         return jsonResponse.toString();
       }
-      
+     
       if (member.getLogin().equals("API")) {
         // membre API ne doit pas changer de token via rest
         jsonResponse.put("error", "Le token ne peut pas être créé pour ce membre.");
