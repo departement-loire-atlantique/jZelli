@@ -26,8 +26,6 @@ import com.jalios.jcms.authentication.handlers.AuthKeyAuthenticationHandler;
 import com.jalios.jcms.authentication.handlers.AuthKeyHints;
 import com.jalios.jcms.mail.MailMessage;
 
-import fr.digiwin.module.zelli.openapi.TokenApi;
-
 public class ZelliUtils {
   
   private static final Logger LOGGER = Logger.getLogger(ZelliUtils.class);
@@ -140,7 +138,6 @@ public class ZelliUtils {
       // période entre les deux dates
       Period period = Period.between(dateNow, dateNaissance);
       int annees = Math.abs(period.getYears());
-      
       return Integer.toString(annees);
 
     } catch (Exception e) {
@@ -148,5 +145,5 @@ public class ZelliUtils {
       return "-1";
     }
   }
-  
+   
 }

@@ -10,8 +10,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id: 
-$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36 
-
+$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
 extra.Member.jcmsplugin.zelli.datenaissance:
@@ -19,6 +18,10 @@ extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
+
+# Comparator
+comparator.QuestionZelli.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator
+comparator.QuestionZelli.question: fr.digiwin.module.zelli.utils.QuestionZelliQuestionComparator
 
 # ----------------------
 # Logo app
@@ -120,4 +123,3 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
     jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle 
-
