@@ -23,6 +23,9 @@
     <field name="dateDeLaReponse" editor="date" required="false" compactDisplay="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short">
       <label xml:lang="fr">Date de la réponse</label>
     </field>
+    <field name="gestionnaire" editor="member" required="false" compactDisplay="false" type="com.jalios.jcms.Member" chooser="popup">
+      <label xml:lang="fr">Gestionnaire</label>
+    </field>
     <field name="remarque" editor="textfield" required="false" compactDisplay="false" type="String" searchable="true" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
       <label xml:lang="fr">Remarque</label>
     </field>

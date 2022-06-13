@@ -1,3 +1,7 @@
+# less
+channel.less.plugins/ZelliPlugin/css/plugin.css:    plugins/ZelliPlugin/css/plugin.less
+channel.css.all.ZelliPlugin.005:  plugins/ZelliPlugin/css/plugin.css
+
 # Catégories de navigation
 # TODO -> avoir un store comprenant les catégories utilisées plus tard pour compléter le fichier prop
 $jcmsplugin.zelli.category.navigationParThemes.root: 
@@ -18,6 +22,8 @@ extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
+jcmsplugin.zelli.simpledateformat.quand: dd/MM/yyyy à HH:mm
+pager.template.question: /plugins/ZelliPlugin/jsp/templates/questionPager.jsp
 
 # Comparator
 comparator.QuestionZelli.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator

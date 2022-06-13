@@ -13,7 +13,6 @@ public class QuestionZelliQuestionComparator extends BasicComparator<QuestionZel
   
   @Override
   public int compare(QuestionZelli p1, QuestionZelli p2) {
-    LOGGER.error(p1);System.out.println(p1);
     // object nullity check
     if (p1 == null) {
       return (p2 == null) ? 0 : -1;
@@ -22,10 +21,10 @@ public class QuestionZelliQuestionComparator extends BasicComparator<QuestionZel
      return 1;
     }
 
-    // Retrieve Article introduction
+    // Retrieve QuestionZelli question
     String t1 = p1.getQuestion(language);
     String t2 = p2.getQuestion(language);
-    LOGGER.debug(t1);
+
     if (t1 == null) {
      return (t2 == null) ? 0 : -1;
     }
@@ -35,8 +34,9 @@ public class QuestionZelliQuestionComparator extends BasicComparator<QuestionZel
 
     t1 = Util.unaccentuate(t1);
     t2 = Util.unaccentuate(t2);
-
+    LOGGER.debug(t1);
     int res = t1.compareToIgnoreCase(t2);
+    LOGGER.debug("res " + res + " q1 " + t1 + " q2 " + t2);
     if (res != 0) {
       return res;
     }

@@ -47,9 +47,10 @@ public class QuestionZelliDataController extends BasicDataController implements 
       
       if (!previousquestionZelli.getReponse().equals(questionZelli.getReponse())) {
         questionZelli.setDateDeLaReponse(new Date());
+        questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
         ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
         if (!status.isOK()) {
-          LOGGER.info("Date of the answer isn't save to " + questionZelli.getId());
+          LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
         }
       }
     }

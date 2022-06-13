@@ -1,61 +1,130 @@
-
-<%@page import="fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator"%>
 <%@ page contentType="text/html; charset=UTF-8"%><%
 %><%@ include file='/jcore/doInitPage.jspf' %><%
 %><%@ page import="fr.digiwin.module.zelli.utils.ZelliUtils"%><%
+%><%@ page import="com.jalios.jcms.tools.PackerUtils"%><%
 %><%@ page import="generated.QuestionZelli"%><%
 
-  if (!checkAccess("admin/reporting/")) {
-    sendForbidden(request, response);
-    return;
-  }
+String[] cssUrlArray = channel.getStringArrayProperty("jcmsplugin.socle.css-urls", new String[] {});
+List<String> cssUrlAList = Arrays.asList(cssUrlArray);
 
-  request.setAttribute("title", glp("jcmsplugin.zelli.lbl.admin.title"));
-  request.setAttribute("operationAdminMenu", "true");
+String packerVersion = Util.getString(PackerUtils.getPackVersion(), "");
+
+for(String itURL:cssUrlAList){%>
+    <link rel="stylesheet" href="<%=itURL%>?version=<%=packerVersion %>" media="all" />
+<%}
+    if(isLogged && loggedMember.belongsToGroup(channel.getGroup(SocleConstants.VISIBLE_TOPBAR_GROUP_PROP))){%>
+    <style>
+       .ds44-header{top:64px!important;}
+       .PortalMode .ds44-header{top:113px!important;}
+       .member-profile{margin-top:100px!important;}
+    </style>
+    <%}
+
+
+if (!checkAccess("admin/reporting/")) {
+  sendForbidden(request, response);
+  return;
+}
+request.setAttribute("title", glp("jcmsplugin.zelli.lbl.admin.title"));
+request.setAttribute("operationAdminMenu", "true");
+
 %>
 <%@ include file='/admin/doAdminHeader.jspf' %>
 
-<jalios:pager name='questionZellyHandler' declare='true' action='init' pageSize="50"/>
+<%
+DataSelector selectorQuery = null;
+String auteurParam = getAlphaNumParameter("auteur", "");
+if (auteurParam != "") {
+  Member mbr = channel.getMember(auteurParam);
+  selectorQuery = Member.getAuthorSelector(mbr);
+} 
+%>
+<jalios:pager   name='questionZellyHandler'
+                declare='true'
+                action='init'
+                pageSize="5"
+                sort="question"
+                pageSizes="5,10,15,20,25,30,35"/>
+                              
 <jalios:query   name="collection"
-                dataset="<%= channel.getDataSet(QuestionZelli.class)%>"
+                dataset="<%= channel.getDataSet(QuestionZelli.class)%>" 
+                selector='<%= selectorQuery %>'
                 comparator='<%= Publication.getComparator(questionZellyHandler.getSort(), questionZellyHandler.isReverse()) %>' />
-                
-                
-                
-                
-
  <%
- DataSelector selector = QuestionZelli.getCanWorkOnSelector(loggedMember);
- Comparator comparator = ComparatorManager.getComparator(QuestionZelli.class, "age");
- Set<QuestionZelli> questionZelliSet = JcmsUtil.select(collection, selector, comparator);
- System.out.println("vxv " + questionZelliSet);
-  %>
+ /*** TEST COMPARATOR CUSTOM **/
+ /*Comparator comparator = ComparatorManager.getComparator(QuestionZelli.class, "age");
+ Set<QuestionZelli> questionZelliSet = new TreeSet(comparator);
+ questionZelliSet.addAll(collection);
+ System.out.println("collection " + collection);
+ System.out.println("age " + questionZelliSet);
+ 
+ Comparator comparator2 = ComparatorManager.getComparator(QuestionZelli.class, "question");
+ Set<QuestionZelli> questionZelliSet2 =  new TreeSet(comparator2); // JcmsUtil.select(collection, null, comparator2);
+ questionZelliSet2.addAll(collection);
+ System.out.println("question " + questionZelliSet2);
+ */
+%>
+<jalios:pager   name='questionZellyHandler'
+                action='compute'
+                size='<%= collection.size() %>' />
+<%
+int questionsATraiter = 0;
+for (Object itObject : collection) {
+  if (itObject instanceof QuestionZelli && ((QuestionZelli)itObject).getPstatus() == -12) {
+    questionsATraiter ++;
+    }
+  }
+%>
+<ul class="ds44-collapser">
+    <li class="ds44-collapser_element">
+        <a href="admin/analytics/report/index.jsp"><%= glp("jcmsplugin.zelli.lbl.statistiques") %></a>
+    </li>
+    <li class="ds44-collapser_element">
+        <a href="plugins/ZelliPlugin/jsp/admin/exportCSVQuery.jsp"><%= glp("ui.com.btn.csv") %></a>
+    </li>
+</ul>
 
- 
- 
- 
- 
- 
-<jalios:pager name='questionZellyHandler' action='compute' size='<%= collection.size() %>' />
-
-<% int questionsATraiter = 0; %>
-<jalios:foreach collection="<%= collection %>" name="itQuestion" type="QuestionZelli">
-    <% if(itQuestion.getPstatus() == -12) { questionsATraiter ++; } %>
-</jalios:foreach>
 <%= glp("jcmsplugin.zelli.lbl.result", questionsATraiter) %>
-<a href="plugins/ZelliPlugin/questionsStat.jsp"><%= glp("jcmsplugin.zelli.lbl.statistiques") %></a>
-<a href="plugins/ZelliPlugin/questionsExport.jsp"><%= glp("ui.com.btn.csv") %></a>
-
 <table class="table">
   <thead>
     <tr>
 <!--  TODO Filter age and question fr.digiwin.module.zelli.utils -->
-      <th><jalios:pager name='questionZellyHandler' action='showSort' sort='pstatus' sortTitle='jcmsplugin.zelli.lbl.tableau.statut'/></th>
-      <th><jalios:pager name='questionZellyHandler' action='showSort' sort='cdate' sortTitle='jcmsplugin.zelli.lbl.tableau.quand'/></th>
-      <th><jalios:pager name='questionZellyHandler' action='showSort' sort='author' sortTitle='jcmsplugin.zelli.lbl.tableau.qui'/></th>
-<!--  TODO filtre de recherche sur le nom -->
-      <th><jalios:pager name='questionZellyHandler' action='showSort' sort='age' sortTitle='jcmsplugin.zelli.lbl.tableau.age'/></th>
-      <th><jalios:pager name='questionZellyHandler' action='showSort' sort='question' sortTitle='jcmsplugin.zelli.lbl.tableau.question'/></th>
+      <th><jalios:pager name='questionZellyHandler'
+                        action='showSort'
+                        sort='pstatus' 
+                        sortTitle='jcmsplugin.zelli.lbl.tableau.statut'/>
+      </th>
+      <th><jalios:pager name='questionZellyHandler'
+                        action='showSort'
+                        sort='cdate'
+                        sortTitle='jcmsplugin.zelli.lbl.tableau.quand'/>
+      </th>
+      <th><jalios:pager name='questionZellyHandler'
+                        action='showSort'
+                        sort='author'
+                        sortTitle='jcmsplugin.zelli.lbl.tableau.qui'/>
+       <form id="test" action="<%= ServletUtil.getUrl(request)%>">
+	      <jalios:field name="auteur">
+	           <jalios:control type="<%= ControlType.MEMBER %>" 
+	                           settings='<%= new MemberSettings().group(channel.getProperty("$jcmsplugin.zelli.groupe.utilisateurs.id")) %>'>
+	           </jalios:control>
+	      </jalios:field>
+ 	      <button type="submit" class="ds44-btnStd">
+ 	          <span class="ds44-btnInnerText">Filtrer</span>
+ 	          <i class="icon icon-long-arrow-right" aria-hidden="true"></i>
+ 	      </button>
+       </form>
+      </th>
+      <th><jalios:pager name='questionZellyHandler'
+                        action='showSort'
+                        sort='age'
+                        sortTitle='jcmsplugin.zelli.lbl.tableau.age'/>
+      </th>
+      <th><jalios:pager name='questionZellyHandler'
+                        action='showSort'
+                        sort='question'
+                        sortTitle='jcmsplugin.zelli.lbl.tableau.question'/>
+      </th>
       <th scope="col"><%= glp("jcmsplugin.zelli.lbl.tableau.ref") %></th>
       <th scope="col"><%= glp("jcmsplugin.zelli.lbl.tableau.reponse") %></th>
       <th scope="col"><%= glp("jcmsplugin.zelli.lbl.tableau.remarque") %></th>
@@ -70,14 +139,16 @@
        
        <jalios:buffer name="age">
         <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>'>
-            <%= ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>&nbsp;ans [
-            <%= itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance") %>]
+        <%=glp("jcmsplugin.zelli.lbl.datedenaissanceAge",
+          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))),
+          itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>
         </jalios:if>
        </jalios:buffer>
        
        <jalios:buffer name="reponse">
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
-	           <%= itQuestion.getReponse() %>
+	           <p><%= itQuestion.getReponse() %></p>
+	           <p>&#91;<jalios:date date="<%= itQuestion.getDateDeLaReponse() %>" format="dd/MM/yyyy"/>&#93;</p>
 	       </jalios:if>
 	       <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=reponse&redirectOnClosePopup=false&popupEdition=true&ws=<%= workspace.getId() %>" />
 	           <%= glp("jcmsplugin.zelli.lbl.admin.lbl.repondre") %>
@@ -96,15 +167,18 @@
 	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.commenter") %>
 	           </a></p>
 	       </jalios:if>
-	       <jalios:if predicate="<%= Util.isEmpty(itQuestion.getReponse()) %>">
-	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirect=<%= ServletUtil.getUrl(request) %>&pstatus=<%= itQuestion.getPstatus() %>">
-	               <%= glp("ui.com.btn.finish") %>
-	           </a></p>
+	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=2">
+	               <%= glp("ui.com.btn.finish") %></a>
+	           </p>
 	       </jalios:if>
        </jalios:buffer>
        <tr>
        <td><%= itQuestion.getWFStateLabel(userLang) %></td>
-       <td><jalios:date date="<%= itQuestion.getCdate() %>" format="dd/MM/yyyy 'à' HH:mm" nowifnull="false" /></td>
+       <td><jalios:date date="<%= itQuestion.getCdate() %>"
+                        format="dd/MM/yyyy 'à' HH:mm"
+                        nowifnull="false" />
+       </td>
        <td><%= itQuestion.getAuthor() %> </td>
        <td><%= age %></td>
        <td><%= itQuestion.getQuestion() %></td>
@@ -115,5 +189,6 @@
        </jalios:foreach>
   </tbody>
 </table>
-<jalios:pager name='questionZellyHandler' /> 
+<jalios:pager name='questionZellyHandler' template="question"/> 
+
 <%@ include file='/admin/doAdminFooter.jspf' %>
