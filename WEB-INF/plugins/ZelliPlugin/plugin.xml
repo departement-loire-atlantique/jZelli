@@ -466,15 +466,13 @@
   <!-- PORTLET_LOGIN_FORM_FOOTER Footer of the form in doPortletLoginFullDisplay.jsp -->
   <private-files>
     <directory path="properties" />
-    <file path="types\QuestionZelli\doEditQuestionZelliModal.jsp" />
-    <file path="types\QuestionZelli\doWorkspaceField.jspf" />
-    <file path="types\QuestionZelli\editQuestionZelliModal.jsp" />
   </private-files>
   <public-files>
     <directory path="js" />
     <directory path="css" />
     <directory path="docs" />
     <directory path="jsp" />
+    <directory path="types" />
     <!--    
     <directory path="images" />
     -->
