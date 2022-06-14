@@ -94,7 +94,7 @@ alert.msg.questionZelli.reponse.short-description: {data}
 # Admin>tableau de bord>questions
 jcmsplugin.zelli.lbl.admin.title: Questions-Réponses
 jcmsplugin.zelli.lbl.result: Il reste {0,choice,0#aucune question|1#une question|2#{0,number,integer} questions} à traiter.
-jcmsplugin.zelli.lbl.statistiques: statistiques
+jcmsplugin.zelli.lbl.statistiques: Statistiques
 jcmsplugin.zelli.lbl.tableau.statut: Statut
 jcmsplugin.zelli.lbl.tableau.quand: Quand
 jcmsplugin.zelli.lbl.tableau.qui: Qui

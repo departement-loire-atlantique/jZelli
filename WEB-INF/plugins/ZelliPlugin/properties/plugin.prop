@@ -26,8 +26,8 @@ jcmsplugin.zelli.simpledateformat.quand: dd/MM/yyyy à HH:mm
 pager.template.question: /plugins/ZelliPlugin/jsp/templates/questionPager.jsp
 
 # Comparator
-comparator.QuestionZelli.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator
-comparator.QuestionZelli.question: fr.digiwin.module.zelli.utils.QuestionZelliQuestionComparator
+comparator.Publication.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator
+comparator.Publication.question: fr.digiwin.module.zelli.utils.QuestionZelliQuestionComparator
 
 # ----------------------
 # Logo app

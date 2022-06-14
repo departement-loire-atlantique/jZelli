@@ -43,38 +43,18 @@ if (auteurParam != "") {
                 declare='true'
                 action='init'
                 pageSize="5"
-                sort="question"
                 pageSizes="5,10,15,20,25,30,35"/>
-                              
+
 <jalios:query   name="collection"
                 dataset="<%= channel.getDataSet(QuestionZelli.class)%>" 
                 selector='<%= selectorQuery %>'
-                comparator='<%= Publication.getComparator(questionZellyHandler.getSort(), questionZellyHandler.isReverse()) %>' />
- <%
- /*** TEST COMPARATOR CUSTOM **/
- /*Comparator comparator = ComparatorManager.getComparator(QuestionZelli.class, "age");
- Set<QuestionZelli> questionZelliSet = new TreeSet(comparator);
- questionZelliSet.addAll(collection);
- System.out.println("collection " + collection);
- System.out.println("age " + questionZelliSet);
- 
- Comparator comparator2 = ComparatorManager.getComparator(QuestionZelli.class, "question");
- Set<QuestionZelli> questionZelliSet2 =  new TreeSet(comparator2); // JcmsUtil.select(collection, null, comparator2);
- questionZelliSet2.addAll(collection);
- System.out.println("question " + questionZelliSet2);
- */
-%>
+                comparator='<%= ComparatorManager.getComparator(QuestionZelli.class, questionZellyHandler.getSort(), questionZellyHandler.isReverse()) %>' />
+
+<div class="ds44-form__container">
 <jalios:pager   name='questionZellyHandler'
                 action='compute'
                 size='<%= collection.size() %>' />
-<%
-int questionsATraiter = 0;
-for (Object itObject : collection) {
-  if (itObject instanceof QuestionZelli && ((QuestionZelli)itObject).getPstatus() == -12) {
-    questionsATraiter ++;
-    }
-  }
-%>
+
 <ul class="ds44-collapser">
     <li class="ds44-collapser_element">
         <a href="admin/analytics/report/index.jsp"><%= glp("jcmsplugin.zelli.lbl.statistiques") %></a>
@@ -84,7 +64,15 @@ for (Object itObject : collection) {
     </li>
 </ul>
 
-<%= glp("jcmsplugin.zelli.lbl.result", questionsATraiter) %>
+<%
+int questionsATraiter = 0;
+for (Object itObject : collection) {
+  if (itObject instanceof QuestionZelli && ((QuestionZelli)itObject).getPstatus() == -12) {
+    questionsATraiter ++;
+    }
+  }
+%>
+<p class="ds44-posRel"><%= glp("jcmsplugin.zelli.lbl.result", questionsATraiter) %></p>
 <table class="table">
   <thead>
     <tr>
@@ -103,16 +91,18 @@ for (Object itObject : collection) {
                         action='showSort'
                         sort='author'
                         sortTitle='jcmsplugin.zelli.lbl.tableau.qui'/>
-       <form id="test" action="<%= ServletUtil.getUrl(request)%>">
+       <form action="<%= ServletUtil.getUrl(request)%>">
 	      <jalios:field name="auteur">
 	           <jalios:control type="<%= ControlType.MEMBER %>" 
 	                           settings='<%= new MemberSettings().group(channel.getProperty("$jcmsplugin.zelli.groupe.utilisateurs.id")) %>'>
 	           </jalios:control>
 	      </jalios:field>
+	      <jalios:field>
  	      <button type="submit" class="ds44-btnStd">
  	          <span class="ds44-btnInnerText">Filtrer</span>
  	          <i class="icon icon-long-arrow-right" aria-hidden="true"></i>
  	      </button>
+ 	      </jalios:field>
        </form>
       </th>
       <th><jalios:pager name='questionZellyHandler'
@@ -190,5 +180,5 @@ for (Object itObject : collection) {
   </tbody>
 </table>
 <jalios:pager name='questionZellyHandler' template="question"/> 
-
+</div>
 <%@ include file='/admin/doAdminFooter.jspf' %>
