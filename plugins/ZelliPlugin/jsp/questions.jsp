@@ -42,8 +42,8 @@ if (auteurParam != "") {
 <jalios:pager   name='questionZellyHandler'
                 declare='true'
                 action='init'
-                pageSize="5"
-                pageSizes="5,10,15,20,25,30,35"/>
+                pageSize="50"
+                pageSizes="50,100,150,200,250,300,350,400"/>
 
 <jalios:query   name="collection"
                 dataset="<%= channel.getDataSet(QuestionZelli.class)%>" 
@@ -186,7 +186,7 @@ for (Object itObject : collection) {
 <jalios:select>
     <jalios:if predicate="<%= questionZellyHandler.getPageSize() < questionZellyHandler.getItemsNbr() %>">
             <p class="idNbResults"><%= glp("jcmsplugin.zelli.lbl.resultat.questionsAffichees", questionZellyHandler.getPageSize(), questionZellyHandler.getItemsNbr() )%></p>
-        <p><a   href="<%=  questionZellyHandler.getShowPageSizeURL(questionZellyHandler.getPageSize() + 5) %>" 
+        <p><a   href="<%=  questionZellyHandler.getShowPageSizeURL(questionZellyHandler.getPageSize() + Util.getInt(questionZellyHandler.getPageSizes(), 0, 50)) %>" 
                 title="<%= glp("ui.pager.all.long") %>"
                 class="ds44-btnStd ds44-btn--invert ds44-js-search-button"
                 data-jalios-ajax-refresh="nohistory noscroll nofocus">
