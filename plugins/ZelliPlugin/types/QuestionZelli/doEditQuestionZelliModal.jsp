@@ -17,6 +17,10 @@
 <jalios:field name="question" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("question") ? false : true %>'>
   <jalios:control />
 </jalios:field>
+<%-- Date de la question -------------------------------------------------- --%>
+<jalios:field label="Date de la question"> 
+    <input type="text" name="cdate" value="<jalios:date date="<%= formHandler.getPublication().getCdate() %>" format="dd/MM/YYYY' 'HH:mm"/>" class="form-control control-textfield form-control-value" disabled />
+</jalios:field>
 <%-- Referent ------------------------------------------------------------ --%>
 <jalios:field name="referent" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("referent") ? false : true %>'>
   <jalios:control />

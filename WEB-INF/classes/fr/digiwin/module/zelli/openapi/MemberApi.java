@@ -122,7 +122,7 @@ public class MemberApi extends JcmsRestResource {
       SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
       newMbr.setExtraData("extra.Member.jcmsplugin.zelli.datenaissance", sdf.format(dateNaissance));
       if (Util.notEmpty(CHANNEL.getGroup( "$jcms.zelli.groupe.utilisateurs.id"))) {
-        newMbr.addGroup(CHANNEL.getGroup("fde_5296"));
+        newMbr.addGroup(CHANNEL.getGroup("$jcms.zelli.groupe.utilisateurs.id"));
       }
       
       // TODO => les groupes et autorisations par défaut

@@ -10,6 +10,10 @@ import com.jalios.jcms.Channel;
 import com.jalios.jcms.ControllerStatus;
 import com.jalios.jcms.Data;
 import com.jalios.jcms.Member;
+import com.jalios.jcms.alert.Alert;
+import com.jalios.jcms.alert.Alert.Level;
+import com.jalios.jcms.alert.AlertBuilder;
+import com.jalios.jcms.alert.AlertQueryBuilder;
 import com.jalios.jcms.plugin.PluginComponent;
 import com.jalios.util.Util;
 
@@ -51,6 +55,9 @@ public class QuestionZelliDataController extends BasicDataController implements 
         ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
         if (!status.isOK()) {
           LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
+        } else {
+          AlertBuilder alertBuilder = new AlertBuilder(Level.INFO, "questionZelli", "reponse", questionZelli);
+          alertBuilder.sendAlert(questionZelli.getAuthor());
         }
       }
     }

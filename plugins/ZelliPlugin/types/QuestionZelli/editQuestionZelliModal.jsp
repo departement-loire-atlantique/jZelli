@@ -25,18 +25,17 @@ request.setAttribute("fieldEnable", fieldEnable);
 %><% formHandler.prepare(); %>
 <jalios:modal formHandler="<%= formHandler %>" url="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp">
 <div class="row QuestionZelli">
-  
   <%-- Workspace -------------------------------------------------------- --%>
-  <%@ include file="/plugins/ZelliPlugin/types/QuestionZelli/doWorkspaceField.jspf" %>
+<%--  <%@ include file="/plugins/ZelliPlugin/types/QuestionZelli/doWorkspaceField.jspf" %>  --%>
   
 	<%-- Title ------------------------------------------------------------ --%>
-	<% if (formHandler.isFieldEdition("title")) { %>
+<%--	<% if (formHandler.isFieldEdition("title")) { %>
 	
     <% TypeEntry titleTE = channel.getTypeEntry(formHandler.getPublicationClass()); %>
     <jalios:field name="title" css="focus" formHandler="<%= formHandler %>" disabled='<%= fieldEnable.contains("title") ? false : true %>'>
-      <jalios:control /> 
+      <jalios:control />
     </jalios:field>
-	<% } %>
+	<% } %>  --%>
 	<jalios:include jsp="plugins/ZelliPlugin/types/QuestionZelli/doEditQuestionZelliModal.jsp" />
 </div>
 </jalios:modal>
