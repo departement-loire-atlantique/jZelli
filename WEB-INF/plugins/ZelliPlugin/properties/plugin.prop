@@ -23,7 +23,6 @@ extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
 jcmsplugin.zelli.simpledateformat.quand: dd/MM/yyyy à HH:mm
-pager.template.question: /plugins/ZelliPlugin/jsp/templates/questionPager.jsp
 
 # Comparator
 comparator.Publication.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator

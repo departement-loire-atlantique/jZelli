@@ -62,6 +62,7 @@ if (auteurParam != "") {
     <li class="ds44-collapser_element">
         <a href="plugins/ZelliPlugin/jsp/admin/exportCSVQuery.jsp"><%= glp("ui.com.btn.csv") %></a>
     </li>
+
 </ul>
 
 <%
@@ -179,6 +180,23 @@ for (Object itObject : collection) {
        </jalios:foreach>
   </tbody>
 </table>
-<jalios:pager name='questionZellyHandler' template="question"/> 
+
+<%-- Pager infini --%>
+<div class="txtcenter center ds44--xl-padding-b ds44-js-search-pager">
+<jalios:select>
+    <jalios:if predicate="<%= questionZellyHandler.getPageSize() < questionZellyHandler.getItemsNbr() %>">
+            <p class="idNbResults"><%= glp("jcmsplugin.zelli.lbl.resultat.questionsAffichees", questionZellyHandler.getPageSize(), questionZellyHandler.getItemsNbr() )%></p>
+        <p><a   href="<%=  questionZellyHandler.getShowPageSizeURL(questionZellyHandler.getPageSize() + 5) %>" 
+                title="<%= glp("ui.pager.all.long") %>"
+                class="ds44-btnStd ds44-btn--invert ds44-js-search-button"
+                data-jalios-ajax-refresh="nohistory noscroll nofocus">
+           <span class="ds44-btnInnerText"><%=glp("jcmsplugin.zelli.lbl.resultat.plus") %></span><i class="icon icon-plus" aria-hidden="true"></i></a>
+        </p>
+    </jalios:if>
+    <jalios:default>
+        <p class="idNbResults"><%= glp("jcmsplugin.zelli.lbl.resultat.questionsAffichees", questionZellyHandler.getItemsNbr(), questionZellyHandler.getItemsNbr()) %></p>
+    </jalios:default>
+</jalios:select>
+</div>
 </div>
 <%@ include file='/admin/doAdminFooter.jspf' %>
