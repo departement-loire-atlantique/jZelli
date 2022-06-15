@@ -112,6 +112,7 @@
     <type name="ArticleASE"/>
     <type name="SousthemeASE"/>
     <type name="AlerteZelli"/>
+    <type name="QuestionZelli"/>
     
     <templates type="ArticleASE">
         <template name="default" file="doArticleASEFullDisplay.jsp" usage="full">
@@ -140,6 +141,7 @@
 -->
   <workflows>
     <workflow id="workflow_user_zelli" />
+    <workflow id="worflow_question_zelli" />
   </workflows>
   <!-- ========================== Classes and Jars ======================== -->
   <!--                                                                      -->
@@ -220,6 +222,7 @@
 -->
   <plugincomponents>
     <datacontroller class="fr.digiwin.module.zelli.dataControllers.AlerteZelliDataController" types="AlerteZelli" />
+    <datacontroller class="fr.digiwin.module.zelli.dataControllers.QuestionZelliDataController" types="QuestionZelli" />
   </plugincomponents>
   <!-- ============================= Hibernate ============================ -->
   <!--                                                                      -->
@@ -469,10 +472,11 @@
     <directory path="css" />
     <directory path="docs" />
     <directory path="jsp" />
+    <directory path="types" />
     <!--    
     <directory path="images" />
     -->
-
+    <file path='jsp/targets/reportingLink.jsp' include="ADMIN_REPORTING" />
   </public-files>
 </plugin>
 

@@ -1,3 +1,7 @@
+# less
+channel.less.plugins/ZelliPlugin/css/plugin.css:    plugins/ZelliPlugin/css/plugin.less
+channel.css.all.ZelliPlugin.005:  plugins/ZelliPlugin/css/plugin.css
+
 # Catégories de navigation
 # TODO -> avoir un store comprenant les catégories utilisées plus tard pour compléter le fichier prop
 $jcmsplugin.zelli.category.navigationParThemes.root: 
@@ -10,8 +14,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id: 
-$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36 
-
+$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
 extra.Member.jcmsplugin.zelli.datenaissance:
@@ -19,6 +22,11 @@ extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
+jcmsplugin.zelli.simpledateformat.quand: dd/MM/yyyy à HH:mm
+
+# Comparator
+comparator.Publication.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator
+comparator.Publication.question: fr.digiwin.module.zelli.utils.QuestionZelliQuestionComparator
 
 # ----------------------
 # Logo app
@@ -120,4 +128,3 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
     jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle 
-

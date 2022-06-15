@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow id='worflow_question_zelli' type='publish' init='-12' version='5' >
+
+  <label xml:lang='fr'>Worflow question Zelli</label>
+
+  <state pstatus='-12'	reminder='0' duration='0' targetPstatus='0' >
+    <label xml:lang='en'>Draft</label>
+    <label xml:lang='fr'>A traiter</label>
+    <description xml:lang='fr'>Le gestionnaire n&#39;a pas répondu à la question</description>
+  </state>
+
+  <state pstatus='-10' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='-2'	reminder='0' duration='0' targetPstatus='0' >
+    <label xml:lang='fr'>En attente</label>
+    <description xml:lang='fr'>Le gestionnaire a déjà vu la question mais a saisi une remarque avant de répondre à la question, par exemple pour penser à demander quelque chose à un collègue avant de répondre</description>
+  </state>
+
+  <state pstatus='0' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='2'	reminder='0' duration='0' targetPstatus='0' >
+    <label xml:lang='fr'>Traité</label>
+    <description xml:lang='fr'>Le gestionnaire a répondu à la question</description>
+  </state>
+
+  <state pstatus='6'	reminder='0' duration='0' targetPstatus='0' >
+    <label xml:lang='fr'>Terminé</label>
+    <description xml:lang='fr'>Le gestionnaire a répondu à la question et n’a pas été resollicité, il estime que l’échange est clos</description>
+  </state>
+
+  <state pstatus='10' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='20' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='1884' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+
+
+
+</workflow>

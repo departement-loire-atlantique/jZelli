@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="QuestionZelli" superclass="com.jalios.jcms.UserContent" categoryTab="false" readRightTab="false" updateRightTab="false" templateTab="false" workflowTab="true" advancedTab="true" database="true" hbm="true" revision="true">
+  <label xml:lang="fr">Question Zelli</label>
+  <title ml="false">
+    <label xml:lang="en">Title</label>
+    <label xml:lang="fr">Titre</label>
+  </title>
+  <fields>
+    <field name="question" editor="textfield" required="true" type="String" searchable="true" wysiwygConfigurationId="simple" ml="false" compactDisplay="false" descriptionType="tooltip" html="false" checkHtml="true" inline="true">
+      <label xml:lang="en">Description</label>
+      <label xml:lang="fr">Question</label>
+    </field>
+    <field name="referent" editor="boolean" required="false" compactDisplay="false" type="boolean" default="false" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true">
+      <label xml:lang="fr">Référent</label>
+      <onLabel xml:lang="en">Yes</onLabel>
+      <onLabel xml:lang="fr">Oui</onLabel>
+      <offLabel xml:lang="en">No</offLabel>
+      <offLabel xml:lang="fr">Non</offLabel>
+    </field>
+    <field name="reponse" editor="textfield" required="false" compactDisplay="false" type="String" searchable="true" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
+      <label xml:lang="fr">Réponse</label>
+    </field>
+    <field name="dateDeLaReponse" editor="date" required="false" compactDisplay="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short">
+      <label xml:lang="fr">Date de la réponse</label>
+    </field>
+    <field name="gestionnaire" editor="member" required="false" compactDisplay="false" type="com.jalios.jcms.Member" chooser="popup">
+      <label xml:lang="fr">Gestionnaire</label>
+    </field>
+    <field name="remarque" editor="textfield" required="false" compactDisplay="false" type="String" searchable="true" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
+      <label xml:lang="fr">Remarque</label>
+    </field>
+  </fields>
+</type>
+
