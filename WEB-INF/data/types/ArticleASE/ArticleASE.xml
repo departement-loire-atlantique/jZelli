@@ -30,14 +30,8 @@
     <field name="motsCompliques" editor="link" required="false" compactDisplay="false" type="generated.FaqEntry[]">
       <label xml:lang="fr">Mots compliqués</label>
     </field>
-    <field name="liensInternes" editor="link" required="false" compactDisplay="false" type="com.jalios.jcms.Content[]" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true" tabGroup="liensUtiles">
-      <label xml:lang="fr">Liens utiles (internes)</label>
-    </field>
-    <field name="liensExternes" editor="url" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" openWindow="false" descriptionType="tooltip" html="false" checkHtml="true" tabGroup="liensUtiles">
-      <label xml:lang="fr">Liens utiles (externes)</label>
-    </field>
-    <field name="libelleLien" editor="textfield" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="liensUtiles">
-      <label xml:lang="fr">Libellé lien</label>
+    <field name="liensUtiles" editor="link" required="false" compactDisplay="false" type="generated.Lien[]">
+      <label xml:lang="fr">Liens utiles</label>
     </field>
     <field name="fichesStructures" editor="link" required="false" compactDisplay="false" type="generated.Contact[]">
       <label xml:lang="fr">Fiches structures</label>
