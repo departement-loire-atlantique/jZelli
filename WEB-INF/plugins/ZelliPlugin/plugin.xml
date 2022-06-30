@@ -163,7 +163,9 @@
     <java package="com.example.jcmsplugin.zelli" />
   </java-classes>
  -->
- 
+  <jars>
+    <jar path="firebase-admin-9.0.0-shade.jar" />
+  </jars>
  <java-classes>
     <java package="fr.digiwin.module.zelli" />
   </java-classes>
