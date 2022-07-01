@@ -1,5 +1,7 @@
 package fr.digiwin.module.zelli.utils;
 
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -9,6 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.mail.MessagingException;
 
@@ -25,12 +28,14 @@ import com.jalios.jcms.Member;
 import com.jalios.jcms.authentication.handlers.AuthKeyAuthenticationHandler;
 import com.jalios.jcms.authentication.handlers.AuthKeyHints;
 import com.jalios.jcms.mail.MailMessage;
+import com.jalios.util.Util;
 
-import fr.digiwin.module.zelli.openapi.TokenApi;
+import generated.QuestionZelli;
 
 public class ZelliUtils {
   
   private static final Logger LOGGER = Logger.getLogger(ZelliUtils.class);
+  private static final Channel CHANNEL = Channel.getChannel();
   
   /**
    * Récupérer une Map<param,value> depuis une requête restlet
@@ -71,8 +76,8 @@ public class ZelliUtils {
     authKeyHints.setVersion("2");
     authKeyHints.setExpiration(System.currentTimeMillis() + duration);
     authKeyHints.setPrefixMode(true);
-    authKeyHints.setMethods("GET");
-    return AuthKeyAuthenticationHandler.getAuthKeyValue(Channel.getChannel().getUrl(), mbr, authKeyHints);
+    authKeyHints.setMethods("GET,PUT,POST,DELETE");
+    return AuthKeyAuthenticationHandler.getAuthKeyValue(CHANNEL.getUrl(), mbr, authKeyHints);
   }
 
   /**
@@ -96,17 +101,17 @@ public class ZelliUtils {
     String age = getAgeStrFromDateNaissance(dateNaissance);
     
     // récupération des membres gestionnaires
-    Group gestionnaires = Channel.getChannel().getGroup("$jcmsplugin.zelli.groupe.gestionnaires.id");
+    Group gestionnaires = CHANNEL.getGroup("$jcmsplugin.zelli.groupe.gestionnaires.id");
     
     for (Member itMember : gestionnaires.getMemberSet()) {
       // Création de l'email par membre
       MailMessage email = new MailMessage();
       email.setTo(itMember);
-      email.setSubject(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.object", tmpPseudo, age, Channel.getChannel().getCurrentUserLang()));
+      email.setSubject(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.object", tmpPseudo, age, CHANNEL.getCurrentUserLang()));
       if (isUtile) {
-        email.setContentHtml(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.utile.content", tmpPseudo, datePublication, contactReferent, maQuestion, maReponse, Channel.getChannel().getCurrentUserLang()));
+        email.setContentHtml(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.utile.content", tmpPseudo, datePublication, contactReferent, maQuestion, maReponse, CHANNEL.getCurrentUserLang()));
       } else {
-        email.setContentHtml(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.inutile.content", tmpPseudo, datePublication, contactReferent, maQuestion, maReponse, Channel.getChannel().getCurrentUserLang()));
+        email.setContentHtml(JcmsUtil.glp("jcmsplugin.zelli.email.gestionnaire.question.inutile.content", tmpPseudo, datePublication, contactReferent, maQuestion, maReponse, CHANNEL.getCurrentUserLang()));
       }
       
       try {
@@ -129,7 +134,7 @@ public class ZelliUtils {
    */
   public static String getAgeStrFromDateNaissance(String dateNaissanceStr) {
     
-    SimpleDateFormat sdf = new SimpleDateFormat(Channel.getChannel().getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
+    SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
     
     try {
       
@@ -140,7 +145,6 @@ public class ZelliUtils {
       // période entre les deux dates
       Period period = Period.between(dateNow, dateNaissance);
       int annees = Math.abs(period.getYears());
-      
       return Integer.toString(annees);
 
     } catch (Exception e) {
@@ -149,4 +153,73 @@ public class ZelliUtils {
     }
   }
   
+  /**
+   * Export CSV
+   * @param questionZelliSet
+   * @param lang
+   * @param out
+   */
+  public static void exportCSV(Set<QuestionZelli> questionZelliSet, String lang, Writer outFile) {
+    if (!Util.isEmpty(questionZelliSet) && outFile != null) {
+      PrintWriter printWriter = new PrintWriter(outFile);
+      printWriter.println(headerForCSV(lang));
+      Iterator<? extends QuestionZelli> itQuestionZelli = questionZelliSet.iterator();
+      while (true) {
+        while (itQuestionZelli.hasNext()) {
+          QuestionZelli var6 = (QuestionZelli) itQuestionZelli.next();
+          printWriter.println(toCSV(var6, lang));
+        }
+        return;
+      }
+    }
+  }
+  
+  /**
+   * Set header for CSV
+   * @param lang
+   * @return
+   */
+  private static String headerForCSV(String lang) {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.statut"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.quand"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.qui"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.age"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.question"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.ref"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.reponse"))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.glpd("jcmsplugin.zelli.lbl.tableau.remarque"))).append(';');
+
+    return stringBuilder.toString();
+  }
+
+  /**
+   * QuestionZelli to CSV
+   * @param questionZelli
+   * @param lang
+   * @return
+   */
+  private static String toCSV(QuestionZelli questionZelli, String lang) {
+    StringBuilder stringBuilderAge = new StringBuilder();
+    if (Util.notEmpty(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))) {
+      stringBuilderAge.append(getAgeStrFromDateNaissance(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")))
+        .append(" ans [")
+        .append(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))
+        .append("]");
+    }
+    
+    SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.quand"));
+        
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append(JcmsUtil.convertToCSV(lang, questionZelli.getWFStateLabel(lang))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, sdf.format(questionZelli.getCdate()))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, questionZelli.getAuthor().getFullName())).append(';')
+        .append(JcmsUtil.convertToCSV(lang, stringBuilderAge.toString())).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.unescapeHtml(questionZelli.getQuestion(lang)))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, questionZelli.getReferentLabel(lang))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.unescapeHtml(questionZelli.getReponse(lang)))).append(';')
+        .append(JcmsUtil.convertToCSV(lang, JcmsUtil.unescapeHtml(questionZelli.getRemarque(lang)))).append(';');
+    return stringBuilder.toString();
+  }
+   
 }

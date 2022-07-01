@@ -1,3 +1,7 @@
+# less
+channel.less.plugins/ZelliPlugin/css/plugin.css:    plugins/ZelliPlugin/css/plugin.less
+channel.css.all.ZelliPlugin.005:  plugins/ZelliPlugin/css/plugin.css
+
 # Catégories de navigation
 # TODO -> avoir un store comprenant les catégories utilisées plus tard pour compléter le fichier prop
 $jcmsplugin.zelli.category.navigationParThemes.root: 
@@ -10,14 +14,20 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id: 
-
+$jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
 extra.Member.jcmsplugin.zelli.datenaissance:
+extradb.Member.jcmsplugin.zelli.firebase.token:
 extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
+jcmsplugin.zelli.simpledateformat.quand: dd/MM/yyyy à HH:mm
+
+# Comparator
+comparator.Publication.age: fr.digiwin.module.zelli.utils.QuestionZelliAgeComparator
+comparator.Publication.question: fr.digiwin.module.zelli.utils.QuestionZelliQuestionComparator
 
 # ----------------------
 # Logo app
@@ -66,8 +76,23 @@ jcmsplugin.zelli.lbl.account.create.end.desc: Tu peux compléter ton profil, gé
 jcmsplugin.zelli.lbl.account.create.end.btn.profil: Compléter mon profil
 jcmsplugin.zelli.lbl.account.create.end.btn.next: Explorer les contenus
 
+# ----------------------
+# Login
+jcmsplugin.zelli.lbl.account.login: Me connecter
+jcmsplugin.zelli.lbl.account.login.subTitle: Pour te connecter, indique l’identifiant et le mot de passe que tu as choisis quand tu as créé ton compte.
+
+# ----------------------
+# Contact creation
+jcmsplugin.zelli.lbl.contact.create.titre: Ajouter un contact
+jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter tous tes contacts utiles pour ne pas les oublier.
+
+# ----------------------
+# New alerte
+jcmsplugin.zelli.lbl.newAlert: Créer une alerte
+jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
+
 # prop accessible publiquement
-jcmsplugin.zelli.prop.public:\
+    jcmsplugin.zelli.prop.public \
 	jcmsplugin.zelli.logo.app \
 	jcmsplugin.zelli.lbl.baseline \
 	jcmsplugin.zelli.lbl.btn.contenu.trieur \
@@ -97,5 +122,10 @@ jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.lbl.account.create.end \
 	jcmsplugin.zelli.lbl.account.create.end.desc \
 	jcmsplugin.zelli.lbl.account.create.end.btn.profil \
-	jcmsplugin.zelli.lbl.account.create.end.btn.next
-
+	jcmsplugin.zelli.lbl.account.create.end.btn.next \
+	jcmsplugin.zelli.lbl.account.login \
+	jcmsplugin.zelli.lbl.account.login.subTitle \
+    jcmsplugin.zelli.lbl.contact.create.titre \
+    jcmsplugin.zelli.lbl.contact.create.sousTitre \
+	jcmsplugin.zelli.lbl.newAlert \
+	jcmsplugin.zelli.lbl.newAlert.subTitle 

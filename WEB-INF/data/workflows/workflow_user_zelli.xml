@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow id='workflow_user_zelli' type='publish' init='2' version='5' >
+
+  <label xml:lang='fr'>Workflow user Zelli</label>
+
+  <state pstatus='-10' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='0' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='2'	reminder='0' duration='0' targetPstatus='0' color='#4caf50' >
+    <label xml:lang='fr'>Créé</label>
+  </state>
+
+  <state pstatus='10' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='20' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+  <state pstatus='1884' reminder='0' duration='0' targetPstatus='0' >
+  </state>
+
+
+
+
+</workflow>
