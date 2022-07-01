@@ -7,6 +7,7 @@ import com.jalios.jcms.Data;
 import com.jalios.jcms.Member;
 import com.jalios.util.Util;
 
+import fr.digiwin.module.zelli.firebase.FirebaseMng;
 import generated.AlerteZelli;
 
 public class AlerteZelliDataController extends BasicDataController {
@@ -20,8 +21,8 @@ public class AlerteZelliDataController extends BasicDataController {
 		AlerteZelli alerte = (AlerteZelli) data;
 		AlerteZelli alerteOld = (AlerteZelli) ctx.get(CTXT_PREVIOUS_DATA);
 
-		if (Util.notEmpty(alerteOld) && alerte.getPstatus() == 10 && alerteOld.getPstatus() != 10) {
-			//TODO send alert Firebase
+		if (Util.notEmpty(alerteOld) && alerte.getPstatus() == 10 && alerteOld.getPstatus() != 10 && alerte.getSendalert()) {
+		    FirebaseMng.getInstance().sendMessage(alerte.getAuthor(), alerte.getTitle(), alerte.getDescription());
 		}
 	}
 

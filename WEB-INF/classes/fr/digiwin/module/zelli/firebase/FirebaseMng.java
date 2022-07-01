@@ -11,6 +11,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
+import com.google.firebase.messaging.WebpushConfig;
+import com.google.firebase.messaging.WebpushNotification;
+import com.google.firebase.messaging.WebpushNotification.Action;
 import com.jalios.jcms.Member;
 import com.jalios.util.Util;
 
@@ -38,6 +41,18 @@ public class FirebaseMng {
         }
         return INSTANCE;
     }
+    
+    /**
+     */
+    public void sendMessage(Message message) {
+        try {
+            String response = FirebaseMessaging.getInstance().send(message);
+            // Response is a message ID string.
+            System.out.println("Successfully sent message: " + response);
+        } catch (FirebaseMessagingException e) {
+            LOGGER.error(e.getStackTrace());
+        }
+    }
 
     /**
      * 
@@ -53,21 +68,20 @@ public class FirebaseMng {
                 .setNotification(notif)
                 .setToken(userToken)
                 .build();
-        try {
-            String response = FirebaseMessaging.getInstance().send(message);
-            // Response is a message ID string.
-            System.out.println("Successfully sent message: " + response);
-        } catch (FirebaseMessagingException e) {
-            LOGGER.error(e.getStackTrace());
-        }
+        
+        this.sendMessage(message);
     }
 
     public void sendMessage(Member mbr, String title, String body) {
-        String token = mbr.getExtraData("extradb.Member.jcmsplugin.zelli.firebase.token");
+        String token = this.getToken(mbr);
         if (Util.notEmpty(token)) {
             this.sendMessage(token, title, body);
         } else {
             LOGGER.debug("No token set for member : " + mbr);
         }
+    }
+    
+    public String getToken(Member mbr) {
+        return mbr.getExtraData("extradb.Member.jcmsplugin.zelli.firebase.token");
     }
 }
