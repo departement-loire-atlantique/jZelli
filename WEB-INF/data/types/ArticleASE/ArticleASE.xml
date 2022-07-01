@@ -33,7 +33,7 @@
     <field name="liensUtiles" editor="link" required="false" compactDisplay="false" type="generated.Lien[]">
       <label xml:lang="fr">Liens utiles</label>
     </field>
-    <field name="fichesStructures" editor="link" required="false" compactDisplay="false" type="generated.Contact[]">
+    <field name="fichesStructures" editor="link" required="false" compactDisplay="false" type="com.jalios.jcms.Content[]" ml="false" descriptionType="tooltip" searchable="false" html="false" checkHtml="true" superTypes="generated.Contact generated.FicheLieu">
       <label xml:lang="fr">Fiches structures</label>
     </field>
     <field name="saisieLibre" editor="wysiwyg" required="false" compactDisplay="false" type="String" searchable="false" rows="16" cols="100" ml="true" wysiwygConfigurationId="" checkHtml="true" inline="true">
