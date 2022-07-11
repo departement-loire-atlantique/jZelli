@@ -41,9 +41,7 @@ public class MemberApi extends JcmsRestResource {
     super(ctxt, request, response);
     
     // vérifier l'accès à l'édition / création de membres
-    if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
-            && !JcmsUtil.isSameId(getLoggedMember(), CHANNEL.getMemberFromLogin("API"))) {
+    if (Util.isEmpty(getLoggedMember())) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }

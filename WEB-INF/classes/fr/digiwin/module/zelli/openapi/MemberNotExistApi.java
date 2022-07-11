@@ -32,9 +32,7 @@ public class MemberNotExistApi extends JcmsRestResource {
 
     // vérifier l'accès à l'édition / création de membres
     // L'API doit posséder au moins une ACL de création de membres 
-    if (Util.isEmpty(getLoggedMember())
-        || (!JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin((String) getRequest().getAttributes().get("memberLogin"), true)))
-            && !JcmsUtil.isSameId(getLoggedMember(), Channel.getChannel().getMemberFromLogin("API"))) {
+    if (Util.isEmpty(getLoggedMember())) {
       response.setStatus(Status.CLIENT_ERROR_UNAUTHORIZED);
       return;
     }
