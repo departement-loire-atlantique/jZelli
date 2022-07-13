@@ -24,6 +24,8 @@ doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
 doc.rest.rsrc-meth.PropApi: GET
 doc.rest.rsrc-desc./plugins/zelli/prop/{prop}: 
+doc.rest.rsrc-meth.ThemeColor: GET
+doc.rest.rsrc-desc./plugins/zelli/themeColor/{id}: 
 
 # ----------------------
 # Logo app
