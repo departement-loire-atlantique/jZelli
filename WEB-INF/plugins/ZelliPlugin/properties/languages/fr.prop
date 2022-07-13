@@ -23,7 +23,7 @@ doc.rest.rsrc-desc./plugins/zelli/member/pwd/{memberLogin}: GET permet de savoir
 doc.rest.rsrc-meth.NotificationApi: POST
 doc.rest.rsrc-desc./plugins/zelli/notify/questionAlert/{questionId}: Envoie un email aux membres du groupe gestionnaire pour les informer de si une question a été utile ou pas.
 doc.rest.rsrc-meth.PropApi: GET
-doc.rest.rsrc-desc./plugins/zelli/prop/{prop}: 
+doc.rest.rsrc-desc./plugins/zelli/prop/{prop}:
 
 # ----------------------
 # Logo app
@@ -63,7 +63,7 @@ jcmsplugin.zelli.lbl.account.create.step2.date.month: Etape 2 champ mois
 jcmsplugin.zelli.lbl.account.create.step2.date.year: Etape 2 champ année
 # Step 3
 jcmsplugin.zelli.lbl.account.create.step3: Etape 3 titre
-jcmsplugin.zelli.lbl.account.create.step3.display: Etape 2 bouton mdp 
+jcmsplugin.zelli.lbl.account.create.step3.display: Etape 2 bouton mdp
 jcmsplugin.zelli.lbl.account.create.step3.pwdF: Etape 3 champ
 jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirmes
 # End
@@ -109,3 +109,7 @@ jcmsplugin.zelli.lbl.admin.lbl.commenter: Commenter
 jcmsplugin.zelli.lbl.datedenaissanceAge: {0,choice,0#0 an|1#1 an|2#{0} ans} [{1}]
 jcmsplugin.zelli.lbl.resultat.questionsAffichees: {0,choice,0#0 question affichée|1#1 question affichée|2#{0} questions affichées} sur {1}
 jcmsplugin.zelli.lbl.resultat.plus: Plus de résultats
+
+# ----------------------
+# Search
+jcmsplugin.zelli.lbl.search.subTitle: Sous-titre page recherche
