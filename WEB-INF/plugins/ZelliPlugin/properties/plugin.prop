@@ -91,6 +91,10 @@ jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter to
 jcmsplugin.zelli.lbl.newAlert: Créer une alerte
 jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
 
+# ----------------------
+# Search
+jcmsplugin.zelli.lbl.search.subTitle: 
+
 # prop accessible publiquement
     jcmsplugin.zelli.prop.public \
 	jcmsplugin.zelli.logo.app \
@@ -125,7 +129,8 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
 	jcmsplugin.zelli.lbl.account.login.subTitle \
-    jcmsplugin.zelli.lbl.contact.create.titre \
-    jcmsplugin.zelli.lbl.contact.create.sousTitre \
+  jcmsplugin.zelli.lbl.contact.create.titre \
+  jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
-	jcmsplugin.zelli.lbl.newAlert.subTitle 
+	jcmsplugin.zelli.lbl.newAlert.subTitle \
+	jcmsplugin.zelli.lbl.search.subTitle 
