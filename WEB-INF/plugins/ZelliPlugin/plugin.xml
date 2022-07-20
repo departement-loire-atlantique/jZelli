@@ -255,6 +255,7 @@
     <resource class="fr.digiwin.module.zelli.openapi.MemberNotExistApi" uriTemplate="/plugins/zelli/member/notexist/{memberLogin}" />
     <resource class="fr.digiwin.module.zelli.openapi.NotificationApi" uriTemplate="/plugins/zelli/notify/questionAlert/{questionId}" />
     <resource class="fr.digiwin.module.zelli.openapi.PropApi" uriTemplate="/plugins/zelli/prop/{prop}" />
+    <resource class="fr.digiwin.module.zelli.openapi.ThemeColor" uriTemplate="/plugins/zelli/themeColor/{id}" />
   </openapi>
   <!-- ===================== Private/Public/Webapp files ================== -->
   <!--                                                                      -->
