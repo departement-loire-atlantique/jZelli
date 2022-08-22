@@ -69,7 +69,7 @@ jcmsplugin.zelli.lbl.account.create.step2.date.year: Date de naissance : Année 
 jcmsplugin.zelli.lbl.account.create.step3: Choisis ton mot de passe
 jcmsplugin.zelli.lbl.account.create.step3.display: Afficher le contenu saisi dans le champ : 
 jcmsplugin.zelli.lbl.account.create.step3.pwdF: Mot de passe
-jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Confirmes ton mot de passe
+jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Confirme ton mot de passe
 # End
 jcmsplugin.zelli.lbl.account.create.end: C’est bon, ton inscription sur Zelli est faite !
 jcmsplugin.zelli.lbl.account.create.end.desc: Tu peux compléter ton profil, gérer ta liste de contacts, poser des questions via l’appli ou t’envoyer des alertes personnalisées.

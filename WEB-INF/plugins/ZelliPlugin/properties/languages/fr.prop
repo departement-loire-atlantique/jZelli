@@ -67,7 +67,7 @@ jcmsplugin.zelli.lbl.account.create.step2.date.year: Etape 2 champ année
 jcmsplugin.zelli.lbl.account.create.step3: Etape 3 titre
 jcmsplugin.zelli.lbl.account.create.step3.display: Etape 2 bouton mdp
 jcmsplugin.zelli.lbl.account.create.step3.pwdF: Etape 3 champ
-jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirmes
+jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirme
 # End
 jcmsplugin.zelli.lbl.account.create.end: Validation titre
 jcmsplugin.zelli.lbl.account.create.end.desc: Validation desc
