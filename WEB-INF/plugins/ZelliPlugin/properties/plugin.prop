@@ -95,6 +95,11 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
 # Search
 jcmsplugin.zelli.lbl.search.subTitle: 
 
+# ----------------------
+# pwd Reset
+jcmsplugin.zelli.lbl.account.pwdReset.title: Titre de la page de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.subTitle: Sous titre de la page de réinitialisation du mot de passe
+
 # prop accessible publiquement
     jcmsplugin.zelli.prop.public \
 	jcmsplugin.zelli.logo.app \
@@ -133,4 +138,6 @@ jcmsplugin.zelli.lbl.search.subTitle:
   jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle \
-	jcmsplugin.zelli.lbl.search.subTitle 
+	jcmsplugin.zelli.lbl.search.subTitle \
+	jcmsplugin.zelli.lbl.account.pwdReset.title \
+	jcmsplugin.zelli.lbl.account.pwdReset.subTitle

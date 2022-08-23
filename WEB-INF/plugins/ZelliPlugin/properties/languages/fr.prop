@@ -115,3 +115,8 @@ jcmsplugin.zelli.lbl.resultat.plus: Plus de résultats
 # ----------------------
 # Search
 jcmsplugin.zelli.lbl.search.subTitle: Sous-titre page recherche
+
+# ----------------------
+# pwd Reset
+jcmsplugin.zelli.lbl.account.pwdReset.title: Réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.subTitle:
