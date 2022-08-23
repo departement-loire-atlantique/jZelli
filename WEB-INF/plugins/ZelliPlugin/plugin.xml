@@ -484,5 +484,9 @@
     -->
     <file path='jsp/targets/reportingLink.jsp' include="ADMIN_REPORTING" />
   </public-files>
+  <webapp-files>
+    <!-- TODO Sup socle for 10sp5 + -->
+    <file path="jcore/doEmptyFooter.jspf" />
+  </webapp-files>
 </plugin>
 
