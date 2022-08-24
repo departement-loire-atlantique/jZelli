@@ -26,6 +26,8 @@ doc.rest.rsrc-meth.PropApi: GET
 doc.rest.rsrc-desc./plugins/zelli/prop/{prop}: 
 doc.rest.rsrc-meth.ThemeColor: GET
 doc.rest.rsrc-desc./plugins/zelli/themeColor/{id}: 
+doc.rest.rsrc-meth.ResetPasswordApi: GET
+doc.rest.rsrc-desc./plugins/zelli/member/reset/pwd/{memberLogin}: 
 
 # ----------------------
 # Logo app
@@ -120,3 +122,7 @@ jcmsplugin.zelli.lbl.search.subTitle: Sous-titre page recherche
 # pwd Reset
 jcmsplugin.zelli.lbl.account.pwdReset.title: Réinitialisation du mot de passe
 jcmsplugin.zelli.lbl.account.pwdReset.subTitle:
+jcmsplugin.zelli.email.pwd.reset.subject: Réinitialisation du mot de passe Zelli
+jcmsplugin.zelli.email.pwd.reset.msg: Bonjour,\n\
+	Une demande de réinitialisation de mot de passe a été effectué pour votre compte Zelli.\n\
+	Nouveaux mot de passe : {0}
