@@ -120,8 +120,10 @@ jcmsplugin.zelli.lbl.search.subTitle: Sous-titre page recherche
 
 # ----------------------
 # pwd Reset
-jcmsplugin.zelli.lbl.account.pwdReset.title: Réinitialisation du mot de passe
-jcmsplugin.zelli.lbl.account.pwdReset.subTitle:
+jcmsplugin.zelli.lbl.account.pwdReset.title: Titre de la page de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.subTitle: Sous titre de la page de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.is.ok: Message de succès de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.is.ko: Message d'erreur de réinitialisation du mot de passe
 jcmsplugin.zelli.email.pwd.reset.subject: Réinitialisation du mot de passe Zelli
 jcmsplugin.zelli.email.pwd.reset.msg: Bonjour,\n\
 	Une demande de réinitialisation de mot de passe a été effectué pour votre compte Zelli.\n\
