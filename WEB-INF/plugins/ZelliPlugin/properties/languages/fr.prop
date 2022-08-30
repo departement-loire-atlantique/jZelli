@@ -26,6 +26,8 @@ doc.rest.rsrc-meth.PropApi: GET
 doc.rest.rsrc-desc./plugins/zelli/prop/{prop}: 
 doc.rest.rsrc-meth.ThemeColor: GET
 doc.rest.rsrc-desc./plugins/zelli/themeColor/{id}: 
+doc.rest.rsrc-meth.ResetPasswordApi: GET
+doc.rest.rsrc-desc./plugins/zelli/member/reset/pwd/{memberLogin}: 
 
 # ----------------------
 # Logo app
@@ -67,7 +69,7 @@ jcmsplugin.zelli.lbl.account.create.step2.date.year: Etape 2 champ année
 jcmsplugin.zelli.lbl.account.create.step3: Etape 3 titre
 jcmsplugin.zelli.lbl.account.create.step3.display: Etape 2 bouton mdp
 jcmsplugin.zelli.lbl.account.create.step3.pwdF: Etape 3 champ
-jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirmes
+jcmsplugin.zelli.lbl.account.create.step3.pwdConfirm: Etape 3 champ confirme
 # End
 jcmsplugin.zelli.lbl.account.create.end: Validation titre
 jcmsplugin.zelli.lbl.account.create.end.desc: Validation desc
@@ -115,3 +117,14 @@ jcmsplugin.zelli.lbl.resultat.plus: Plus de résultats
 # ----------------------
 # Search
 jcmsplugin.zelli.lbl.search.subTitle: Sous-titre page recherche
+
+# ----------------------
+# pwd Reset
+jcmsplugin.zelli.lbl.account.pwdReset.title: Titre de la page de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.subTitle: Sous titre de la page de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.is.ok: Message de succès de réinitialisation du mot de passe
+jcmsplugin.zelli.lbl.account.pwdReset.is.ko: Message d'erreur de réinitialisation du mot de passe
+jcmsplugin.zelli.email.pwd.reset.subject: Réinitialisation du mot de passe Zelli
+jcmsplugin.zelli.email.pwd.reset.msg: Bonjour,\n\
+	Une demande de réinitialisation de mot de passe a été effectué pour votre compte Zelli.\n\
+	Nouveaux mot de passe : {0}

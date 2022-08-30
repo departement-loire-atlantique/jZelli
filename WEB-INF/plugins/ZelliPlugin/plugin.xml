@@ -256,6 +256,7 @@
     <resource class="fr.digiwin.module.zelli.openapi.NotificationApi" uriTemplate="/plugins/zelli/notify/questionAlert/{questionId}" />
     <resource class="fr.digiwin.module.zelli.openapi.PropApi" uriTemplate="/plugins/zelli/prop/{prop}" />
     <resource class="fr.digiwin.module.zelli.openapi.ThemeColor" uriTemplate="/plugins/zelli/themeColor/{id}" />
+    <resource class="fr.digiwin.module.zelli.openapi.ResetPasswordApi" uriTemplate="/plugins/zelli/member/reset/pwd/{memberLogin}" />
   </openapi>
   <!-- ===================== Private/Public/Webapp files ================== -->
   <!--                                                                      -->
@@ -479,5 +480,9 @@
     -->
     <file path='jsp/targets/reportingLink.jsp' include="ADMIN_REPORTING" />
   </public-files>
+  <webapp-files>
+    <!-- TODO Sup socle for 10sp5 + -->
+    <file path="jcore/doEmptyFooter.jspf" />
+  </webapp-files>
 </plugin>
 
