@@ -1,6 +1,6 @@
 <p>
   <a href="https://app.travis-ci.com/github/departement-loire-atlantique/jZelli">
-    <img src="https://api.travis-ci.com/departement-loire-atlantique/jZelli.svg?branch=main" />
+    <img src="https://api.travis-ci.com/departement-loire-atlantique/jZelli.svg?branch=master" />
   </a>
   <a href="https://sonarcloud.io/organizations/departement-loire-atlantique">
     <img src="https://sonarcloud.io/api/project_badges/measure?project=departement-loire-atlantique_jZelli&metric=ncloc" />
