@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%><%
 %><%@ include file='/jcore/doInitPage.jspf' %><%
 %><%@ page import="fr.digiwin.module.zelli.utils.ZelliUtils"%><%
+%><%@ page import="fr.digiwin.module.zelli.utils.ZelliManager"%><%
 %><%@ page import="com.jalios.jcms.tools.PackerUtils"%><%
 %><%@ page import="generated.QuestionZelli"%><%
+
 
 String[] cssUrlArray = channel.getStringArrayProperty("jcmsplugin.socle.css-urls", new String[] {});
 List<String> cssUrlAList = Arrays.asList(cssUrlArray);
@@ -21,16 +23,23 @@ for(String itURL:cssUrlAList){%>
     <%}
 
 
-if (!checkAccess("admin/reporting/")) {
+/* if (!checkAccess("admin/reporting/")) {
   sendForbidden(request, response);
   return;
+} */
+if (!ZelliManager.getInstance().canUseTdb(loggedMember)) {
+	sendForbidden(request, response);
+	return;  
 }
 request.setAttribute("title", glp("jcmsplugin.zelli.lbl.admin.title"));
 request.setAttribute("operationAdminMenu", "true");
 
+if (checkAccess("admin/reporting/")) {
+	%><%@ include file='/admin/doAdminHeader.jspf' %><%
+} else {
+	%><%@ include file='/work/doWorkHeader.jspf' %><%
+}
 %>
-<%@ include file='/admin/doAdminHeader.jspf' %>
-
 <%
 DataSelector selectorQuery = null;
 String auteurParam = getAlphaNumParameter("auteur", "");

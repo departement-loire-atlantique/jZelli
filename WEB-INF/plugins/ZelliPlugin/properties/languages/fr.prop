@@ -128,3 +128,20 @@ jcmsplugin.zelli.email.pwd.reset.subject: Réinitialisation du mot de passe Zell
 jcmsplugin.zelli.email.pwd.reset.msg: Bonjour,\n\
 	Une demande de réinitialisation de mot de passe a été effectué pour votre compte Zelli.\n\
 	Nouveaux mot de passe : {0}
+	
+
+# ------------------------------------------------------------
+# ACL
+# ------------------------------------------------------------
+acl.resource.plugins: Modules
+acl.resource.plugins/zelli: Zelli
+acl.resource.plugins/zelli/can-use-tdb: Utiliser le tableau de bord questions réponses
+
+# ------------------------------------------------------------
+# Shortcut
+data.$id.shortcut.jcmsplugin.tbd-questions-reponses.title: Questions Réponses
+data.$id.shortcut.jcmsplugin.tbd-questions-reponses.text: Tableau de bord des questions réponses
+
+
+
+

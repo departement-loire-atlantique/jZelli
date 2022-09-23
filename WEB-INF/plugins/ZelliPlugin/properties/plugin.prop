@@ -95,6 +95,18 @@ jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu 
 # Search
 jcmsplugin.zelli.lbl.search.subTitle: 
 
+# ------------------------------------------------------------
+# ACL
+# ------------------------------------------------------------
+acl.resource.plugins: 
+acl.resource.plugins/zelli:
+acl.resource.plugins/zelli/can-use-tdb:
+
+# ------------------------------------------------------------
+# Shortcut
+shortcut.jcmsplugin.tbd-questions-reponses.icon: plugins/ZelliPlugin/images/icon-questions-reponses.png 
+shortcut.jcmsplugin.tbd-questions-reponses.link: plugins/ZelliPlugin/jsp/questions.jsp
+
 # ----------------------
 # pwd Reset
 jcmsplugin.zelli.lbl.account.pwdReset.title: Réinitialisation du mot de passe
