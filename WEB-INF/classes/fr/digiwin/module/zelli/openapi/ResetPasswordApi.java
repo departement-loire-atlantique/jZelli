@@ -120,8 +120,8 @@ public class ResetPasswordApi extends JcmsRestResource {
             		// get token
     	        	CloseableHttpClient httpClient = HttpClientUtils.newHttpClient();
 
-    	            String login = URLEncoder.encode(channel.getProperty("jcmsplugin.zelli.login-orange"), "UTF-8");
-    	            String password = URLEncoder.encode(channel.getProperty("jcmsplugin.zelli.pwd-orange"), "UTF-8");
+    	            String login = URLEncoder.encode(log, "UTF-8");
+    	            String password = URLEncoder.encode(pwd, "UTF-8");
     	            
     	            HttpPost postToken = new HttpPost(URL_API + "oauth/token?username=" + login + "&password=" + password);
     	            HttpResponse responseToken = httpClient.execute(postToken);
