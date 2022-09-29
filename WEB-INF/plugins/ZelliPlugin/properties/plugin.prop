@@ -114,6 +114,10 @@ jcmsplugin.zelli.lbl.account.pwdReset.subTitle:
 jcmsplugin.zelli.lbl.account.pwdReset.is.ok: Le nouveau mot de passe va être envoyé par mail ou par SMS. Si tu n'as pas saisi une de ces deux informations dans ton profil, contacte un administrateur.
 jcmsplugin.zelli.lbl.account.pwdReset.is.ko: Une erreur est survenue. Merci de contacter un administrateur.
 
+#login SMS Orange
+jcmsplugin.zelli.login-orange:
+jcmsplugin.zelli.pwd-orange.pwd:
+
 # prop accessible publiquement
     jcmsplugin.zelli.prop.public:\
 	jcmsplugin.zelli.logo.app \

@@ -130,6 +130,10 @@ jcmsplugin.zelli.email.pwd.reset.msg: Bonjour,\n\
 	Nouveaux mot de passe : {0}
 	
 
+#login SMS Orange
+jcmsplugin.zelli.login-orange: Login API Orange SMS
+jcmsplugin.zelli.pwd-orange: Mot de passe API Orange SMS
+
 # ------------------------------------------------------------
 # ACL
 # ------------------------------------------------------------
