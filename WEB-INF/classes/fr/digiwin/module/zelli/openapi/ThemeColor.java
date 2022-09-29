@@ -91,7 +91,7 @@ public class ThemeColor extends JcmsRestResource {
     }
 
     protected String getColor(Category cat) {
-        if (cat.getParent().equals(this.catTheme)) {
+        if (!Util.isEmpty(cat) && !Util.isEmpty(cat.getParent()) && cat.getParent().equals(this.catTheme)) {
             return cat.getColor();
         }
 
