@@ -115,6 +115,7 @@ public class MemberApi extends JcmsRestResource {
       newMbr.setPassword(CHANNEL.crypt(decodedPwd));
       newMbr.setUsage(0); // 0 = utilisateur, 1 = contact
       newMbr.setName(decodedLogin);
+      newMbr.addGroup(channel.getDefaultGroup());
       // date de naissance. On reçoit un timestamp en millisecondes
       Date dateNaissance = new Date(Long.parseLong(params.get("dateNaissance")));
       SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
