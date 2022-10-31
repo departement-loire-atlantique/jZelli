@@ -90,6 +90,7 @@ jcmsplugin.zelli.lbl.contact.create.sousTitre: Sous-titre page ajouter un contac
 # New alerte
 jcmsplugin.zelli.lbl.newAlert: Titre page nouvelle alert
 jcmsplugin.zelli.lbl.newAlert.subTitle: Sous-titre page nouvelle alert
+jcmsplugin.zelli.lbl.newAlert.conditions.link: Page des conditions d'utilisation 
 alert.name.questionZelli: Question Zelli
 alert.name.questionZelli.reponse: Réponse à ta question
 alert.msg.questionZelli.reponse.title: Une réponse a été donnée à ta question
