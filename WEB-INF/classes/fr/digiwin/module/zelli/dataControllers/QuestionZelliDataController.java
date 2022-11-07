@@ -50,12 +50,15 @@ public class QuestionZelliDataController extends BasicDataController implements 
       Object dataPrevious = context.get(CTXT_PREVIOUS_DATA);
       
       if (Util.isEmpty(dataPrevious)) {
+    	questionZelli.setDateDeLaReponse(new Date());
+        questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
         return;
       }
       
       QuestionZelli previousquestionZelli = (QuestionZelli) dataPrevious;
       
-      if (!previousquestionZelli.getReponse().equals(questionZelli.getReponse())) {
+      if ((Util.notEmpty(previousquestionZelli.getReponse()) ^ Util.notEmpty(questionZelli.getReponse())) || 
+    		  (!previousquestionZelli.getReponse().equals(questionZelli.getReponse()))) {
         questionZelli.setDateDeLaReponse(new Date());
         questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
         ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());

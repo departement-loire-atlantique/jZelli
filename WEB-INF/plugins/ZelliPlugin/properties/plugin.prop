@@ -17,7 +17,7 @@ $jcmsplugin.zelli.groupe.gestionnaires.id:
 $jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
-extra.Member.jcmsplugin.zelli.datenaissance:
+extradb.Member.jcmsplugin.zelli.datenaissance:
 extradb.Member.jcmsplugin.zelli.firebase.token:
 extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 
@@ -90,6 +90,7 @@ jcmsplugin.zelli.lbl.contact.create.sousTitre: Ici, tu peux créer et ajouter to
 # New alerte
 jcmsplugin.zelli.lbl.newAlert: Créer une alerte
 jcmsplugin.zelli.lbl.newAlert.subTitle: Tu as beaucoup de choses à faire et tu ne veux rien oublier ? Crée tes alertes personnalisées !
+jcmsplugin.zelli.lbl.newAlert.conditions.link.chooser-publication: 
 
 # ----------------------
 # Search
@@ -152,10 +153,11 @@ jcmsplugin.zelli.pwd-orange.pwd:
 	jcmsplugin.zelli.lbl.account.create.end.btn.next \
 	jcmsplugin.zelli.lbl.account.login \
 	jcmsplugin.zelli.lbl.account.login.subTitle \
-  jcmsplugin.zelli.lbl.contact.create.titre \
-  jcmsplugin.zelli.lbl.contact.create.sousTitre \
+  	jcmsplugin.zelli.lbl.contact.create.titre \
+  	jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle \
+	jcmsplugin.zelli.lbl.newAlert.conditions.link \ 
 	jcmsplugin.zelli.lbl.search.subTitle \
 	jcmsplugin.zelli.lbl.account.pwdReset.title \
 	jcmsplugin.zelli.lbl.account.pwdReset.subTitle
