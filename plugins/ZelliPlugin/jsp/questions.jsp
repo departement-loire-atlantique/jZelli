@@ -179,7 +179,7 @@ for (Object itObject : collection) {
                         format="dd/MM/yyyy 'à' HH:mm"
                         nowifnull="false" />
        </td>
-       <td><%= itQuestion.getAuthor() %> </td>
+       <td><%= itQuestion.getAuthor() %></td>
        <td><%= age %></td>
        <td><%= itQuestion.getQuestion() %></td>
        <td><%= itQuestion.getReferentLabel(userLang) %></td>

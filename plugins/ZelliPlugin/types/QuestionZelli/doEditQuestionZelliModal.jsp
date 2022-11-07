@@ -13,6 +13,14 @@
   ServletUtil.backupAttribute(pageContext, "classBeingProcessed");
   request.setAttribute("classBeingProcessed", generated.QuestionZelli.class);
 %>
+<%-- Pseudo ------------------------------------------------------------ --%>
+<jalios:field label="Qui">
+  <input  type="text"
+            name="author"
+            value="<%= formHandler.getPublication().getAuthor() %>"
+            class="form-control control-textfield form-control-value"
+            disabled />
+</jalios:field>
 <%-- Question ------------------------------------------------------------ --%>
 <jalios:field name="question" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("question") ? false : true %>'>
   <jalios:control />
@@ -32,7 +40,7 @@
 </jalios:field>
 <%-- Reponse ------------------------------------------------------------ --%>
 <jalios:field name="reponse" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("reponse") ? false : true %>'>
-  <jalios:control />
+  <jalios:control type="<%= ControlType.TEXTAREA  %>" />
 </jalios:field>
 <%-- DateDeLaReponse ------------------------------------------------------------ --%>
 <jalios:field name="dateDeLaReponse" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("dateDeLaReponse") ? false : true %>'>
@@ -40,7 +48,7 @@
 </jalios:field>
 <%-- Remarque ------------------------------------------------------------ --%>
 <jalios:field name="remarque" formHandler="<%= formHandler %>" disabled='<%= request.getAttribute("fieldEnable").toString().contains("remarque") ? false : true %>'>
-  <jalios:control />
+  <jalios:control type="<%= ControlType.TEXTAREA  %>" />
 </jalios:field>
 <% if (formHandler.getPublication() != null) { %>
 <input type="hidden" name="id" value="<%= formHandler.getPublication().getId() %>" />
