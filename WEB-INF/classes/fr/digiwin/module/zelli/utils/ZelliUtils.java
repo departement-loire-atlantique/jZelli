@@ -201,10 +201,10 @@ public class ZelliUtils {
    */
   private static String toCSV(QuestionZelli questionZelli, String lang) {
     StringBuilder stringBuilderAge = new StringBuilder();
-    if (Util.notEmpty(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))) {
-      stringBuilderAge.append(getAgeStrFromDateNaissance(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")))
+    if (Util.notEmpty(questionZelli.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance"))) {
+      stringBuilderAge.append(getAgeStrFromDateNaissance(questionZelli.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance")))
         .append(" ans [")
-        .append(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))
+        .append(questionZelli.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance"))
         .append("]");
     }
     
