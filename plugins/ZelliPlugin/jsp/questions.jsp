@@ -138,10 +138,10 @@ for (Object itObject : collection) {
                        skip='<%= questionZellyHandler.getStart() %>'>
        
        <jalios:buffer name="age">
-        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>'>
+        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>'>
         <%=glp("jcmsplugin.zelli.lbl.datedenaissanceAge",
-          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))),
-          itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>
+          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance"))),
+          itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>
         </jalios:if>
        </jalios:buffer>
        
@@ -152,7 +152,7 @@ for (Object itObject : collection) {
 	       </jalios:if>
 	       <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=reponse&redirectOnClosePopup=false&popupEdition=true&ws=<%= workspace.getId() %>" />
 	           <%= glp("jcmsplugin.zelli.lbl.admin.lbl.repondre") %>
-	       </a></p>  
+	       </a></p> 
        </jalios:buffer>
        
        <jalios:buffer name="remarque">
@@ -167,6 +167,11 @@ for (Object itObject : collection) {
 	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.commenter") %>
 	           </a></p>
 	       </jalios:if>
+	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getRemarque()) %>">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=-2">
+	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.attente") %></a>
+	           </p>
+	       </jalios:if>
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
 	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=2">
 	               <%= glp("ui.com.btn.finish") %></a>
@@ -179,7 +184,7 @@ for (Object itObject : collection) {
                         format="dd/MM/yyyy 'à' HH:mm"
                         nowifnull="false" />
        </td>
-       <td><%= itQuestion.getAuthor() %> </td>
+       <td><%= itQuestion.getAuthor() %></td>
        <td><%= age %></td>
        <td><%= itQuestion.getQuestion() %></td>
        <td><%= itQuestion.getReferentLabel(userLang) %></td>
