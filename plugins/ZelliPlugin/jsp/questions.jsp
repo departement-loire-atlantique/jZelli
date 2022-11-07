@@ -167,6 +167,11 @@ for (Object itObject : collection) {
 	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.commenter") %>
 	           </a></p>
 	       </jalios:if>
+	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getRemarque()) %>">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=-2">
+	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.attente") %></a>
+	           </p>
+	       </jalios:if>
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
 	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=2">
 	               <%= glp("ui.com.btn.finish") %></a>

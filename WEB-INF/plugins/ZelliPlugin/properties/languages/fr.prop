@@ -111,6 +111,7 @@ jcmsplugin.zelli.lbl.tableau.reponse: Réponse
 jcmsplugin.zelli.lbl.tableau.remarque: Remarque
 jcmsplugin.zelli.lbl.admin.lbl.repondre: Répondre
 jcmsplugin.zelli.lbl.admin.lbl.commenter: Commenter
+jcmsplugin.zelli.lbl.admin.lbl.attente: En attente
 jcmsplugin.zelli.lbl.datedenaissanceAge: {0,choice,0#0 an|1#1 an|2#{0} ans} [{1}]
 jcmsplugin.zelli.lbl.resultat.questionsAffichees: {0,choice,0#0 question affichée|1#1 question affichée|2#{0} questions affichées} sur {1}
 jcmsplugin.zelli.lbl.resultat.plus: Plus de résultats
