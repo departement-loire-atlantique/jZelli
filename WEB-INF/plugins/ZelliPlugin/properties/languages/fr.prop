@@ -2,6 +2,7 @@
 extradb.Member.jcmsplugin.zelli.datenaissance: Date de naissance JJ/MM/AAAA
 extradb.Member.jcmsplugin.zelli.firebase.token: Token firebase
 extra.Category.jcmsplugin.zelli.contenu.trieur: Id du contenu trieur
+extra.Category.jcmsplugin.zelli.blob: Icône blob
 
 #Group
 $jcmsplugin.zelli.groupe.utilisateurs.id: Groupe par défaut des membres de Zelli

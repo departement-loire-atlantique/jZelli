@@ -20,6 +20,7 @@ $jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 extradb.Member.jcmsplugin.zelli.datenaissance:
 extradb.Member.jcmsplugin.zelli.firebase.token:
 extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
+extra.Category.jcmsplugin.zelli.blob.chooser-media :
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
