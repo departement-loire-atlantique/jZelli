@@ -1,0 +1,831 @@
+# ----------------------------------------------------------------------
+# This file uses the UTF-8 encoding.
+# ----------------------------------------------------------------------
+
+channel.name: JPlatform 10
+channel.url: http://localhost:8080/zelli/
+channel.default-email:
+channel.sign-up: false
+channel.sign-up-validation-required: false
+channel.sign-up-create-dbmember: true
+channel.sign.form:
+channel.charter: false
+channel.is-authentication-required: false
+channel.ssl.enabled: false
+channel.ssl.port: 443
+channel.urid: c
+channel.default-group: j_36
+channel.default-admin: j_2
+channel.default-author:
+channel.java-compiler: internal
+channel.lock-timeout: 60
+channel.keywords:
+channel.description:
+channel.default-show-adminicon: true
+channel.login-casesensitive: true
+channel.login-accentsensitive: true
+channel.devadmin:
+channel.devadmin.enabled: false
+channel.admin-ip:
+channel.workspaces-ip:
+channel.data-write.enabled: true
+channel.data-write.msg:
+channel.gzip-filter.enabled: false
+channel.dev-mode.enabled: true
+channel.dev-tools.enabled: true
+channel.webdav.enabled: true
+channel.webdav.ip-filter:
+channel.webdav.custom-protocol.enabled: false
+channel.webdav.use-http-digest-auth: false
+channel.headless: true
+channel.check-file-exists: true
+channel.js-packer.enabled: true
+channel.js-packer.compressor.enabled: true
+channel.js-packer.compressor.line-break: -1
+channel.js-packer.compressor.munge: true
+channel.js-packer.compressor.preserve-semi: false
+channel.js-packer.compressor.disable-optimizations: false
+channel.js-packer.compressor.verbose: false
+channel.css-packer.enabled: true
+channel.css-packer.compressor.enabled: true
+channel.css-packer.compressor.line-break: -1
+channel.packer.cache-expiration: 10
+channel.chromeframe.enabled: false
+channel.main-plugin:
+channel.main-plugin.check-at-startup: true
+$channel.tag-root:
+
+bug-report.email: jcms-report@jalios.com
+review.default-rating: 1
+file-document.remove-file: true
+major-update.default: false
+jx.rss.enabled: true
+
+# ----------------------------------------------------------------------
+# Member profile
+# ----------------------------------------------------------------------
+
+member.photo.upload: true
+member.email.visible: true
+member.status.visible: true
+
+# ----------------------------------------------------------------------
+# Database
+# ----------------------------------------------------------------------
+channel.jcmsdb: derby
+
+channel.jcmsdb.disable-data-write-if-no-connection: false
+
+# -1 means to find a free port
+derby.port: -1
+
+# Derby backup
+derby.backup.enabled: true
+derby.backup.schedule: 00 03 * * * *
+derby.backup.max: 10
+derby.network-enabled: false
+
+hibernate.cfg.mysql.prop.hibernate.connection.url: jdbc:mysql://localhost:3306/jcmsdb?jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=UTF-8&useSSL=false&sendFractionalSeconds=false
+hibernate.cfg.mysql.prop.hibernate.connection.username: jcms
+hibernate.cfg.mysql.prop.hibernate.connection.password: REVTMzo=GD7Q2xGfa9E=
+hibernate.cfg.mysql.prop.hibernate.connection.datasource:
+
+hibernate.cfg.oracle-xe.prop.hibernate.connection.url: jdbc:oracle:thin:@localhost:1521:XE
+hibernate.cfg.oracle-xe.prop.hibernate.connection.username: jcms
+hibernate.cfg.oracle-xe.prop.hibernate.connection.password: REVTMzo=GD7Q2xGfa9E=
+hibernate.cfg.oracle-xe.prop.hibernate.connection.datasource:
+
+hibernate.cfg.oracle.prop.hibernate.connection.url: jdbc:oracle:thin:@host:port:SID
+hibernate.cfg.oracle.prop.hibernate.connection.username: jcms
+hibernate.cfg.oracle.prop.hibernate.connection.password: REVTMzo=GD7Q2xGfa9E=
+hibernate.cfg.oracle.prop.hibernate.connection.datasource:
+
+# Caching Properties
+hibernate.cfg.common.prop.hibernate.cache.use_second_level_cache: true
+hibernate.cfg.common.prop.hibernate.cache.use_query_cache: true
+
+# ----------------------------------------------------------------------
+# Database - Connection Pooling (c3p0) properties
+# ----------------------------------------------------------------------
+# http://www.mchange.com/projects/c3p0/
+#
+
+hibernate.cfg.common.prop.hibernate.connection.provider_class: org.hibernate.connection.C3P0ConnectionProvider
+
+# -- Basic Pool Configuration - size of the pool and growth
+# http://www.mchange.com/projects/c3p0/#basic_pool_configuration
+#
+# (c3p0.maxPoolSize) 200-800 : Maximum number of Connections a pool will maintain at any given time
+# Match the maximum number of simultaneous incoming requests that can be handled on app server
+# tomcat 8.5 default maxThreads (http or ajp connector) = 200 (often modified to 400 or 800, generally 200*CPU#)
+hibernate.cfg.common.prop.hibernate.c3p0.max_size: 200
+# (c3p0.minPoolSize) 10-100 : Minimum number of Connections a pool will maintain at any given time
+hibernate.cfg.common.prop.hibernate.c3p0.min_size: 10
+# (c3p0.acquireIncrement) 5-25 : how many connections at a time c3p0 will try to acquire when the pool is exhausted.
+# in case of hight load, there might be several simultaneous request, and the pool may grow several
+# times this value (Regardless of acquireIncrement, the pool will never allow maxPoolSize to be exceeded.)
+hibernate.cfg.common.prop.hibernate.c3p0.acquire_increment: 5
+
+# -- Connection Testing
+# http://www.mchange.com/projects/c3p0/#configuring_connection_testing
+#
+# (c3p0.idleConnectionTestPeriod) test all idle, pooled but unchecked-out connections, every this number of seconds
+# In our case, test idle every 5 minutes. may also be used as a kind of "keepalive" on connections : if RDBMS or a network component has an idleTimeout, set this value lower
+hibernate.cfg.common.prop.hibernate.c3p0.idle_test_period: 293
+# (c3p0.testConnectionOnCheckin) If true, an operation will be performed asynchronously at every connection checkin to verify that the connection is valid. Use in combination with idleConnectionTestPeriod for quite reliable, always asynchronous Connection testing
+# Allow immediate removal of a failed connection from the pool.
+hibernate.cfg.common.prop.hibernate.c3p0.testConnectionOnCheckin: true
+# (c3p0.preferredTestQuery) Defines the query that will be executed for all connection tests.
+# Depends on the RDBMS : use "SELECT 1 FROM DUAL" for Oracle
+hibernate.cfg.common.prop.hibernate.c3p0.preferredTestQuery: SELECT 1
+#hibernate.cfg.common.prop.hibernate.c3p0.preferredTestQuery: SELECT 1 FROM DUAL
+
+# -- Configuring Statement Pooling
+# http://www.mchange.com/projects/c3p0/#configuring_statement_pooling
+#
+# (c3p0.maxStatements) The size of c3p0's global PreparedStatement cache.
+# In our use case : the overhead of statement pooling can slightly harm performance => Disable:0
+hibernate.cfg.common.prop.hibernate.c3p0.max_statements: 0
+
+# -- Managing Pool Size and Connection Age
+# http://www.mchange.com/projects/c3p0/#managing_pool_size
+#
+# (c3p0.maxIdleTimeExcessConnections) Number of seconds that Connections in excess of min_size (minPoolSize) should be permitted to remain idle in the pool before being culled.
+# Allow removal of connection when load decrease (30min=1800s)
+hibernate.cfg.common.prop.hibernate.c3p0.maxIdleTimeExcessConnections: 1801
+# (c3p0.maxIdleTime) Seconds a Connection can remain pooled but unused before being discarded.
+# Setting this timeout is discourage as it force useless connections renewal, leave it to 0
+# With 'idle_test_period' (idleConnectionTestPeriod) configured, session should never expired on RDBMS.
+# If 'idle_test_period' (idleConnectionTestPeriod) is removed, then time out must be configured for the idleTimeout of the RDBMS, 28800 (8hours) by default in MySQL/PostgreSQL, (other DB do not seem to have a default limit)
+hibernate.cfg.common.prop.hibernate.c3p0.timeout: 0
+# (c3p0.maxConnectionAge) Seconds, effectively a time to live. A Connection older than maxConnectionAge will be destroyed and purged from the pool.
+hibernate.cfg.common.prop.hibernate.c3p0.maxConnectionAge: 0
+# Warning : if timeout (maxIdleTime) or maxConnectionAge is used, it is recommended to set a low min_size (minPoolSize) to prevent many simultaneous connection renewals leading to temporary pool instability.
+
+# -- Other DataSource Configuration
+# http://www.mchange.com/projects/c3p0/#other_ds_configuration
+#
+# (c3p0.checkoutTimeout) - The number of milliseconds a client calling getConnection() will wait for a Connection to be checked-in or acquired when the pool is exhausted.
+# Zero means wait indefinitely. Setting any positive value will cause the getConnection() call to time-out and break with an SQLException after the specified number of milliseconds.
+# Under heavy peak load we may need 5500, usually checkout is under 500.
+hibernate.cfg.common.prop.hibernate.c3p0.checkoutTimeout: 5507
+
+# - DEBUG -
+# Use those two properties for debugging of database connection leak only - see bug JCMS-3377
+#hibernate.cfg.common.prop.hibernate.c3p0.unreturnedConnectionTimeout: 300
+#hibernate.cfg.common.prop.hibernate.c3p0.debugUnreturnedConnectionStackTraces: true
+
+# ----------------------------------------------------------------------
+# Languages, Country and TimeZone
+# ----------------------------------------------------------------------
+
+# The default language should not be changed. Nevertheless, if it must
+# be changed, the store, the types and the workflows must be updated.
+channel.default-lang: fr
+
+# The country must be an ISO 3166 country code supported by the Java Locale implementation
+channel.default-country: FR
+
+channel.languages: fr,en
+
+channel.lang.use-advanced-i18n: true
+channel.lang.rtl-languages: ar,fa,iw,ur
+
+channel.default-timezone: Europe/Paris
+
+# ----------------------------------------------------------------------
+# Deploy Manager
+# ----------------------------------------------------------------------
+
+deploy-mgr.enabled: false
+
+# Should sibbling webapps (in same directory than the DM) be managed
+deploy-mgr.sibling-webapps: true
+
+# Other webapps to be managed (a list of absolute path)
+# deploy-mgr.webapps: \
+# /my/path/for/webapp1 \
+# /my/path/for/webapp2
+
+# Custom regexp to ignore directories/files when downloading work copy
+# e.g: (my_webapp_directory_to_ignore.*)|(some_dir/myfile_to_ignore\.dat)
+deploy-mgr.copy-ignore:
+
+
+# ----------------------------------------------------------------------
+# Query
+# ----------------------------------------------------------------------
+
+# Search / Refine / Advanced Refine root categories (a space-separated list of category id)
+query.refine-roots:
+query.adv-refine-roots:
+query.search-roots:
+query.default.types-off:
+query.default.types-facet-off:
+query.sort.fo: relevance
+query.sort.bo: mdate
+query.sort.mbr.fo: name
+query.sort.mbr.topbar: relevance
+query.facets.ugcs: false
+
+# Facet box states (0=no, 1=yes, 2=closed)
+query.facets.categories: 2
+query.facets.tags: 2
+query.facets.date: 2
+query.facets.docs: 2
+query.facets.types: 2
+query.facets.lang: 2
+query.facets.pstatus: 0
+query.facets.author: 2
+
+query.facets.visible: true
+query.facets.advanced: false
+query.facets.ajax: false
+query.facets.text.cat: false
+query.facets.text.file: false
+
+# ----------------------------------------------------------------------
+# SMTP Server
+# ----------------------------------------------------------------------
+
+mail.enabled: true
+mail.smtp.host: localhost
+mail.smtp.port: 25
+mail.smtp.login:
+mail.smtp.password:
+
+# ----------------------------------------------------------------------
+# Forward Proxy
+# ----------------------------------------------------------------------
+
+# Common settings for HTTP and HTTPS forward proxy
+http.proxy.enabled: false
+http.nonProxyHosts:
+# HTTP forward proxy
+http.proxyHost:
+http.proxyPort:
+http.proxy.login:
+http.proxy.password:
+# HTTPS forward proxy
+https.proxyHost:
+https.proxyPort:
+https.proxy.login:
+https.proxy.password:
+
+# ----------------------------------------------------------------------
+# LDAP Configuration
+# ----------------------------------------------------------------------
+
+# Defines the default configuration to access the LDAP Server
+
+ldap.enabled: false
+ldap.synchronize.enable: true
+ldap.synchronize-auth.enable: true
+ldap.synchronize.create-dbmbr: false
+ldap.synchronize-groups.enable: false
+ldap.periodic-sync.enabled: false
+ldap.periodic-sync.schedule: 30 2 * * 1 *
+ldap.server.ssl: false
+ldap.server.hostname: ldap.example.com
+ldap.server.port: 389
+ldap.server.login: uid=jcms,ou=People,dc=example,dc=com
+ldap.server.password: REVTMzo=GD7Q2xGfa9E=
+ldap.server.sizelimit: 100
+ldap.server.timelimit: 0
+ldap.server.version: 3
+ldap.server.suffix: ou=People,dc=example,dc=com
+ldap.server.userfilter: (&(objectClass=posixAccount)(uid={0}))
+ldap.server.userobjectclass: posixAccount
+ldap.server.groupsuffix: ou=Groups,dc=example,dc=com
+ldap.server.groupfilter: (&(objectClass=posixGroup)(memberUid={0}))
+ldap.server.groupobjectclass: posixGroup
+ldap.mapping.login: uid
+ldap.mapping.name: sn
+ldap.mapping.f-name: givenName
+ldap.mapping.salut:
+ldap.mapping.organization: organizationName
+ldap.mapping.department: department
+ldap.mapping.job: title
+ldap.mapping.mail: mail
+ldap.mapping.phone: telephoneNumber
+ldap.mapping.mobile: mobile
+ldap.mapping.street: street
+ldap.mapping.postalCode: postalCode
+ldap.mapping.postOfficeBox: postOfficeBox
+ldap.mapping.region: st
+ldap.mapping.locality: l
+ldap.mapping.country: c
+ldap.mapping.address: postalAddress
+ldap.mapping.info: description
+ldap.grp-mapping.name: cn
+ldap.grp-mapping.member: memberUid
+ldap.grp-mapping.uuid:
+
+# ----------------------------------------------------------------------
+# Cache Manager
+# ----------------------------------------------------------------------
+
+cache-mgr.enabled: true
+cache-mgr.max-servers-cache-nbr: 1000
+
+# ----------------------------------------------------------------------
+# Notification
+# ----------------------------------------------------------------------
+
+notification.enabled: true
+
+# ----------------------------------------------------------------------
+# Workspace
+# ----------------------------------------------------------------------
+
+channel.default-workspace: j_4
+
+# Forum bound to publication are created in the workspace of the publication.
+# Use this property, to force a dedicated workspace for those forums.
+#$id.pub-forum.default-workspace:
+
+# ----------------------------------------------------------------------
+# Portal
+# ----------------------------------------------------------------------
+
+channel.default-index: j_6
+channel.default-portal: j_206
+channel.default-printportal: j_55
+channel.app-portal: j_231
+display.navigate-root:
+$id.favorite-ws-root:
+
+# ----------------------------------------------------------------------
+# Reverse Proxy
+# ----------------------------------------------------------------------
+
+channel.reverse-proxy.enabled: false
+channel.reverse-proxy.conf1.ip-addresses: 192.168.0.1, 192.168.0.2
+channel.reverse-proxy.conf1.context-path: /cms
+channel.reverse-proxy.conf1.base-url: http://intranet.example.com/
+channel.reverse-proxy.conf1.ssl-base-url: https://intranet.example.com/
+channel.reverse-proxy.conf2.ip-addresses:
+channel.reverse-proxy.conf2.context-path:
+channel.reverse-proxy.conf2.base-url:
+channel.reverse-proxy.conf2.ssl-base-url:
+
+# ----------------------------------------------------------------------
+# JSync
+# ----------------------------------------------------------------------
+jsync.enabled: false
+jsync.replica-url:
+jsync.leader-url:
+jsync.startup-join: 5
+jsync.can-be-joined: true
+jsync.can-leader-join: true
+jsync.update-mode: auto
+jsync.stab-delay: 10
+jsync.sync-files: false
+jsync.max-op: 100
+jsync.max-delay: 1000
+jsync.ip:
+jsync.explicit-replica-list:
+jsync.replica-startup-join: 0
+
+# ----------------------------------------------------------------------
+# Authentication Cookie
+# ----------------------------------------------------------------------
+
+cookie.max-age: 31536000
+auth-mgr.allow-admin-cookie: true
+auth-mgr.persistent.show-option: true
+auth-mgr.persistent.default-value: false
+
+# ----------------------------------------------------------------------
+# Audience Rights
+# ----------------------------------------------------------------------
+
+audience-rigths.enabled: false
+audience-rigths.axes:
+
+# ----------------------------------------------------------------------
+# Store backup
+# ----------------------------------------------------------------------
+
+store.backup.enabled: true
+
+# A cron-like schedule
+# Examples:
+# 30 04 * * * * : Every days at 04h30 AM
+# 30 04 * * 1 * : Every sunday at 04h30 AM
+# 30 04 1 * * * : The first of the month at 04h30 AM
+store.backup.schedule: 00 03 * * * *
+
+# How many backups are kept
+store.backup.max: 10
+
+# By default, backups are saved in WEB-INF/data/backup. You can specify
+# a custom backup directory with an absolute path
+# store.backup.dir:
+
+# ----------------------------------------------------------------------
+# Import Manager
+# ----------------------------------------------------------------------
+import-mgr.enabled: false
+
+# The author for the imported publication (default is admin)
+$id.import-mgr.import-author:
+
+# The workspace for the imported publication (default is Default Workspace)
+$id.import-mgr.import-ws:
+
+# The root category for imported categories (default is "Import")
+$id.import-mgr.import-root:
+
+# Connection timeout (in seconds)
+import-mgr.connection.timeout: 5
+
+# ----------------------------------------------------------------------
+# Export Manager
+# ----------------------------------------------------------------------
+export-mgr.enabled: false
+
+# Authorized IPs
+export-mgr.ipfilter: 127.0.0.1 0:0:0:0:0:0:0:1 192.168.*
+
+# Export Source URL (defaut is channel's URL)
+# export-mgr.source-url:
+
+# Max exported data (default is MAX_INTEGER (2^31 - 1))
+# export-mgr.max-data:
+
+# ----------------------------------------------------------------------
+# Export Raw Data Properties
+# ----------------------------------------------------------------------
+exportRawData.clean-schedule: 0 0 * * * *
+exportRawData.retention-period: 3600
+
+# ----------------------------------------------------------------------
+# Templates
+# ----------------------------------------------------------------------
+
+# Default templates used when no templates found for given usage
+# Before this step JCMS test template declared un Type.xml
+
+# jcms.resource.default-template:        custom/jcms/doDisplay.jsp
+# jcms.resource.default-template.full:   custom/jcms/doFullDisplay.jsp
+# jcms.resource.default-template.box:    custom/jcms/doBoxDisplay.jsp
+# jcms.resource.default-template.query:  custom/jcms/doQueryDisplay.jsp
+
+# ----------------------------------------------------------------------
+# SmallDevices
+# ----------------------------------------------------------------------
+
+# small-device.home:        custom/jcms/indexPDA.jsp
+# small-device.home.IPhone: custom/jcms/indexIPhone.jsp
+
+
+# ----------------------------------------------------------------------
+# REST Open API
+# ----------------------------------------------------------------------
+
+rest.enabled: true
+rest.readaccess.enabled: true
+rest.readaccess.ipfilter: .*
+rest.writeaccess.enabled: true
+rest.writeaccess.ipfilter: .*
+# rest.stats.enabled: false
+
+# ----------------------------------------------------------------------
+# INCOMING Email
+# ----------------------------------------------------------------------
+
+# Inboud Suffix
+mail.incoming.enabled: false
+mail.incoming.label: JCMS 10
+mail.incoming.suffix: @jcms.example.com
+
+mail.incoming.rule.default: jcms.+@jcms.example.com
+mail.incoming.rule.default.check: authkey
+
+# Label
+mail.account.label.default: Default account
+
+# Properties
+mail.account.default.host: pop.example.com
+mail.account.default.port: 110
+mail.account.default.protocol: pop3
+mail.account.default.login:
+mail.account.default.password:
+mail.account.default.mbox: INBOX
+mail.account.default.schedule: 10
+mail.account.default.author:
+mail.account.default.ws:
+mail.account.default.expunge: true
+mail.account.default.enabled: true
+mail.account.default.imapssl: true
+
+# ----------------------------------------------------------------------
+# Autocomplete
+# ----------------------------------------------------------------------
+
+# To force the number of proposed results (default is 5)
+autocomplete.proposedresults:
+autocomplete.proposedresults.publication:
+autocomplete.proposedresults.category:
+autocomplete.proposedresults.group:
+autocomplete.proposedresults.workspace:
+autocomplete.proposedresults.member:
+
+
+# ----------------------------------------------------------------------
+# File Management (associated files and quota)
+# ----------------------------------------------------------------------
+
+migration-associated-files-done: true
+admin.quota.maximum-site-quota: 10737418240
+admin.quota.default-workspace-quota: 1073741824
+admin.quota.site-alert-threshold: 80
+admin.quota.default-workspace-alert-threshold: 80
+channel.quota-management.enabled: true
+channel.quota.reject-upload-over-quota: false
+
+# ----------------------------------------------------------------------
+# Upload permission
+# ----------------------------------------------------------------------
+
+# This property define the default max size for upload
+#upload.permission.size.default:
+
+# Max size can also be defined for each mime-type
+#upload.permission.size.image:
+
+# Max size can also be defined for member photo
+#upload.permission.size.member-photo:
+
+# ----------------------------------------------------------------------
+# Notification
+# ----------------------------------------------------------------------
+# for day-of-week, set 1 for SUNDAY, 2 for MONDAY, ...
+
+notification.period.minute.enabled: false
+notification.period.hour.start.minutes: 0
+notification.period.day.start.time: 9:00
+notification.period.week.start.time: 9:00
+notification.period.month.start.time: 9:00
+notification.period.week.start.day-of-week: 2
+notification.period.month.start.day-of-month: 1
+notification.followed-types:
+notification.followed-types-off:
+
+# ----------------------------------------------------------------------
+# External Data Source
+# ----------------------------------------------------------------------
+# Data sources found by JCMS at startup, can be included or excluded.
+# For each property, you can declare a space-separated list of DataSource name (eg. jdbc/myExternalDataSource)
+
+channel.external-data-source.included:
+channel.external-data-source.excluded: jdbc/jcmsdb
+
+# ----------------------------------------------------------------------
+# Analytics storage handlers
+# ----------------------------------------------------------------------
+# Storage handlers used by analytics feature to save eventData
+# This storage can be extended by multiple storages
+jcms.analytics.storage-handler.1.classname: com.jalios.jcms.analytics.storage.impl.FileSystemStorage
+jcms.analytics.storage-handler.1.directory: $DATA_DIR/analytics
+jcms.analytics.storage-handler.1.isAnalysisProvider: true
+
+# ----------------------------------------------------------------------
+# Client certificate authentication
+# ----------------------------------------------------------------------
+auth.certificate-authentication.enabled: false
+auth.authenticationTrustStorePassword:
+auth.authenticationTrustStore:
+auth.authenticationCRLDirPath:
+auth.certificate-authentication.user-regex: jalios:user:(.*)
+
+# ----------------------------------------------------------------------
+# MemberPreference
+# ----------------------------------------------------------------------
+channel.mbrpref.cache.enabled: true
+channel.mbrpref.cache.max-entries: 10000
+mbrpref.core.alert.default-rules: [{"domain":"publication-follower","alertChannels":[]},{"alertChannels":["mail","web"]}]
+
+# ----------------------------------------------------------------------
+# Other properties
+# ----------------------------------------------------------------------
+
+channel.less-compile.startup: false
+data-localization.enable: true
+workflow.unprefixed-role.writers: basic-writers
+workflow.unprefixed-role.validators: basic-validators
+workflow.unprefixed-role.writer: wfdraft-writer
+workflow.unprefixed-role.moderators: wfmoderation-moderators
+$id.application.shortcut.default-application-admin: c_5000
+$id.application.shortcut.default-application-workspace: c_5001
+$id.application.shortcut.default-application-appstore: c_5002
+applications.shortcut.show-in-tools-page-updated: true
+jsync.shared-secret: ccfb7664-68ae-4b1f-b76c-07db42c767af
+channel.security.message-encryption-options.key: vlOzlvQ3mEmt3qFe74ohHQ==
+channel.security.message-encryption-options.transformation: AES/ECB/PKCS5Padding
+$id.jcmsplugin.collaborativespace.guestaccounts.group: c_5004
+$id.Guest.managerAcl: c_5005
+$id.jcmsplugin.collaborativespace.guestaccounts.manager-group: c_5006
+jcmsplugin.collaborativespace.guestaccounts.enabled: true
+jcmsplugin.agoraplugin.guest-feature.init-done: true
+$id.jcmsplugin.blog.portlet.handle-posts: c_5018
+$id.jcmsplugin.blog.portlet.recent-post: c_5011
+$id.jcmsplugin.blog.portlet.authors: c_5017
+$id.jcmsplugin.blog.portlet.member-profile: c_5009
+$id.jcmsplugin.blog.portlet.add-post: c_5015
+$id.jcmsplugin.blog.portlet.archive: c_5012
+$id.jcmsplugin.blog.portlet.admin: c_5016
+$id.jcmsplugin.blog.portlet.categories: c_5010
+$id.jcmsplugin.blog.portlet.post-full: c_5014
+$id.jcmsplugin.blog.portlet.post-list: c_5013
+$jcmsplugin.calendar.sidebar-agenda-portlet: c_5019
+com.jalios.jcmsplugin.calendar.migrate-old-attendee-format: false
+$id.jcmsplugin.collaborativespace.data.model.ws: c_5023
+$id.jcmsplugin.collaborativespace.data.portlet.search: c_5032
+jcmsplugin.collaborativespace.old-data-processed: true
+$id.jcmsplugin.esn.portlet.activities: c_5056
+$id.jcmsplugin.esn.portlet.contact-notes: c_5062
+$id.jcmsplugin.esn.portlet.links: c_5055
+$id.jcmsplugin.esn.portlet.network-activities: c_5057
+$id.jcmsplugin.esn.portlet.suggestions: c_5052
+$id.jcmsplugin.esn.portlet.presentation: c_5059
+$id.jcmsplugin.esn.portlet.contact-referrers: c_5064
+$id.jcmsplugin.esn.portlet.common-connections: c_5053
+$id.jcmsplugin.esn.portlet.contacts: c_5065
+$id.jcmsplugin.esn.portlet.educations: c_5067
+$id.jcmsplugin.esn.portlet.workspaces: c_5060
+$id.jcmsplugin.esn.portlet.publications: c_5058
+$id.jcmsplugin.esn.portlet.contact-calendar: c_5063
+$id.jcmsplugin.esn.portlet.jobs: c_5066
+$id.jcmsplugin.esn.portlet.actions: c_5050
+$id.jcmsplugin.esn.portlet.expertise: c_5061
+$id.jcmsplugin.esn.portlet.connection-requests: c_5051
+$id.jcmsplugin.esn.portlet.connections: c_5054
+$id.jcmsplugin.esn.portlet.header: c_5049
+$id.jcmsplugin.jlearn.item.category.certificates.certificate: c_5103
+$id.jcmsplugin.jlearn.acl.can-export-csv: c_5123
+$id.jcmsplugin.jlearn.group.registration-managers: c_5130
+$id.jcmsplugin.jlearn.item.category.contentType.quiz: c_5088
+$id.jcmsplugin.jlearn.acl.can-view-survey-results: c_5117
+$id.jcmsplugin.jlearn.acl.can-remove-attendee: c_5119
+$id.jcmsplugin.jlearn.group.can-edit-embedded-content: c_5122
+$id.jcmsplugin.jlearn.item.category.course.charge: c_5098
+$id.jcmsplugin.jlearn.item.category.level: c_5073
+$id.jcmsplugin.jlearn.item.category.resourceContentType: c_5078
+$id.jcmsplugin.jlearn.item.category.course.charge.charged: c_5100
+$id.jcmsplugin.jlearn.group.hide-attendees-kpis: c_5126
+$id.jcmsplugin.jlearn.item.category.approval: c_5071
+$id.jcmsplugin.jlearn.item.category.course: c_5093
+$id.jcmsplugin.jlearn.group.can-view-certificates: c_5116
+$id.jcmsplugin.jlearn.root-category: c_5068
+$id.jcmsplugin.jlearn.group.can-view-progress: c_5114
+$id.jcmsplugin.jlearn.item.category.contentType.interactive: c_5086
+$id.jcmsplugin.jlearn.item.category.certificates: c_5101
+$id.jcmsplugin.jlearn.item.category.contentType.audio: c_5080
+$id.jcmsplugin.jlearn.item.category.contentType.jguide: c_5084
+$id.jcmsplugin.jlearn.item.category.course.charge.free: c_5099
+$id.jcmsplugin.jlearn.item.category.pathType.simple: c_5108
+$id.jcmsplugin.jlearn.item.category.course.organization: c_5094
+$id.jcmsplugin.jlearn.item.category.pathType.model: c_5109
+$id.jcmsplugin.jlearn.acl.can-edit-embedded-content: c_5121
+$id.jcmsplugin.jlearn.item.category.course.availability.always: c_5096
+$id.jcmsplugin.jlearn.acl.can-view-progress: c_5113
+$id.jcmsplugin.jlearn.group.model-managers: c_5128
+$id.jcmsplugin.jlearn.item.category.contentType.online-course: c_5092
+$id.jcmsplugin.jlearn.item.category.course.availability.session: c_5097
+$id.jcmsplugin.jlearn.item.category.contentType.instructions: c_5085
+$id.jcmsplugin.jlearn.group.can-remove-attendee: c_5120
+$id.jcmsplugin.jlearn.item.category.skills: c_5072
+$id.jcmsplugin.jlearn.item.category.contentType.presentation: c_5081
+$id.jcmsplugin.jlearn.item.category.topic: c_5069
+$id.jcmsplugin.jlearn.group.can-view-quiz-results: c_5112
+$id.jcmsplugin.jlearn.item.category.contentType.course: c_5091
+$id.jcmsplugin.jlearn.acl.can-view-certificates: c_5115
+$id.jcmsplugin.jlearn.item.category.courseContentType: c_5090
+$id.jcmsplugin.jlearn.item.category.keywords: c_5070
+$id.jcmsplugin.jlearn.group.session-managers: c_5129
+$id.jcmsplugin.jlearn.item.category.pathType.custom: c_5110
+$id.jcmsplugin.jlearn.item.category.certificates.attendance: c_5102
+$id.jcmsplugin.jlearn.acl.hide-attendees-kpis: c_5125
+$id.jcmsplugin.jlearn.item.category.level.3: c_5076
+$id.jcmsplugin.jlearn.item.category.contentType.webpage: c_5087
+$id.jcmsplugin.jlearn.item.category.contentType.pdf: c_5082
+$id.jcmsplugin.jlearn.item.category.level.2: c_5075
+$id.jcmsplugin.jlearn.item.category.level.1: c_5074
+$id.jcmsplugin.jlearn.item.category.contentType.survey: c_5089
+$id.jcmsplugin.jlearn.item.category.pathType: c_5107
+$id.jcmsplugin.jlearn.acl.can-view-quiz-results: c_5111
+$id.jcmsplugin.jlearn.group.can-view-survey-results: c_5118
+$id.jcmsplugin.jlearn.item.category.contentType: c_5077
+$id.jcmsplugin.jlearn.item.category.course.availability: c_5095
+$id.jcmsplugin.jlearn.group.can-export-csv: c_5124
+$id.jcmsplugin.jlearn.item.category.contentType.video: c_5079
+$id.jcmsplugin.jlearn.group.instructors: c_5127
+$id.jcmsplugin.jlearn.item.category.language: c_5104
+$id.jcmsplugin.jlearn.item.category.contentType.document: c_5083
+jcmsplugin.jnews.contributors-parent-group: c_5131
+jcmsplugin.jnews.managers-parent-group: c_5132
+jcmsplugin.jnews.headlines-parent-group: c_5133
+channel.less.plugins/FlashInfoPlugin/smartphone/css/flashinfo.css: plugins/FlashInfoPlugin/smartphone/css/flashinfo.less
+channel.less.plugins/SocialBookmarkPlugin/smartphone/css/smartphone-jmag.css: plugins/SocialBookmarkPlugin/smartphone/css/smartphone-jmag.less
+channel.less.plugins/ESNPlugin/smartphone/css/smartphone-esn.css: plugins/ESNPlugin/smartphone/css/smartphone-esn.less
+channel.less.plugins/SocialConversationPlugin/smartphone/css/smartphone-conversationspace.css: plugins/SocialConversationPlugin/smartphone/css/smartphone-conversationspace.less
+channel.less.plugins/JLearnPlugin/smartphone/css/jlearn-quiz.css: plugins/JLearnPlugin/smartphone/css/jlearn-quiz.less
+channel.less.plugins/JNewsPlugin/smartphone/css/jnews.css: plugins/JNewsPlugin/smartphone/css/jnews.less
+channel.less.plugins/DBCommentPlugin/smartphone/css/smartphone-dbcomment.css: plugins/DBCommentPlugin/smartphone/css/smartphone-dbcomment.less
+channel.less.plugins/DirectoryPlugin/smartphone/css/smartphone-directory.css: plugins/DirectoryPlugin/smartphone/css/smartphone-directory.less
+channel.less.plugins/CalendarPlugin/smartphone/css/smartphone-calendar.css: plugins/CalendarPlugin/smartphone/css/smartphone-calendar.less
+channel.less.plugins/JLearnPlugin/smartphone/css/jlearn-mobile.css: plugins/JLearnPlugin/smartphone/css/jlearn-mobile.less
+channel.less.plugins/BookmarksPlugin/smartphone/css/smartphone-bookmarks.css: plugins/BookmarksPlugin/smartphone/css/smartphone-bookmarks.less
+channel.less.plugins/FlashInfoPlugin/smartphone/css/portlet-flashinfo-jmobile.css: plugins/FlashInfoPlugin/smartphone/css/portlet-flashinfo-jmobile.less
+channel.less.plugins/BlogPlugin/smartphone/css/smartphone-blog.css: plugins/BlogPlugin/smartphone/css/smartphone-blog.less
+$id.jcmsplugin.smartphone.ios.downloadcode.manager-group: c_5135
+$id.jcmsplugin.smartphone.acl.can-manage-ios-downloadcode: c_5134
+$id.jcmsplugin.smartphone.category.nav-root-home: c_5138
+$id.jcmsplugin.smartphone.category.nav-root: c_5137
+$id.jcmsplugin.smartphone.portal.default-wysiwyg-portlet: c_5136
+$id.jcmsplugin.smartphone.portal.default-portal: c_5139
+$id.jcmsplugin.socialConversation.portlet.community.form: c_5162
+$id.jcmsplugin.socialConversation.portlet.moderation-dashboard: c_5165
+$id.jcmsplugin.socialConversation.portlet.tags: c_5158
+$id.jcmsplugin.socialConversation.portlet.categories: c_5141
+$id.jcmsplugin.socialConversation.portlet.member-details: c_5151
+$id.jcmsplugin.socialConversation.portlet.tags-list: c_5159
+$id.jcmsplugin.socialConversation.portlet.admin: c_5160
+$id.jcmsplugin.socialConversation.portlet.ask-input: c_5146
+$id.jcmsplugin.socialConversation.portlet.conversation-list: c_5140
+$id.jcmsplugin.socialConversation.portlet.community.conversation-list: c_5164
+$id.jcmsplugin.socialConversation.portlet.conversation-detail: c_5152
+$id.jcmsplugin.socialConversation.portlet.help: c_5143
+$id.jcmsplugin.socialConversation.portlet.ask-question: c_5148
+$id.jcmsplugin.socialConversation.portlet.profile-information: c_5145
+$id.jcmsplugin.socialConversation.portlet.description: c_5161
+$id.jcmsplugin.socialConversation.portlet.status: c_5142
+$id.jcmsplugin.socialConversation.portlet.dashboard-average: c_5156
+$id.jcmsplugin.socialConversation.portlet.best-contributors: c_5150
+$id.jcmsplugin.socialConversation.portlet.ask-topic: c_5149
+$id.jcmsplugin.socialConversation.portlet.conversation-form: c_5153
+$id.jcmsplugin.socialConversation.portlet.expert-manager-list: c_5157
+$id.jcmsplugin.socialConversation.portlet.welcome: c_5144
+$id.jcmsplugin.socialConversation.portlet.best-answer: c_5155
+$id.jcmsplugin.socialConversation.portlet.conversation-answers: c_5154
+$id.jcmsplugin.socialConversation.portlet.ask-idea: c_5147
+$id.jcmsplugin.socialConversation.portlet.community.member: c_5163
+jcmsplugin.socialConversation.manager-parent-group: c_5166
+$jcmsplugin.virtualdesktop.rss-portlet: c_5168
+$jcmsplugin.virtualdesktop.services.root-category: c_5167
+data-localization.force: false
+$id.shortcut.jcmsplugin.collaborativespace-hub: c_5190
+$id.shortcut.jcmsplugin.jcall: c_5193
+$id.shortcut.core.trashapp: c_5188
+$id.shortcut.jcmsplugin.directory-app: c_5176
+$id.shortcut.jcmsplugin.jmag: c_5192
+$id.shortcut.jcmsplugin.my-calendar: c_5187
+$id.shortcut.jcmsplugin.wiki: c_5184
+$id.shortcut.jcmsplugin.jnews.project: c_5178
+$id.shortcut.core.public-link: c_5189
+$id.shortcut.jcmsplugin.jdrive: c_5180
+$id.shortcut.jcmsplugin.jlearn: c_5186
+$id.shortcut.jcmsplugin.jlearn.dashboard: c_5179
+$id.shortcut.jcmsplugin.time-preview: c_5191
+$id.shortcut.jcmsplugin.account-management: c_5185
+$id.shortcut.jcmsplugin.site-settings: c_5173
+$id.shortcut.jcmsplugin.dashboard: c_5174
+$id.shortcut.jcmsplugin.jnews.article-management.project: c_5181
+$id.shortcut.jcmsplugin.bookmarks: c_5182
+$id.shortcut.jcmsplugin.smartphone-portals: c_5175
+$id.shortcut.jcmsplugin.guidedtour: c_5183
+$id.shortcut.jcmsplugin.page-management.app-pages-management: c_5177
+$id.jcmsplugin.documenttemplate.document-model.pptx: c_5196
+$id.jcmsplugin.documenttemplate.document-model.xlsx: c_5197
+$id.jcmsplugin.documenttemplate.cat.models: c_5194
+$id.jcmsplugin.documenttemplate.document-model.docx: c_5195
+$id.jcmsplugin.socle.visible-topbar.group: c_5207
+channel.security.csp.csp-header:
+mail.incoming.rule.default.author:
+auth.authentication-trustStore:
+auth.authentication-crl-dir-path:
+channel.security.csp.enabled: false
+$channel.organization-root-group:
+fileprocessor.enabled: true
+a11y.avoidance-contextual_links.enabled: true
+mail.account.default.ssl: true
+jcms.analytics.enable: true
+mail.incoming.rule.default.ws:
+auth.jwt-authentication.enabled: false
+jcms.trash.trashable-types.types:
+channel.security.csp.csp-report-only-header:
+auth.authentication-trustStore-password:
+auth.privateKey:
+auth.privateKey-password:
+
+# ZELLI
+$jcmsplugin.zelli.category.navigationParThemes.root: j_6
+$id.shortcut.jcmsplugin.tbd-questions-reponses: c_5335
+jcmsplugin.zelli.login-orange: zelli_recette
+jcmsplugin.zelli.pwd-orange: Eu764XzRlLAi8!9OzrmZ
+jcmsplugin.zelli.lbl.newAlert.conditions.link: c_5250
+jcmsplugin.zelli.lbl.welcome.footer.link: c_5250
+jcmsplugin.zelli.groupe.gestionnaires.id: c_5583
+$jcmsplugin.zelli.groupe.gestionnaires.id: c_5583
