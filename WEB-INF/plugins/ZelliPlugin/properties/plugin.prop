@@ -11,6 +11,9 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 
 # membre qui peut générer les tokens TODO
 
+# membre alerte par défaut
+mbrpref.core.alert.default-rules: [{"domain":"publication-follower","alertChannels":[]},{"alertChannels":["mail","web"]}]
+
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
 $jcmsplugin.zelli.groupe.gestionnaires.id.chooser-group: 
