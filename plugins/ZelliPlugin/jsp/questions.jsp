@@ -138,10 +138,10 @@ for (Object itObject : collection) {
                        skip='<%= questionZellyHandler.getStart() %>'>
        
        <jalios:buffer name="age">
-        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>'>
+        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>'>
         <%=glp("jcmsplugin.zelli.lbl.datedenaissanceAge",
-          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance"))),
-          itQuestion.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>
+          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance"))),
+          itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>
         </jalios:if>
        </jalios:buffer>
        
