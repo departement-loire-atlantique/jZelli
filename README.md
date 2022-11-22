@@ -4,4 +4,5 @@ Ce module est utilisé pour que l'application Zelli puisse communiquer avec une 
 
 ## Firebase
 
-Paramétrer la variable d'environnement `GOOGLE_APPLICATION_CREDENTIALS` avec le chemin vers le fichier `serviceAccountKey.json` de Firebase
+Paramétrer la variable d'environnement `GOOGLE_APPLICATION_CREDENTIALS` avec le chemin vers le fichier `serviceAccountKey.json` de Firebase  
+CF. https://firebase.google.com/docs/admin/setup#initialize-sdk
