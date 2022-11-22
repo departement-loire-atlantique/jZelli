@@ -161,7 +161,9 @@ jcmsplugin.zelli.pwd-orange.pwd:
   	jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle \
-	jcmsplugin.zelli.lbl.newAlert.conditions.link \ 
+	jcmsplugin.zelli.lbl.newAlert.conditions.link \
 	jcmsplugin.zelli.lbl.search.subTitle \
 	jcmsplugin.zelli.lbl.account.pwdReset.title \
-	jcmsplugin.zelli.lbl.account.pwdReset.subTitle
+	jcmsplugin.zelli.lbl.account.pwdReset.subTitle \
+	jcmsplugin.zelli.lbl.account.pwdReset.is.ok \
+	jcmsplugin.zelli.lbl.account.pwdReset.is.ko
