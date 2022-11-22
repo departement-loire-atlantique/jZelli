@@ -6,6 +6,7 @@ extra.Category.jcmsplugin.zelli.blob: Icône blob
 
 #Group
 $jcmsplugin.zelli.groupe.utilisateurs.id: Groupe par défaut des membres de Zelli
+$jcmsplugin.zelli.groupe.gestionnaires.id: Groupe des gestionnaires de questions réponses
 
 # E-mail
 jcmsplugin.zelli.email.gestionnaire.question.object: Question de {0} - {1}

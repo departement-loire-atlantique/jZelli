@@ -13,7 +13,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
-$jcmsplugin.zelli.groupe.gestionnaires.id: 
+$jcmsplugin.zelli.groupe.gestionnaires.id.chooser-group: 
 $jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
