@@ -173,7 +173,7 @@ for (Object itObject : collection) {
 	           </p>
 	       </jalios:if>
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
-	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=2">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=6">
 	               <%= glp("ui.com.btn.finish") %></a>
 	           </p>
 	       </jalios:if>

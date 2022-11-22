@@ -24,75 +24,99 @@ import com.jalios.util.Util;
 
 import fr.digiwin.module.zelli.firebase.FirebaseMng;
 import generated.QuestionZelli;
+import generated.EditQuestionZelliHandler;
 
 public class QuestionZelliDataController extends BasicDataController implements PluginComponent {
 
-    private static final Logger LOGGER = Logger.getLogger(QuestionZelliDataController.class);
-    private static final Channel CHANNEL = Channel.getChannel();
+	private static final Logger LOGGER = Logger.getLogger(QuestionZelliDataController.class);
+	private static final Channel CHANNEL = Channel.getChannel();
 
-  /**
-   * Add date to DateDeLaReponse when answer is modified to QuestionZelli
-   * @author fdebiais
-   */
-  public void afterWrite(Data data, int op, Member mbr, Map context) {
+	private final Integer WORKFLOW_A_TRAITER = -12;
+	private final Integer WORKFLOW_ATTENTE = -2;
+	private final Integer WORKFLOW_TRAITE = 2;
 
-    if (op != OP_UPDATE) {
-      return;
-    }
+	/**
+	 * Change status 
+	 */
+	public void beforeWrite(Data data, int op, Member mbr, Map context) {
 
-    if (!(data instanceof QuestionZelli)) {
-      return;
-    }
-    
-    QuestionZelli questionZelli = (QuestionZelli)data;
-    
-    if (questionZelli.getReponse().length() > 0) {
-      Object dataPrevious = context.get(CTXT_PREVIOUS_DATA);
-      
-      if (Util.isEmpty(dataPrevious)) {
-    	questionZelli.setDateDeLaReponse(new Date());
-        questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
-        return;
-      }
-      
-      QuestionZelli previousquestionZelli = (QuestionZelli) dataPrevious;
-      
-      if ((Util.notEmpty(previousquestionZelli.getReponse()) ^ Util.notEmpty(questionZelli.getReponse())) || 
-    		  (!previousquestionZelli.getReponse().equals(questionZelli.getReponse()))) {
-        questionZelli.setDateDeLaReponse(new Date());
-        questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
-        ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
-        if (!status.isOK()) {
-          LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
-        } else {
+		if (op != OP_UPDATE) {
+			return;
+		}
+
+		if (!(data instanceof QuestionZelli)) {
+			return;
+		}
+
+		if (!(context.get("formHandler") instanceof EditQuestionZelliHandler)) {
+			return;
+		}
+
+		QuestionZelli questionZelli = (QuestionZelli) data;
+		if ((questionZelli.getPstatus() == WORKFLOW_A_TRAITER || questionZelli.getPstatus() == WORKFLOW_ATTENTE)
+				&& Util.notEmpty(questionZelli.getReponse())) {
+			questionZelli.setPstatus(WORKFLOW_TRAITE);
+		} else if (questionZelli.getPstatus() == WORKFLOW_A_TRAITER && Util.notEmpty(questionZelli.getRemarque())) {
+			questionZelli.setPstatus(WORKFLOW_ATTENTE);
+		}
+	}
+
+	/**
+	 * Add date to DateDeLaReponse when answer is modified to QuestionZelli
+	 * 
+	 * @author fdebiais
+	 */
+	public void afterWrite(Data data, int op, Member mbr, Map context) {
+
+		if (op != OP_UPDATE) {
+			return;
+		}
+
+		if (!(data instanceof QuestionZelli)) {
+			return;
+		}
+
+		QuestionZelli questionZelli = (QuestionZelli) data;
+
+		if (Util.notEmpty(questionZelli.getReponse()) && questionZelli.getReponse().length() > 0) {
+			Object dataPrevious = context.get(CTXT_PREVIOUS_DATA);
+
+			if (Util.isEmpty(dataPrevious)) {
+				questionZelli.setDateDeLaReponse(new Date());
+				questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
+				return;
+			}
+
+			QuestionZelli previousquestionZelli = (QuestionZelli) dataPrevious;
+
+			if ((Util.notEmpty(previousquestionZelli.getReponse()) ^ Util.notEmpty(questionZelli.getReponse()))
+					|| (!previousquestionZelli.getReponse().equals(questionZelli.getReponse()))) {
+				questionZelli.setDateDeLaReponse(new Date());
+				questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
+				ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
+				if (!status.isOK()) {
+					LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
+				} else {
 //          AlertBuilder alertBuilder = new AlertBuilder(Level.INFO, "questionZelli", "reponse", questionZelli);
 //          alertBuilder.sendAlert(questionZelli.getAuthor());
-            String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
-            if (Util.notEmpty(token)) {
+					String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
+					if (Util.notEmpty(token)) {
 
-                Notification notif = Notification.builder()
-                        .setTitle("Réponse à ta question")
-                        .setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?")
-                        .build();
+						Notification notif = Notification.builder().setTitle("Réponse à ta question")
+								.setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?").build();
 
-                WebpushNotification webNotif = WebpushNotification.builder()
-                        .addAction(new Action("question-oui", "Oui"))
-                        .addAction(new Action("question-non", "Non"))
-                        .build();
-                WebpushConfig webConf = WebpushConfig.builder()
-                        .setNotification(webNotif)
-                        .build();
+						WebpushNotification webNotif = WebpushNotification.builder()
+								.addAction(new Action("question-oui", "Oui"))
+								.addAction(new Action("question-non", "Non")).build();
+						WebpushConfig webConf = WebpushConfig.builder().setNotification(webNotif).build();
 
-                Message message = Message.builder()
-                        .setNotification(notif)
-                        .setWebpushConfig(webConf)
-                        .setToken(token)
-                        .build();
+						Message message = Message.builder().setNotification(notif).setWebpushConfig(webConf)
+								.setToken(token).build();
 
-                FirebaseMng.getInstance().sendMessage(message);
-            }
-        }
-      }
-    }
-  }
+						FirebaseMng.getInstance().sendMessage(message);
+					}
+				}
+			}
+		}
+	}
 }
