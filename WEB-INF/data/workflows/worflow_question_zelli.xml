@@ -7,7 +7,6 @@
     <label xml:lang='en'>Draft</label>
     <label xml:lang='fr'>A traiter</label>
     <description xml:lang='fr'>Le gestionnaire n&#39;a pas répondu à la question</description>
-    <action when='in'	type='alertWorkers'	repeat='0' />
   </state>
 
   <state pstatus='-10' reminder='0' duration='0' targetPstatus='0' >
@@ -41,8 +40,8 @@
   </state>
 
 
-  <transition source='-12'	target='2'	roleId='gestionnaire_questionsreponses' />
   <transition source='-12'	target='-2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-12'	target='2'	roleId='gestionnaire_questionsreponses' />
   <transition source='-2'	target='2'	roleId='gestionnaire_questionsreponses' />
 
   <role roleId='gestionnaire_questionsreponses'>
