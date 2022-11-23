@@ -82,6 +82,6 @@ public class FirebaseMng {
     }
     
     public String getToken(Member mbr) {
-        return mbr.getExtraData("extradb.Member.jcmsplugin.zelli.firebase.token");
+        return mbr.getExtraDBData("extradb.Member.jcmsplugin.zelli.firebase.token");
     }
 }
