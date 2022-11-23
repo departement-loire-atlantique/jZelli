@@ -93,10 +93,26 @@ jcmsplugin.zelli.lbl.contact.create.sousTitre: Sous-titre page ajouter un contac
 jcmsplugin.zelli.lbl.newAlert: Titre page nouvelle alert
 jcmsplugin.zelli.lbl.newAlert.subTitle: Sous-titre page nouvelle alert
 jcmsplugin.zelli.lbl.newAlert.conditions.link: Page des conditions d'utilisation 
+
 alert.name.questionZelli: Question Zelli
 alert.name.questionZelli.reponse: Réponse à ta question
 alert.msg.questionZelli.reponse.title: Une réponse a été donnée à ta question
 alert.msg.questionZelli.reponse.short-description: {data}
+
+# ----------------------
+# alert
+alert.name.zelli: Zelli
+# - new question
+alert.name.zelli.newQuestion: Nouvelle question
+alert.msg.zelli.newQuestion.title: Question de {author} – {age}
+alert.msg.zelli.newQuestion.short-description: {author} a envoyé le message suivant le {date}\r\n\
+	A-t-il déjà questionné son référent : {demRef}\r\n\
+	Sa question : {question}\r\n\
+	{linkQuest}
+alert.msg.zelli.newQuestion.description: {author} a envoyé le message suivant le {date}<br/>\
+	A-t-il déjà questionné son référent : {demRef}<br/>\
+	Sa question : {question}<br/>\
+	{linkQuest}
 
 # ----------------------
 # Admin>tableau de bord>questions
