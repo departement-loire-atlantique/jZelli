@@ -13,7 +13,7 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 
 # ----------------------
 # membre alerte par défaut
-mbrpref.core.alert.default-rules: [{"domain":"publication-follower","alertChannels":[]},{"alertChannels":["mail","web"]}]
+mbrpref.core.alert.default-rules: [{"domain":"zelli","name":"newQuestion","alertChannels":["mail","web"]}]
 
 
 # ----------------------
