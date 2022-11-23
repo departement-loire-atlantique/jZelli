@@ -57,7 +57,7 @@ public class NotificationApi extends JcmsRestResource {
   @Override
   protected void doPost(Representation entity) {
     // Générer une notif pour les gestionnaires
-    ZelliUtils.sendQuestionNotification(entity, questionId);
+//    ZelliUtils.sendQuestionNotification(entity, questionId);
     getResponse().setStatus(Status.SUCCESS_OK);
   }
   

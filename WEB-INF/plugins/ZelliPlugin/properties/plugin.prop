@@ -11,15 +11,22 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 
 # membre qui peut générer les tokens TODO
 
+# ----------------------
+# membre alerte par défaut
+mbrpref.core.alert.default-rules: [{"domain":"zelli","name":"newQuestion","alertChannels":["mail","web"]}]
+
+
+# ----------------------
 # Groupes
 # TODO -> groupe des gestionnaires par défaut
-$jcmsplugin.zelli.groupe.gestionnaires.id: 
+$jcmsplugin.zelli.groupe.gestionnaires.id.chooser-group: 
 $jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
 extradb.Member.jcmsplugin.zelli.datenaissance:
 extradb.Member.jcmsplugin.zelli.firebase.token:
 extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
+extra.Category.jcmsplugin.zelli.blob.chooser-media :
 
 # Configuration
 jcmsplugin.zelli.simpledateformat.datenaissance: dd/MM/yyyy
@@ -157,7 +164,9 @@ jcmsplugin.zelli.pwd-orange.pwd:
   	jcmsplugin.zelli.lbl.contact.create.sousTitre \
 	jcmsplugin.zelli.lbl.newAlert \
 	jcmsplugin.zelli.lbl.newAlert.subTitle \
-	jcmsplugin.zelli.lbl.newAlert.conditions.link \ 
+	jcmsplugin.zelli.lbl.newAlert.conditions.link \
 	jcmsplugin.zelli.lbl.search.subTitle \
 	jcmsplugin.zelli.lbl.account.pwdReset.title \
-	jcmsplugin.zelli.lbl.account.pwdReset.subTitle
+	jcmsplugin.zelli.lbl.account.pwdReset.subTitle \
+	jcmsplugin.zelli.lbl.account.pwdReset.is.ok \
+	jcmsplugin.zelli.lbl.account.pwdReset.is.ko

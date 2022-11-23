@@ -119,7 +119,7 @@ public class MemberApi extends JcmsRestResource {
       // date de naissance. On reçoit un timestamp en millisecondes
       Date dateNaissance = new Date(Long.parseLong(params.get("dateNaissance")));
       SimpleDateFormat sdf = new SimpleDateFormat(CHANNEL.getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
-      newMbr.setExtraData("extradb.Member.jcmsplugin.zelli.datenaissance", sdf.format(dateNaissance));
+      newMbr.setExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance", sdf.format(dateNaissance));
       if (Util.notEmpty(CHANNEL.getGroup( "$jcms.zelli.groupe.utilisateurs.id"))) {
         newMbr.addGroup(CHANNEL.getGroup("$jcms.zelli.groupe.utilisateurs.id"));
       }

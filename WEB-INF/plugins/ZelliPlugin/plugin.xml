@@ -479,10 +479,7 @@
     <directory path="images" />
     -->
     <file path='jsp/targets/reportingLink.jsp' include="ADMIN_REPORTING" />
+    <file path='jsp/targets/emptyFooter.jsp' include="EMPTY_FOOTER" />
   </public-files>
-  <webapp-files>
-    <!-- TODO Sup socle for 10sp5 + -->
-    <file path="jcore/doEmptyFooter.jspf" />
-  </webapp-files>
 </plugin>
 

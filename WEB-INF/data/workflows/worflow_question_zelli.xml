@@ -40,6 +40,13 @@
   </state>
 
 
+  <transition source='-12'	target='-2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-12'	target='2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-2'	target='2'	roleId='gestionnaire_questionsreponses' />
+
+  <role roleId='gestionnaire_questionsreponses'>
+    <name xml:lang='fr'>Gestionnaire Questions-réponses</name>
+  </role>
 
 
 </workflow>

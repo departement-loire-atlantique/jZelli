@@ -30,8 +30,8 @@ public class QuestionZelliAgeComparator extends BasicComparator<QuestionZelli>{
     }
     
     // Retrieve age
-    String dateNaissanceStr1 = questionZelli1.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance");
-    String dateNaissanceStr2 = questionZelli2.getAuthor().getExtraData("extradb.Member.jcmsplugin.zelli.datenaissance");
+    String dateNaissanceStr1 = questionZelli1.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance");
+    String dateNaissanceStr2 = questionZelli2.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance");
     SimpleDateFormat sdf = new SimpleDateFormat(Channel.getChannel().getProperty("jcmsplugin.zelli.simpledateformat.datenaissance"));
     try {
       Date dateNaissance1 = Util.isEmpty(dateNaissanceStr1) ? new Date() : sdf.parse(dateNaissanceStr1);
