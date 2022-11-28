@@ -87,7 +87,7 @@ public class QuestionZelliDataController extends BasicDataController implements 
                     @Override
                     protected void addParams(Member recipient, Map<String, String> paramMap, String markup) {
                         paramMap.put("age", ZelliUtils.getAgeStrFromDateNaissance(
-                                questionZelli.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")));
+                                questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")));
                         paramMap.put("demRef", questionZelli.getReferent() ? "oui" : "non");
                         paramMap.put("question", questionZelli.getQuestion());
                         

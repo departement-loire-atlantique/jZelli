@@ -23,7 +23,7 @@ $jcmsplugin.zelli.groupe.gestionnaires.id.chooser-group:
 $jcmsplugin.zelli.groupe.utilisateurs.id.chooser-group: j_36
 
 # Extradata
-extradb.Member.jcmsplugin.zelli.datenaissance:
+extra.Member.jcmsplugin.zelli.datenaissance:
 extradb.Member.jcmsplugin.zelli.firebase.token:
 extra.Category.jcmsplugin.zelli.contenu.trieur.chooser-publication:
 extra.Category.jcmsplugin.zelli.blob.chooser-media :

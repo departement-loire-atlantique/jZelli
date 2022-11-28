@@ -99,7 +99,7 @@ public class ZelliUtils {
 
 			// temporaire : placeholders
 			String tmpPseudo = questionZelli.getAuthor().getLogin();
-			String dateNaissance = questionZelli.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance");
+			String dateNaissance = questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance");
 			String datePublication = questionZelli.getPdate().toString(); // TODO : récupérer la date de création de la question et la
 															// formatter "dd/MM/yyyy' à 'hh'h'mm"
 			String maQuestion = questionZelli.getQuestion();
@@ -225,12 +225,12 @@ public class ZelliUtils {
 	 */
 	private static String toCSV(QuestionZelli questionZelli, String lang) {
 		StringBuilder stringBuilderAge = new StringBuilder();
-		if (Util.notEmpty(questionZelli.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance"))) {
+		if (Util.notEmpty(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))) {
 			stringBuilderAge
 					.append(getAgeStrFromDateNaissance(
-							questionZelli.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")))
+							questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")))
 					.append(" ans [")
-					.append(questionZelli.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance"))
+					.append(questionZelli.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))
 					.append("]");
 		}
 
