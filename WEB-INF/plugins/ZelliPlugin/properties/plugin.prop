@@ -106,9 +106,9 @@ jcmsplugin.zelli.lbl.search.subTitle:
 # ------------------------------------------------------------
 # ACL
 # ------------------------------------------------------------
-acl.resource.plugins: 
-acl.resource.plugins/zelli:
-acl.resource.plugins/zelli/can-use-tdb:
+#acl.resource.plugins: 
+#acl.resource.plugins/zelli:
+acl.resource.admin/reporting/plugins-zelli-can-use-tdb:
 
 # ------------------------------------------------------------
 # Shortcut

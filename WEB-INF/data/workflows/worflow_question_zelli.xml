@@ -4,8 +4,8 @@
   <label xml:lang='fr'>Worflow question Zelli</label>
 
   <state pstatus='-12'	reminder='0' duration='0' targetPstatus='0' >
-    <label xml:lang='en'>Draft</label>
     <label xml:lang='fr'>A traiter</label>
+    <label xml:lang='en'>Draft</label>
     <description xml:lang='fr'>Le gestionnaire n&#39;a pas répondu à la question</description>
   </state>
 
@@ -41,8 +41,21 @@
 
 
   <transition source='-12'	target='-2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-12'	target='-12'	roleId='gestionnaire_questionsreponses' />
   <transition source='-12'	target='2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-12'	target='6'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-2'	target='6'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-2'	target='-2'	roleId='gestionnaire_questionsreponses' />
   <transition source='-2'	target='2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='-2'	target='-12'	roleId='gestionnaire_questionsreponses' />
+  <transition source='2'	target='-2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='2'	target='2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='2'	target='-12'	roleId='gestionnaire_questionsreponses' />
+  <transition source='2'	target='6'	roleId='gestionnaire_questionsreponses' />
+  <transition source='6'	target='-2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='6'	target='2'	roleId='gestionnaire_questionsreponses' />
+  <transition source='6'	target='6'	roleId='gestionnaire_questionsreponses' />
+  <transition source='6'	target='-12'	roleId='gestionnaire_questionsreponses' />
 
   <role roleId='gestionnaire_questionsreponses'>
     <name xml:lang='fr'>Gestionnaire Questions-réponses</name>

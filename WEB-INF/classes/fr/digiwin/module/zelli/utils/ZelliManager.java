@@ -6,7 +6,7 @@ import com.jalios.util.Util;
 
 public class ZelliManager {
 
-	public static final String ACL_CAN_USE_TDB = "plugins/zelli/can-use-tdb";
+	public static final String ACL_CAN_USE_TDB = "admin/reporting/plugins-zelli-can-use-tdb";
 	private AccessControlManager aclMgr = AccessControlManager.getInstance();
 
 	private static final ZelliManager SINGLETON = new ZelliManager();
