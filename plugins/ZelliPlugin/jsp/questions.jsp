@@ -138,10 +138,10 @@ for (Object itObject : collection) {
                        skip='<%= questionZellyHandler.getStart() %>'>
        
        <jalios:buffer name="age">
-        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>'>
+        <jalios:if predicate='<%= Util.notEmpty(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>'>
         <%=glp("jcmsplugin.zelli.lbl.datedenaissanceAge",
-          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance"))),
-          itQuestion.getAuthor().getExtraDBData("extradb.Member.jcmsplugin.zelli.datenaissance")) %>
+          Integer.parseInt(ZelliUtils.getAgeStrFromDateNaissance(itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance"))),
+          itQuestion.getAuthor().getExtraData("extra.Member.jcmsplugin.zelli.datenaissance")) %>
         </jalios:if>
        </jalios:buffer>
        
@@ -150,7 +150,7 @@ for (Object itObject : collection) {
 	           <p><%= itQuestion.getReponse() %></p>
 	           <p>&#91;<jalios:date date="<%= itQuestion.getDateDeLaReponse() %>" format="dd/MM/yyyy"/>&#93;</p>
 	       </jalios:if>
-	       <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=reponse&redirectOnClosePopup=false&popupEdition=true&ws=<%= workspace.getId() %>" />
+	       <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=reponse&redirectOnClosePopup=false&redirect=plugins/ZelliPlugin/jsp/questions.jsp&popupEdition=true&ws=<%= workspace.getId() %>" />
 	           <%= glp("jcmsplugin.zelli.lbl.admin.lbl.repondre") %>
 	       </a></p> 
        </jalios:buffer>
@@ -158,22 +158,22 @@ for (Object itObject : collection) {
        <jalios:buffer name="remarque">
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getRemarque()) %>">
 	           <%= itQuestion.getRemarque() %>
-	           <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=remarque&redirectOnClosePopup=false&popupEdition=true&ws=<%= workspace.getId() %>" />
+	           <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=remarque&redirectOnClosePopup=false&redirect=plugins/ZelliPlugin/jsp/questions.jsp&popupEdition=true&ws=<%= workspace.getId() %>" />
 	               <%= glp("ui.com.alt.edit") %>
 	           </a></p> 
 	       </jalios:if>
 	       <jalios:if predicate="<%= Util.isEmpty(itQuestion.getRemarque()) %>">
-	           <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=remarque&redirectOnClosePopup=false&popupEdition=true&ws=<%= workspace.getId() %>" />
+	           <p><a class="modal" href="plugins/ZelliPlugin/types/QuestionZelli/editQuestionZelliModal.jsp?id=<%= itQuestion.getId() %>&field=remarque&redirectOnClosePopup=false&redirect=plugins/ZelliPlugin/jsp/questions.jsp&popupEdition=true&ws=<%= workspace.getId() %>" />
 	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.commenter") %>
 	           </a></p>
 	       </jalios:if>
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getRemarque()) %>">
-	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=-2">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&redirect=plugins/ZelliPlugin/jsp/questions.jsp&pstatus=-2">
 	               <%= glp("jcmsplugin.zelli.lbl.admin.lbl.attente") %></a>
 	           </p>
 	       </jalios:if>
 	       <jalios:if predicate="<%= Util.notEmpty(itQuestion.getReponse()) %>">
-	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&pstatus=6">
+	           <p><a class="modal" href="work/validateStateChange.jsp?id=<%= itQuestion.getId() %>&ws=<%= workspace.getId() %>&redirectOnClosePopup=false&redirect=plugins/ZelliPlugin/jsp/questions.jsp&pstatus=6">
 	               <%= glp("ui.com.btn.finish") %></a>
 	           </p>
 	       </jalios:if>

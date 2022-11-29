@@ -1,5 +1,5 @@
 # Extradata
-extradb.Member.jcmsplugin.zelli.datenaissance: Date de naissance JJ/MM/AAAA
+extra.Member.jcmsplugin.zelli.datenaissance: Date de naissance JJ/MM/AAAA
 extradb.Member.jcmsplugin.zelli.firebase.token: Token firebase
 extra.Category.jcmsplugin.zelli.contenu.trieur: Id du contenu trieur
 extra.Category.jcmsplugin.zelli.blob: Icône blob
@@ -157,9 +157,9 @@ jcmsplugin.zelli.pwd-orange: Mot de passe API Orange SMS
 # ------------------------------------------------------------
 # ACL
 # ------------------------------------------------------------
-acl.resource.plugins: Modules
-acl.resource.plugins/zelli: Zelli
-acl.resource.plugins/zelli/can-use-tdb: Utiliser le tableau de bord questions réponses
+#acl.resource.plugins: Modules
+#acl.resource.plugins/zelli: Zelli
+acl.resource.admin/reporting/plugins-zelli-can-use-tdb: Utiliser le tableau de bord questions réponses
 
 # ------------------------------------------------------------
 # Shortcut
