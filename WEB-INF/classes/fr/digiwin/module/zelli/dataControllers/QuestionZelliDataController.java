@@ -23,6 +23,7 @@ import com.jalios.jcms.alert.AlertBuilder;
 import com.jalios.jcms.plugin.PluginComponent;
 import com.jalios.util.Util;
 
+import fr.digiwin.module.zelli.alertbuilder.AlertReponse;
 import fr.digiwin.module.zelli.firebase.FirebaseMng;
 import fr.digiwin.module.zelli.utils.ZelliUtils;
 import generated.EditQuestionZelliHandler;
@@ -36,6 +37,7 @@ public class QuestionZelliDataController extends BasicDataController implements 
 	private final Integer WORKFLOW_A_TRAITER = -12;
 	private final Integer WORKFLOW_ATTENTE = -2;
 	private final Integer WORKFLOW_TRAITE = 2;
+	private final static String CTX_NEW_REP = "Zelli.quest-new-rep";
 
 	/**
 	 * Change status 
@@ -60,8 +62,26 @@ public class QuestionZelliDataController extends BasicDataController implements 
 			questionZelli.setPstatus(WORKFLOW_TRAITE);
 		} else if (questionZelli.getPstatus() == WORKFLOW_A_TRAITER && Util.notEmpty(questionZelli.getRemarque())) {
 			questionZelli.setPstatus(WORKFLOW_ATTENTE);
-		}
-	}
+        }
+
+        if (Util.notEmpty(questionZelli.getReponse())) {
+            Object dataPrevious = context.get(CTXT_PREVIOUS_DATA);
+
+            if (Util.isEmpty(dataPrevious) && Util.notEmpty(questionZelli.getReponse())) {
+                questionZelli.setDateDeLaReponse(new Date());
+                questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
+                context.put(CTX_NEW_REP, true);
+            } else {
+                QuestionZelli previousquestionZelli = (QuestionZelli) dataPrevious;
+                if ((Util.isEmpty(previousquestionZelli.getReponse()) && Util.notEmpty(questionZelli.getReponse()))
+                        || (!previousquestionZelli.getReponse().equals(questionZelli.getReponse()))) {
+                    questionZelli.setDateDeLaReponse(new Date());
+                    questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
+                    context.put(CTX_NEW_REP, true);
+                }
+            }
+        }
+    }
 
 	/**
 	 * Add date to DateDeLaReponse when answer is modified to QuestionZelli
@@ -111,7 +131,6 @@ public class QuestionZelliDataController extends BasicDataController implements 
                     }
                 };
                 alertBuilder.sendAlert(gestQuestRepSet);
-                // TODO
             }
         }
 
@@ -119,45 +138,31 @@ public class QuestionZelliDataController extends BasicDataController implements 
             return;
         }
 
-		if (Util.notEmpty(questionZelli.getReponse()) && questionZelli.getReponse().length() > 0) {
-			Object dataPrevious = context.get(CTXT_PREVIOUS_DATA);
+        boolean hasNewRep = (boolean) context.get(CTX_NEW_REP);
+        if (hasNewRep) {
 
-			if (Util.isEmpty(dataPrevious)) {
-				questionZelli.setDateDeLaReponse(new Date());
-				questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
-				return;
-			}
+            // Firebase
+            String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
+            if (Util.notEmpty(token)) {
 
-			QuestionZelli previousquestionZelli = (QuestionZelli) dataPrevious;
+                Notification notif = Notification.builder().setTitle("Réponse à ta question")
+                        .setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?").build();
 
-			if ((Util.notEmpty(previousquestionZelli.getReponse()) ^ Util.notEmpty(questionZelli.getReponse()))
-					|| (!previousquestionZelli.getReponse().equals(questionZelli.getReponse()))) {
-				questionZelli.setDateDeLaReponse(new Date());
-				questionZelli.setGestionnaire(CHANNEL.getCurrentLoggedMember());
-				ControllerStatus status = questionZelli.checkAndPerformCreate(CHANNEL.getDefaultAdmin());
-				if (!status.isOK()) {
-					LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
-				} else {
-//          AlertBuilder alertBuilder = new AlertBuilder(Level.INFO, "questionZelli", "reponse", questionZelli);
-//          alertBuilder.sendAlert(questionZelli.getAuthor());
-					String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
-					if (Util.notEmpty(token)) {
+                WebpushNotification webNotif = WebpushNotification.builder()
+                        .addAction(new Action("question-oui", "Oui"))
+                        .addAction(new Action("question-non", "Non")).build();
+                WebpushConfig webConf = WebpushConfig.builder().setNotification(webNotif).build();
 
-						Notification notif = Notification.builder().setTitle("Réponse à ta question")
-								.setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?").build();
+                Message message = Message.builder().setNotification(notif).setWebpushConfig(webConf)
+                        .setToken(token).build();
 
-						WebpushNotification webNotif = WebpushNotification.builder()
-								.addAction(new Action("question-oui", "Oui"))
-								.addAction(new Action("question-non", "Non")).build();
-						WebpushConfig webConf = WebpushConfig.builder().setNotification(webNotif).build();
+                FirebaseMng.getInstance().sendMessage(message);
+            }
 
-						Message message = Message.builder().setNotification(notif).setWebpushConfig(webConf)
-								.setToken(token).build();
+            // email
+            AlertBuilder alertBuilder = new AlertReponse(questionZelli, mbr);
+            alertBuilder.sendAlert(questionZelli.getAuthor());
 
-						FirebaseMng.getInstance().sendMessage(message);
-					}
-				}
-			}
-		}
-	}
+        }
+    }
 }

@@ -113,6 +113,25 @@ alert.msg.zelli.newQuestion.description: {author} a envoyé le message suivant l
 	A-t-il déjà questionné son référent : {demRef}<br/>\
 	Sa question : {question}<br/>\
 	{linkQuest}
+# - reponse
+alert.name.zelli.newReponse: Nouvelle reponse
+alert.msg.zelli.newReponse.title: Zelli : tu as reçu une réponse à ta question
+alert.msg.zelli.newReponse.short-description: Pour rappel, tu as posé la question suivante le {date} : \r\n\
+	{question}\r\n\
+	\r\n\
+	Réponse : \r\n\
+	{reponse}\r\n\
+	{authorRep}.\r\n\
+	\r\n\
+	Si tu veux poser une nouvelle question, tu peux poursuivre la conversation en répondant à ce mail, ou bien retourner sur Zelli.
+alert.msg.zelli.newReponse.description: Pour rappel, tu as posé la question suivante le {date} : <br/>\
+	{question}<br/>\
+	<br/>\
+	Réponse : <br/>\
+	{reponse}<br/>\
+	{authorRep}.<br/>\
+	<br/>\
+	Si tu veux poser une nouvelle question, tu peux poursuivre la conversation en répondant à ce mail, ou bien retourner sur Zelli.
 
 # ----------------------
 # Admin>tableau de bord>questions

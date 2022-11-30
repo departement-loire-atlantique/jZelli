@@ -1,0 +1,127 @@
+<%@page import="com.jalios.jcms.security.SecurityAlertManager"%><%
+%><%@page import="com.jalios.jcms.alert.MailAlertChannel"%>
+<body>
+	<style media="all" type="text/css">
+td {
+	font-family: <%= fontFamily %>;
+	font-size: 14px;
+}
+</style>
+	<!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+	<table width="100%" cellpadding="10" cellspacing="0"
+		id="backgroundTable"
+		style="font-size: 12px; background-color: #F8F8F8; margin: 0 auto; padding: 10px;">
+		<tr>
+			<td class='vTop'>
+				<!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+
+				<table width="600" class="content"
+					style="line-height:150%;width:600px;max-width:600px;min-width:320px;font-family:<%= fontFamily %>;color:#535353;margin:0 auto;"
+					cellpadding="5" cellspacing="0" align="center">
+					<tr>
+						<th style="<%= mailHeaderColor %>">
+							<table style="margin: 0 10px; color: white;">
+								<tr>
+									<td>
+										<h3 style="margin: 10 0; padding: 0;"><%= channel.getName() %>
+											-
+											<%= alert.getLevel().getLabel(userLang) %></h3>
+									</td>
+								</tr>
+							</table>
+						</th>
+					</tr>
+					<tr>
+						<td
+							style="background: #fff; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; color: #535353;"
+							class='vTop'>
+							<table class="mail-body" width="100%" cellpadding="10">
+								<tr>
+									<td><span><%= glp("ui.mail.body.lbl.hello",alert.getRecipient() != null ? alert.getRecipient().getFriendlyName() : "") %></span>
+										<p><%= alert.getDescription() %></p> <%@ include
+											file='/jcore/alert/doAlertMessage.jspf'%>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<% if (MailAlertChannel.displayAbstract(alert)) { %>
+					<tr>
+						<td
+							style="background: #fff; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; color: #535353;">
+							<table class="mail-body" width="100%" cellpadding="10">
+								<tr>
+									<td>
+										<div class="wiki"
+											style="background: #f6f6f6; padding: 5px 10px 5px; border-collapse: collapse; font-family: Arial, Sans-serif; font-size: 12px; color: #535353; line-height: 160%;">
+											<jalios:wiki><%= ((Publication)alert.getData()).getAbstract(userLang) %></jalios:wiki>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<% } %>
+          <%
+          // Security Alerts may have additional informations, display them
+          if (SecurityAlertManager.displayDetails(alert)) { %>
+          <tr>
+            <td
+              style="background: #fff; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; color: #535353; font-size: 10px; ">
+              <table width="100%" cellpadding="1" style="margin-left: 50px; margin-bottom:10px;">
+                <tr>
+                  <td align="right" style="padding: 0 5px; font-size: 11px;" nowrap="nowrap"><%= glp("security-alert.date") %></td>
+                  <td style="font-size: 11px;"><jalios:date date="<%= alert.getCdate() %>"/> <jalios:time date="<%= alert.getCdate() %>"/> </td>
+                </tr><%
+              
+             // Author of operation (with delegation information)
+             final Member secLoggedMember   = channel.getMember(alert.getAttribute(SecurityAlertManager.SECURITY_ALERT_LOGGED_MEMBER_ATTRIBUTE));
+             final Member secDelegateMember = channel.getMember(alert.getAttribute(SecurityAlertManager.SECURITY_ALERT_DELEGATE_MEMBER_ATTRIBUTE));
+             if (SecurityAlertManager.displayMember() && (secLoggedMember != null || secDelegateMember != null)) { %>
+              <tr>
+                <td align="right" style="padding: 0 5px; font-size: 11px;" nowrap="nowrap"><%= glp("security-alert.author") %></td>
+               <% if (secDelegateMember != null) { %>
+                <td style="font-size: 11px;" width="100%">
+                  <jalios:link data="<%= secDelegateMember %>"/> 
+                  <% if (secLoggedMember != null) { %>
+                    <jalios:buffer name="delegateInfo"><jalios:link data="<%= secLoggedMember %>"/></jalios:buffer>
+                    <%= glp("security-alert.author-with-delegate", delegateInfo) %>
+                  <% } %>
+                </td>
+               <% } else {%>
+                <td style="font-size: 11px;" width="100%"><jalios:link data="<%= secLoggedMember %>"/></td>
+               <% } %>
+              </tr><%
+             }
+              
+             // Remote IP
+             final String secRemoteAddr = alert.getAttribute(SecurityAlertManager.SECURITY_ALERT_REMOTE_ADDR_ATTRIBUTE);
+             final String secRemoteHost = alert.getAttribute(SecurityAlertManager.SECURITY_ALERT_REMOTE_HOST_ATTRIBUTE);
+             if (SecurityAlertManager.displayIP() && Util.notEmpty(secRemoteAddr)) { %>
+              <tr>
+                <td align="right" style="padding: 0 5px; font-size: 11px;" nowrap="nowrap"><%= glp("security-alert.ip") %></td>
+                <td style="font-size: 11px;" width="100%">
+                  <code><%= encodeForHTML(secRemoteAddr) %></code> 
+                  <% if (Util.notEmpty(secRemoteHost) && !secRemoteAddr.equals(secRemoteHost)) { 
+                    %>(<code><%= encodeForHTML(secRemoteHost) %></code>)<% 
+                  } %>
+                </td>
+              </tr><%
+             }
+             %>
+              </table>
+            </td>
+          </tr><%
+          }
+          %>
+
+					<tr>
+						<td style="margin-top: 10px;">
+							<div
+								style="font-size: 11px; color: #999; width: 100%; text-align: center;"><%= glp("ui.mail.footer.text",channel.getName()) %></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
