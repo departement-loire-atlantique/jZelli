@@ -71,7 +71,7 @@ public class MemberNotExistApi extends JcmsRestResource {
         // membre trouvé
         LOGGER.debug("MemberNotExistApi : Member " + memberLogin + " exists.");
         pseudo.put("status", "ko");
-        pseudo.put("msg", "Oups ! Cet identifiant existe déjà dans zelli, merci d’en imaginer un autre.");
+        pseudo.put("msg", "Cet identifiant existe déjà dans zelli, merci d’en imaginer un autre.");
       }
       jsonResponse.put("pseudo", pseudo);
       
@@ -87,7 +87,7 @@ public class MemberNotExistApi extends JcmsRestResource {
             // membre trouvé
             LOGGER.debug("MemberNotExistApi : Member " + memberEmail + " exists.");
             email.put("status", "ko");
-            email.put("msg", "Oups ! Cet email existe déjà dans zelli.");
+            email.put("msg", "Cet email existe déjà dans zelli.");
           }
           jsonResponse.put("email", email);
       }
