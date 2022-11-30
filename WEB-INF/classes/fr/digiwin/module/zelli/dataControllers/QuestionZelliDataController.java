@@ -23,6 +23,7 @@ import com.jalios.jcms.alert.AlertBuilder;
 import com.jalios.jcms.plugin.PluginComponent;
 import com.jalios.util.Util;
 
+import fr.digiwin.module.zelli.alertbuilder.AlertReponse;
 import fr.digiwin.module.zelli.firebase.FirebaseMng;
 import fr.digiwin.module.zelli.utils.ZelliUtils;
 import generated.EditQuestionZelliHandler;
@@ -111,7 +112,6 @@ public class QuestionZelliDataController extends BasicDataController implements 
                     }
                 };
                 alertBuilder.sendAlert(gestQuestRepSet);
-                // TODO
             }
         }
 
@@ -138,8 +138,6 @@ public class QuestionZelliDataController extends BasicDataController implements 
 				if (!status.isOK()) {
 					LOGGER.info("Date and gestionnaire of the answer isn't save for " + questionZelli.getId());
 				} else {
-//          AlertBuilder alertBuilder = new AlertBuilder(Level.INFO, "questionZelli", "reponse", questionZelli);
-//          alertBuilder.sendAlert(questionZelli.getAuthor());
 					String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
 					if (Util.notEmpty(token)) {
 
@@ -156,8 +154,12 @@ public class QuestionZelliDataController extends BasicDataController implements 
 
 						FirebaseMng.getInstance().sendMessage(message);
 					}
-				}
-			}
+
+                    // email
+                    AlertBuilder alertBuilder = new AlertReponse(questionZelli, mbr);
+                    alertBuilder.sendAlert(questionZelli.getAuthor());
+                }
+            }
 		}
 	}
 }

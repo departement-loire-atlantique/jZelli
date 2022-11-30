@@ -13,8 +13,10 @@ $jcmsplugin.zelli.category.navigationParThemes.root:
 
 # ----------------------
 # membre alerte par défaut
-mbrpref.core.alert.default-rules: [{"domain":"zelli","name":"newQuestion","alertChannels":["mail","web"]}]
-
+mbrpref.core.alert.default-rules: [{"domain":"zelli","name":"newQuestion","alertChannels":["mail","web"]},{"domain":"zelli","name":"newReponse","alertChannels":["mail"]}]
+# email 
+alert.channel.mail.content.jsp.zelli.newQuestion: /plugins/ZelliPlugin/jsp/mailAlert/mailAlert.jsp
+alert.channel.mail.content.jsp.zelli.newReponse: /plugins/ZelliPlugin/jsp/mailAlert/mailAlert.jsp
 
 # ----------------------
 # Groupes
