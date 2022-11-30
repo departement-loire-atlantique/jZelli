@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.restlet.Context;
+import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.data.Request;
 import org.restlet.data.Response;
@@ -26,6 +27,7 @@ public class MemberNotExistApi extends JcmsRestResource {
   private static final Logger LOGGER = Logger.getLogger(MemberNotExistApi.class);
   
   protected String memberLogin;
+  protected String memberEmail;
 
   public MemberNotExistApi(Context ctxt, Request request, Response response) {
     super(ctxt, request, response);
@@ -37,7 +39,8 @@ public class MemberNotExistApi extends JcmsRestResource {
       return;
     }
     
-    memberLogin = (String) request.getAttributes().get("memberLogin");
+    this.memberLogin = (String) request.getAttributes().get("memberLogin");
+    this.memberEmail = this.formQueryString.getValues("email");
     
     // encodage utf8
     setXmlUTF8Encoding();
@@ -57,18 +60,39 @@ public class MemberNotExistApi extends JcmsRestResource {
     Member member = Channel.getChannel().getMemberFromLogin(memberLogin);
     JSONObject jsonResponse = new JSONObject();
     try {
+      // pseudo
+      JSONObject pseudo = new JSONObject();
       if (Util.isEmpty(member)) {
         // pas de membre trouvé
         LOGGER.debug("MemberNotExistApi : Member " + memberLogin + " does not exist.");
-        jsonResponse.put("success", "Le membre indiqué n'existe pas.");
-        return jsonResponse.toString();
+        pseudo.put("status", "ok");
+        pseudo.put("msg", "Le pseudo indiqué n'existe pas.");
       } else {
         // membre trouvé
         LOGGER.debug("MemberNotExistApi : Member " + memberLogin + " exists.");
-        jsonResponse.put("error", "Le membre existe");
-        return jsonResponse.toString();
+        pseudo.put("status", "ko");
+        pseudo.put("msg", "Oups ! Cet identifiant existe déjà dans zelli, merci d’en imaginer un autre.");
       }
+      jsonResponse.put("pseudo", pseudo);
       
+      // email
+      if(Util.notEmpty(memberEmail)) {
+          JSONObject email = new JSONObject();
+          if (Util.isEmpty(channel.getMemberFromEmail(memberEmail))) {
+            // pas de membre trouvé
+            LOGGER.debug("MemberNotExistApi : Member " + memberEmail + " does not exist.");
+            email.put("status", "ok");
+            email.put("msg", "L'email indiqué n'existe pas.");
+          } else {
+            // membre trouvé
+            LOGGER.debug("MemberNotExistApi : Member " + memberEmail + " exists.");
+            email.put("status", "ko");
+            email.put("msg", "Oups ! Cet email existe déjà dans zelli.");
+          }
+          jsonResponse.put("email", email);
+      }
+
+      return jsonResponse.toString();
     } catch (JSONException e) {
       getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
       return null;
