@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.7//EN" "https://community.jalios.com/dtd/jcms-plugin-1.7.dtd">
-
-<!-- ======================== Introduction ============================== -->
-<!--                                                                      -->
-<!-- This document describes the properties and the behavior of a plugin. -->
-<!--                                                                      -->
-<!-- ====================== Plugin's attributes ========================= -->
-<!--                                                                      -->
-<!-- The PluginManager will process plugin description to plug components -->
-<!-- and package/deploy files.                                            -->
-<!--                                                                      -->
-<!-- See plugin's DTD for more information.                               -->
-<!--                                                                      -->
-<!-- Default values are in square brackets                                -->
-<!--                                                                      -->
-<!-- name               Internal plugin name. It must be a unique         -->
-<!--                    name. It should ends with "Plugin".               -->
-<!--                                                                      -->
-<!-- version            Version of the plugin (e.g. 0.1, 1.2, ...)        -->
-<!--                                                                      -->
-<!-- author             The author of the plugin.                         -->
-<!--                                                                      -->
-<!-- url                The home page URL of the plugin.                  -->
-<!--                                                                      -->
-<!-- license            The license of the plugin                         -->
-<!--                    (e.g. Proprietary, LGPL, ...)                     -->
-<!--                                                                      -->
-<!-- initialize         Should this plugin be initialized on load. [true] -->
-<!--                                                                      -->
-<!-- order              The order used to load a plugin before an         -->
-<!--                    other. Also used in hooks declaration order. [0]  -->
-<!--                                                                      -->
-<!-- jcms               The JCMS versions this plugin it compatible with. -->
-<!--                    Empty means any versions. A regexp can be used.   -->
-<!--                                                                      -->
-<!-- jsync              Is this plugin compatible with JSync [true]       -->
-<!--                                                                      -->
-<!-- appserver          A list ('|' separator) of compatible application  -->
-<!--                    server (e.g. Tomcat, Resin, Websphere, Weblogic). -->
-<!--                                                                      -->
-<!-- class              the plugin class to instanciate. Do not change    -->
-<!--                    unless you need to override default behavior      -->
-<!--                    [com.example.Plugin]                              -->
-<!--                                                                      -->
-<plugin name="ZelliPlugin" version="0.1" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
+<plugin name="ZelliPlugin" version="1.0.0" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
   <!-- ======================== Label and Descriptions ==================== -->
   <!--                                                                      -->
   <!-- Plugin's label and description.  Because JCMS is multilingual,       -->
