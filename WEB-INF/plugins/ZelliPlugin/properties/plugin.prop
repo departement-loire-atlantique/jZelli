@@ -68,7 +68,7 @@ jcmsplugin.zelli.lbl.account.create.sup.field: Effacer le contenu saisi dans le 
 jcmsplugin.zelli.lbl.account.create.btn.nextStep: Suivant
 jcmsplugin.zelli.lbl.account.create.btn.end: Créer mon compte
 # Step 1
-jcmsplugin.zelli.lbl.account.create.step1: Saisis ton prénom ou un pseudo
+jcmsplugin.zelli.lbl.account.create.step1: Saisis ton prénom ou un pseudo, ainsi que ton email
 jcmsplugin.zelli.lbl.account.create.step1.field: Prénom ou pseudo
 # Step 2
 jcmsplugin.zelli.lbl.account.create.step2: Quel âge as-tu ?

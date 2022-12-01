@@ -89,7 +89,7 @@ public class MemberApi extends JcmsRestResource {
       Map<String, String> params = ZelliUtils.getUriParams(entity.getText());
       
       // On s'attend à recevoir "login", "pwd" et "dateNaissance"
-      if (Util.isEmpty(params.get("login")) || Util.isEmpty(params.get("pwd")) || Util.isEmpty(params.get("dateNaissance"))) {
+      if (Util.isEmpty(params.get("login")) || Util.isEmpty(params.get("email")) || Util.isEmpty(params.get("pwd")) || Util.isEmpty(params.get("dateNaissance"))) {
         // Bad request
         getResponse().setStatus(Status.CLIENT_ERROR_BAD_REQUEST);
         return null;
@@ -97,8 +97,10 @@ public class MemberApi extends JcmsRestResource {
       
       // Décoder le login et le pwd depuis une base64
       byte[] decodedLoginBytes = Base64.getDecoder().decode(params.get("login"));
+      byte[] decodedEmailBytes = Base64.getDecoder().decode(params.get("email"));
       byte[] decodedPwdBytes = Base64.getDecoder().decode(params.get("pwd"));
       String decodedLogin = new String(decodedLoginBytes);
+      String decodedEmail = new String(decodedEmailBytes);
       String decodedPwd = new String(decodedPwdBytes);
 
       jsonResponse.put("token", "");
@@ -112,6 +114,7 @@ public class MemberApi extends JcmsRestResource {
       // créer le membre
       Member newMbr = new Member();
       newMbr.setLogin(decodedLogin);
+      newMbr.setEmail(decodedEmail);
       newMbr.setPassword(CHANNEL.crypt(decodedPwd));
       newMbr.setUsage(0); // 0 = utilisateur, 1 = contact
       newMbr.setName(decodedLogin);
