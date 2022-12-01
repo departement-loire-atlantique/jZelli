@@ -37,7 +37,7 @@ td {
 							class='vTop'>
 							<table class="mail-body" width="100%" cellpadding="10">
 								<tr>
-									<td><span><%= glp("ui.mail.body.lbl.hello",alert.getRecipient() != null ? alert.getRecipient().getFriendlyName() : "") %></span>
+									<td><span>Bonjour <%= glp("ui.mail.body.lbl.hello",alert.getRecipient() != null ? alert.getRecipient().getFriendlyName() : "") %></span>
 										<p><%= alert.getDescription() %></p> <%@ include
 											file='/jcore/alert/doAlertMessage.jspf'%>
 									</td>
