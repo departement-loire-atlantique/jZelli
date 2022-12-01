@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.7//EN" "https://community.jalios.com/dtd/jcms-plugin-1.7.dtd">
-<plugin name="ZelliPlugin" version="1.1.0" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
+<plugin name="ZelliPlugin" version="1.1.1" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
   <!-- ======================== Label and Descriptions ==================== -->
   <!--                                                                      -->
   <!-- Plugin's label and description.  Because JCMS is multilingual,       -->
