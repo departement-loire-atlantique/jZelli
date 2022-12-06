@@ -31,7 +31,7 @@ public class FirebaseMng {
 
             FirebaseApp.initializeApp(options);
         } catch (IOException e) {
-            LOGGER.fatal(e.getStackTrace());
+            LOGGER.fatal("Fatal init FirebaseMng", e);
         }
     }
 
@@ -50,7 +50,7 @@ public class FirebaseMng {
             // Response is a message ID string.
             System.out.println("Successfully sent message: " + response);
         } catch (FirebaseMessagingException e) {
-            LOGGER.error(e.getStackTrace());
+            LOGGER.error("sendMessage", e);
         }
     }
 
