@@ -1,5 +1,8 @@
 package fr.digiwin.module.zelli.openapi;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
@@ -8,6 +11,7 @@ import org.restlet.data.Request;
 import org.restlet.data.Response;
 import org.restlet.data.Status;
 
+import com.jalios.jcms.JcmsUtil;
 import com.jalios.jcms.Publication;
 import com.jalios.jcms.QueryResultSet;
 import com.jalios.jcms.handler.QueryHandler;
@@ -28,9 +32,10 @@ public class MyContact extends DataCollectionRestResource  {
             return;
         }
         
-        // list Contact et FicheLieu
+        // liste Contact et FicheLieu
         TreeSet<Publication> contactAndLieuList = new TreeSet<Publication>(Publication.getTitleComparator());
         
+        // get Contact et FicheLieu créer par le membre
         QueryHandler qh = new QueryHandler();
         qh.setLoggedMember(this.getLoggedMember());
         qh.setMids(this.getLoggedMember().getId());
@@ -42,6 +47,14 @@ public class MyContact extends DataCollectionRestResource  {
         
         if(!result.isEmpty()) {
             contactAndLieuList.addAll(result);
+        }
+        
+        // get Contact et FicheLieu ajouter a sa liste par le membre        
+        String contactsString = this.getLoggedMember().getPreference("jcmsplugin.zelli.contact");
+        if (Util.notEmpty(contactsString)) {
+            Set<String> contacts = new HashSet<>();
+            contacts.addAll(Arrays.asList(contactsString.split(",")));
+            contactAndLieuList.addAll(JcmsUtil.idCollectionToDataList(contacts, Publication.class));
         }
         
         pagerData.setCollection(contactAndLieuList);
