@@ -75,7 +75,7 @@ public class ZelliUtils {
 	 * @return
 	 */
 	public static String getAuthKey(Member mbr) {
-		long duration = 1000 * 60 * 60 * 24 * 30; // nb de millisecondes sur 30 jours
+		long duration = 1000L * 60 * 60 * 24 * 30; // nb de millisecondes sur 30 jours
 		AuthKeyHints authKeyHints = new AuthKeyHints();
 		authKeyHints.setVersion("2");
 		authKeyHints.setExpiration(System.currentTimeMillis() + duration);
