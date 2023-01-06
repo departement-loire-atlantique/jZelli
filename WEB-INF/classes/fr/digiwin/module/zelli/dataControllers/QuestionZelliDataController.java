@@ -111,7 +111,7 @@ public class QuestionZelliDataController extends BasicDataController implements 
                         paramMap.put("demRef", questionZelli.getReferent() ? "oui" : "non");
                         paramMap.put("question", questionZelli.getQuestion());
                         
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy 'à' hh:mm");
                         String date = "";
                         try {
                             date = sdf.format(questionZelli.getCdate());

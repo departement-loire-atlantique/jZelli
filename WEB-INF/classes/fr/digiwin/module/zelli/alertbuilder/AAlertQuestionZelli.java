@@ -20,7 +20,7 @@ public abstract class AAlertQuestionZelli extends AlertBuilder {
     }
     
     public static String dateFormat(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy 'à' hh:mm");
         String dateStr = "-1";
         try {
             dateStr = sdf.format(date);
