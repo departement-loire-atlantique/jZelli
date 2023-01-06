@@ -185,6 +185,7 @@
   <plugincomponents>
     <datacontroller class="fr.digiwin.module.zelli.dataControllers.AlerteZelliDataController" types="AlerteZelli" />
     <datacontroller class="fr.digiwin.module.zelli.dataControllers.QuestionZelliDataController" types="QuestionZelli" />
+    <policyfilter   class="fr.digiwin.module.zelli.rightPolicyFilter.QuestionZelliRightFilter" />
   </plugincomponents>
   <!-- ============================= Hibernate ============================ -->
   <!--                                                                      -->
