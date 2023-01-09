@@ -13,7 +13,7 @@ public class QuestionZelliRightFilter extends BasicRightPolicyFilter {
 
     @Override
     public boolean canBeReadBy(boolean isAuthorized, Publication pub, Member mbr, boolean searchInGroups) {
-        if (!isAuthorized || mbr.isAdmin()) {
+        if (!isAuthorized || Util.isEmpty(mbr) || mbr.isAdmin()) {
             return isAuthorized;
         }
 
