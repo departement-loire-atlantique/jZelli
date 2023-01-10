@@ -222,6 +222,7 @@
     <resource class="fr.digiwin.module.zelli.openapi.ResetPasswordApi" uriTemplate="/plugins/zelli/member/reset/pwd/{memberLogin}" />
     <resource class="fr.digiwin.module.zelli.openapi.MyContact" uriTemplate="/plugins/zelli/myContact" />
     <resource class="fr.digiwin.module.zelli.openapi.Contact" uriTemplate="/plugins/zelli/contact/{id}" />
+    <resource class="fr.digiwin.module.zelli.openapi.ReponseInteraction" uriTemplate="/plugins/zelli/question/repInteraction" />
   </openapi>
   <!-- ===================== Private/Public/Webapp files ================== -->
   <!--                                                                      -->
