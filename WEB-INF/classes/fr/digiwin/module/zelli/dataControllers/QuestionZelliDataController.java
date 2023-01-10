@@ -114,15 +114,19 @@ public class QuestionZelliDataController extends BasicDataController implements 
             String token = FirebaseMng.getInstance().getToken(questionZelli.getAuthor());
             if (Util.notEmpty(token)) {
 
-                Notification notif = Notification.builder().setTitle("Réponse à ta question")
-                        .setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?").build();
+                Notification notif = Notification.builder()
+                        .setTitle("Réponse à ta question")
+                        .setBody(questionZelli.getReponse() + "\nEst-ce que cette réponse t'a aidé ?")
+                        .build();
 
                 WebpushFcmOptions webFcmOption = WebpushFcmOptions.builder()
                         .setLink("/reponse/" + questionZelli.getId())
                         .build();
                 WebpushConfig webConf = WebpushConfig.builder().setFcmOptions(webFcmOption).build();
 
-                Message message = Message.builder().setNotification(notif).setWebpushConfig(webConf)
+                Message message = Message.builder()
+                        .setNotification(notif)
+                        .setWebpushConfig(webConf)
                         .setToken(token).build();
 
                 FirebaseMng.getInstance().sendMessage(message);
