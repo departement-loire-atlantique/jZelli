@@ -132,6 +132,24 @@ alert.msg.zelli.newReponse.description: Pour rappel, tu as posé la question sui
 	{authorRep}.<br/>\
 	<br/>\
 	Si tu veux poser une nouvelle question, tu peux poursuivre la conversation en répondant à ce mail, ou bien <a href="https://zelli.loire-atlantique.fr/questions">retourner sur Zelli</a>.
+# - reponse interaction
+alert.name.zelli.newRepInteraction: Nouvelle interaction de reponse
+alert.msg.zelli.newRepInteraction.title: Question de {author} – {age}
+alert.msg.zelli.newRepInteraction.short-description: {author} a envoyé le message suivant le {date}\r\n\
+	A-t-il déjà questionné son référent : {demRef}\r\n\
+	Sa question : {question}\r\n\
+	Votre réponse : {reponse}\r\n\
+	La réponse apportée {0,choice,0#na pas|1#a} aidé {author} vous pouvez clore la question \
+	{0,choice,0#ou apporter une réponse complémentaire|1#test}.\r\n\
+	{linkQuest}
+alert.msg.zelli.newRepInteraction.description: {author} a envoyé le message suivant le {date}<br/>\
+	A-t-il déjà questionné son référent : {demRef}<br/>\
+	Sa question : {question}<br/>\
+	Votre réponse : {reponse}<br/>\
+	La réponse apportée {aAide1} aidé {author} vous pouvez clore la question {aAide2}.<br/>\
+	{linkQuest}
+jcmsplugin.zelli.alert.zelli.newRepInteraction.aAide1: {0,choice,0#n''a pas|1#a}
+jcmsplugin.zelli.alert.zelli.newRepInteraction.aAide2: {0,choice,0#ou apporter une réponse complémentaire|1#}
 
 # ----------------------
 # Admin>tableau de bord>questions

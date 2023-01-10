@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.7//EN" "https://community.jalios.com/dtd/jcms-plugin-1.7.dtd">
-<plugin name="ZelliPlugin" version="1.1.1" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
+<plugin name="ZelliPlugin" version="2.0.0" author="Digiwin" license="Digiwin" initialize="true" jcms="" order="0" url="" jsync="false" appserver="">
   <!-- ======================== Label and Descriptions ==================== -->
   <!--                                                                      -->
   <!-- Plugin's label and description.  Because JCMS is multilingual,       -->
@@ -180,6 +180,7 @@
   <plugincomponents>
     <datacontroller class="fr.digiwin.module.zelli.dataControllers.AlerteZelliDataController" types="AlerteZelli" />
     <datacontroller class="fr.digiwin.module.zelli.dataControllers.QuestionZelliDataController" types="QuestionZelli" />
+    <policyfilter   class="fr.digiwin.module.zelli.rightPolicyFilter.QuestionZelliRightFilter" />
   </plugincomponents>
   <!-- ============================= Hibernate ============================ -->
   <!--                                                                      -->
@@ -214,6 +215,9 @@
     <resource class="fr.digiwin.module.zelli.openapi.PropApi" uriTemplate="/plugins/zelli/prop/{prop}" />
     <resource class="fr.digiwin.module.zelli.openapi.ThemeColor" uriTemplate="/plugins/zelli/themeColor/{id}" />
     <resource class="fr.digiwin.module.zelli.openapi.ResetPasswordApi" uriTemplate="/plugins/zelli/member/reset/pwd/{memberLogin}" />
+    <resource class="fr.digiwin.module.zelli.openapi.MyContact" uriTemplate="/plugins/zelli/myContact" />
+    <resource class="fr.digiwin.module.zelli.openapi.Contact" uriTemplate="/plugins/zelli/contact/{id}" />
+    <resource class="fr.digiwin.module.zelli.openapi.ReponseInteraction" uriTemplate="/plugins/zelli/question/repInteraction" />
   </openapi>
   <!-- ===================== Private/Public/Webapp files ================== -->
   <!--                                                                      -->
