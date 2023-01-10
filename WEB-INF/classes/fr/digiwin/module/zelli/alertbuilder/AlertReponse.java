@@ -8,7 +8,7 @@ import com.jalios.jcms.alert.Alert;
 import generated.QuestionZelli;
 
 /**
- * réprésente une alert de reponse
+ * représente une alert de reponse
  * @author Digiwin
  */
 public class AlertReponse extends AAlertQuestionZelli {

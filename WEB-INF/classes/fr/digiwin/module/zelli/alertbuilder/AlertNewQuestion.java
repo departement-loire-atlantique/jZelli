@@ -10,7 +10,7 @@ import fr.digiwin.module.zelli.utils.ZelliUtils;
 import generated.QuestionZelli;
 
 /**
- * réprésente une alert de nouvelle question
+ * représente une alert de nouvelle question
  * 
  * @author Digiwin
  */
