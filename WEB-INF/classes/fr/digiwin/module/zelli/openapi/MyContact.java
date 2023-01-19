@@ -33,7 +33,7 @@ public class MyContact extends DataCollectionRestResource  {
         }
         
         // liste Contact et FicheLieu
-        TreeSet<Publication> contactAndLieuList = new TreeSet<Publication>(Publication.getTitleComparator());
+        TreeSet<Publication> contactAndLieuList = new TreeSet<Publication>();
         
         // get Contact et FicheLieu créer par le membre
         QueryHandler qh = new QueryHandler();
@@ -56,7 +56,8 @@ public class MyContact extends DataCollectionRestResource  {
             contacts.addAll(Arrays.asList(contactsString.split(",")));
             contactAndLieuList.addAll(JcmsUtil.idCollectionToDataList(contacts, Publication.class));
         }
-        
+
+        pagerData.setSort("name");
         pagerData.setCollection(contactAndLieuList);
         pagerData.setItemTagName("");
     }
