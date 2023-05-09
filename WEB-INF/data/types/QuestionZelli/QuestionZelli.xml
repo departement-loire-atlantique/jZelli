@@ -6,7 +6,7 @@
     <label xml:lang="fr">Titre</label>
   </title>
   <fields>
-    <field name="question" editor="textfield" required="true" type="String" searchable="true" wysiwygConfigurationId="simple" ml="false" compactDisplay="false" descriptionType="tooltip" html="false" checkHtml="true" inline="true">
+    <field name="question" editor="textarea" required="true" type="String" searchable="true" ml="false" compactDisplay="false" descriptionType="tooltip" html="false" checkHtml="true" inline="true">
       <label xml:lang="en">Description</label>
       <label xml:lang="fr">Question</label>
     </field>
@@ -17,7 +17,7 @@
       <offLabel xml:lang="en">No</offLabel>
       <offLabel xml:lang="fr">Non</offLabel>
     </field>
-    <field name="reponse" editor="textfield" required="false" compactDisplay="false" type="String" searchable="true" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
+    <field name="reponse" editor="textarea" required="false" compactDisplay="false" type="String" searchable="true" size="80" ml="false" html="false" checkHtml="true" descriptionType="tooltip">
       <label xml:lang="fr">Réponse</label>
     </field>
     <field name="dateDeLaReponse" editor="date" required="false" compactDisplay="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short">
