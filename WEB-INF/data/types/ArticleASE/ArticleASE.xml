@@ -11,14 +11,14 @@
     </field>
     <field name="diaporama" editor="link" required="false" compactDisplay="false" type="generated.Carousel[]" ml="false" descriptionType="tooltip" tabGroup="diaporamas" searchable="false" html="false" checkHtml="true">
       <label xml:lang="fr">Diaporama</label>
-    </field>
-    <field name="diaporamaTexte" editor="wysiwyg" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="diaporamas">
+    </field> 
+    <field name="diaporamaTexte" editor="wysiwyg" required="false" compactDisplay="false" type="String[]" searchable="true" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="diaporamas" inline="true">
       <label xml:lang="fr">Diaporama version texte</label>
     </field>
     <field name="video" editor="link" required="false" compactDisplay="false" type="Video[]" ml="false" descriptionType="tooltip" tabGroup="videos" searchable="false" html="false" checkHtml="true">
       <label xml:lang="fr">Vidéo</label>
     </field>
-    <field name="videoTexte" editor="wysiwyg" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="videos">
+    <field name="videoTexte" editor="wysiwyg" required="false" compactDisplay="false" type="String[]" searchable="true" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="videos">
       <label xml:lang="fr">Video version texte</label>
     </field>
     <field name="titreDescription" editor="textfield" required="false" compactDisplay="false" type="String[]" searchable="false" size="80" ml="true" html="false" checkHtml="true" descriptionType="tooltip" tabGroup="descriptions">
